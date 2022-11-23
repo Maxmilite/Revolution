@@ -11,34 +11,11 @@ import java.nio.IntBuffer;
 public class Texture {
 
     private int textureId;
-    private final String texturePath;
+    private String texturePath;
 
-    private void generateTexture(int width, int height, ByteBuffer buffer) {
-        textureId = glGenTextures();
-        glBindTexture(GL_TEXTURE_2D, textureId);
-        glPixelStorei(GL_UNPACK_ALIGNMENT, 1);
-        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
-        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
-        glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, width, height, 0,
-                GL_RGBA, GL_UNSIGNED_BYTE, buffer);
-        glGenerateMipmap(GL_TEXTURE_2D);
-    }
-
-    public String getTexturePath() {
-        return texturePath;
-    }
-
-    public void cleanup() {
-        glDeleteTextures(textureId);
-    }
-
-    public void bind() {
-        glBindTexture(GL_TEXTURE_2D, textureId);
-    }
-
-    public Texture(int width, int height, ByteBuffer buffer) {
+    public Texture(int width, int height, ByteBuffer buf) {
         this.texturePath = "";
-        generateTexture(width, height, buffer);
+        generateTexture(width, height, buf);
     }
 
     public Texture(String texturePath) {
@@ -60,5 +37,29 @@ public class Texture {
 
             stbi_image_free(buf);
         }
+    }
+
+    public void bind() {
+        glBindTexture(GL_TEXTURE_2D, textureId);
+    }
+
+    public void cleanup() {
+        glDeleteTextures(textureId);
+    }
+
+    private void generateTexture(int width, int height, ByteBuffer buf) {
+        textureId = glGenTextures();
+
+        glBindTexture(GL_TEXTURE_2D, textureId);
+        glPixelStorei(GL_UNPACK_ALIGNMENT, 1);
+        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
+        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
+        glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, width, height, 0, GL_RGBA, GL_UNSIGNED_BYTE, buf);
+        glGenerateMipmap(GL_TEXTURE_2D);
+    }
+
+    public String getTexturePath() {
+        return texturePath;
+
     }
 }

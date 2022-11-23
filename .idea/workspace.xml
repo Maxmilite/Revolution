@@ -5,27 +5,23 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="75d0cbf2-0ea0-4775-b5db-694f0ee2e8ff" name="Changes" comment="Update on 2022-11-23 14:17">
-      <change afterPath="$PROJECT_DIR$/src/main/java/sdu/engine/graph/Material.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/sdu/engine/graph/Model.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/sdu/engine/graph/Texture.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/sdu/engine/graph/TextureCache.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/sdu/engine/graph/UniformsMap.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/sdu/engine/scene/Entity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/sdu/engine/scene/Projection.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/sdu/engine/models/CubeItem.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/sdu/engine/models/Item.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/sdu/engine/models/ItemManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/sdu/engine/models/TitleItem.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/textures/cube.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/textures/default/default_texture.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/textures/default/default_texture.psd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/textures/title.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/textures/title.psd" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sdu/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Util.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sdu/Util.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/engine/Engine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sdu/engine/Engine.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/engine/FileUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sdu/engine/FileUtil.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/engine/IAppLogic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sdu/engine/IAppLogic.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/engine/Window.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sdu/engine/Window.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/engine/graph/Mesh.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sdu/engine/graph/Mesh.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/engine/graph/Render.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sdu/engine/graph/Render.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/engine/graph/SceneRender.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sdu/engine/graph/SceneRender.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/engine/scene/Scene.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sdu/engine/scene/Scene.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/engine/scene/ShaderProgram.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sdu/engine/scene/ShaderProgram.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/shaders/scene.frag" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/shaders/scene.frag" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/sdu/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sdu/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/sdu/engine/Window.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sdu/engine/Window.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/sdu/engine/graph/Render.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sdu/engine/graph/Render.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/sdu/engine/graph/SceneRender.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sdu/engine/graph/SceneRender.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/sdu/engine/graph/Texture.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sdu/engine/graph/Texture.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/sdu/engine/graph/TextureCache.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sdu/engine/graph/TextureCache.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/sdu/engine/graph/UniformsMap.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sdu/engine/graph/UniformsMap.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/shaders/scene.vert" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/shaders/scene.vert" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -36,6 +32,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
@@ -54,22 +51,23 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
-    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
-    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
-    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/CodeSpace/Revolution&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15039062&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "Downloaded.Files.Path.Enabled": "false",
+    "Repository.Attach.Annotations": "false",
+    "Repository.Attach.JavaDocs": "false",
+    "Repository.Attach.Sources": "false",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "last_opened_file_path": "D:/CodeSpace/Revolution",
+    "project.structure.last.edited": "Libraries",
+    "project.structure.proportion": "0.15039062",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "preferences.pluginManager"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\CodeSpace\Revolution\src\main\resources\shaders" />
@@ -135,6 +133,7 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="A" />
     <MESSAGE value="Update on 2022-11-23 14:17" />
     <option name="LAST_COMMIT_MESSAGE" value="Update on 2022-11-23 14:17" />

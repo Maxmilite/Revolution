@@ -27,6 +27,7 @@ public class SceneRender {
     private void createUniforms() {
         uniformsMap = new UniformsMap(shaderProgram.getProgramId());
         uniformsMap.createUniform("projectionMatrix");
+        uniformsMap.createUniform("modelMatrix");
         uniformsMap.createUniform("txtSampler");
     }
 

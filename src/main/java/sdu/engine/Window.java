@@ -1,20 +1,20 @@
 package sdu.engine;
 
+import org.lwjgl.glfw.GLFWErrorCallback;
+import org.lwjgl.glfw.GLFWVidMode;
+
 import java.util.concurrent.Callable;
+import java.util.logging.Logger;
 
-import org.lwjgl.glfw.*;
-import org.lwjgl.system.MemoryUtil;
-import org.cooder.tinylog.Logger;
-
+import static org.lwjgl.glfw.Callbacks.glfwFreeCallbacks;
 import static org.lwjgl.glfw.GLFW.*;
 import static org.lwjgl.system.MemoryUtil.NULL;
-import static org.lwjgl.glfw.Callbacks.glfwFreeCallbacks;
 
 public class Window {
     private final long handle;
     private int width;
     private int height;
-    private Callable<Void> resizeFunc;
+    private final Callable<Void> resizeFunc;
 
     public static class WindowOptions {
         public boolean compatibleProfile;
@@ -30,7 +30,7 @@ public class Window {
         try {
             resizeFunc.call();
         } catch (Exception excp) {
-            Logger.error("Error calling resize callback", excp);
+            Logger.getGlobal().severe("Error calling resize callback");
         }
     }
 
@@ -70,7 +70,7 @@ public class Window {
 
         glfwSetFramebufferSizeCallback(handle, (window, w, h) -> resized(w, h));
         glfwSetErrorCallback((int errorCode, long msgPtr) ->
-                Logger.error("Error code [{}], msg [{]]", errorCode, MemoryUtil.memUTF8(msgPtr))
+                Logger.getGlobal().severe("Error occurred.")
         );
         glfwSetKeyCallback(handle, (window, key, code, action, mods) -> {
             if (key == GLFW_KEY_ESCAPE && action == GLFW_RELEASE)
@@ -93,6 +93,7 @@ public class Window {
         height = arrHeight[0];
 
     }
+
     public void cleanup() {
         glfwFreeCallbacks(handle);
         glfwDestroyWindow(handle);

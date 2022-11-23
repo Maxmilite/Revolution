@@ -6,7 +6,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class TextureCache {
-    public static final String DEFAULT_TEXTURE = Util.getResourceDir() + "/models/default/default_texture.png";
+    public static final String DEFAULT_TEXTURE = Util.getResourceDir() + "/textures/default/default_texture.png";
     private final Map<String, Texture> map;
 
     public TextureCache() {
