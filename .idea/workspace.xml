@@ -5,22 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="75d0cbf2-0ea0-4775-b5db-694f0ee2e8ff" name="Changes" comment="A">
-      <change afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Util.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/engine/Engine.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/engine/FileUtil.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/engine/IAppLogic.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/engine/Window.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/engine/graph/Mesh.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/engine/graph/Render.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/engine/graph/SceneRender.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/engine/scene/Scene.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/engine/scene/ShaderProgram.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/shaders/scene.frag" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/shaders/scene.vert" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

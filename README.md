@@ -7,6 +7,6 @@
 <img src="https://img.shields.io/badge/Dependency-LWJGL-blue.svg?style=flat-square"/>
 </center>
 
-<center><img src="https://img.shields.io/badge/Author-陈宇飞&nbsp;|&nbsp;王艺臻&nbsp;|&nbsp;闫祖铭&nbsp;|&nbsp;于斐-purple.svg?style=flat-square"></center>
+<center><img src="https://img.shields.io/badge/Author-Chen&nbsp;YuFei&nbsp;|&nbsp;Wang&nbsp;YiZhen&nbsp;|&nbsp;Yan&nbsp;ZuMing&nbsp;|&nbsp;Yu&nbsp;Fei-purple.svg?style=flat-square"></center>
 
 ---
