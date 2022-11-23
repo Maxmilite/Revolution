@@ -1,3 +1,5 @@
+package sdu;
+
 import org.lwjgl.Version;
 
 public class Util {
@@ -8,4 +10,5 @@ public class Util {
     public static String getTitle() {
         return NAME + " " + VERSION + " | Running on LWJGL " + LWJGL_VERSION;
     }
+    public static String getResourceDir() { return System.getProperty("user.dir") + "/src/main/resources"; }
 }

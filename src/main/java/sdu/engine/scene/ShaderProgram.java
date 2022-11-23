@@ -1,7 +1,7 @@
-package engine.scene;
+package sdu.engine.scene;
 
 import org.lwjgl.opengl.GL30;
-import engine.FileUtil;
+import sdu.engine.FileUtil;
 
 import java.util.*;
 

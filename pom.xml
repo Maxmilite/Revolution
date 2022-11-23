@@ -5,8 +5,8 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>io.github.maxmilite</groupId>
-    <artifactId>LWJGL-Learning</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <artifactId>Revolution</artifactId>
+    <version>1.0.0</version>
 
     <properties>
         <maven.compiler.source>17</maven.compiler.source>
@@ -14,6 +14,7 @@
         <lwjgl.version>3.3.1</lwjgl.version>
         <lwjgl3-awt.version>0.1.8</lwjgl3-awt.version>
         <lwjgl.natives>natives-windows</lwjgl.natives>
+        <joml.version>1.10.5</joml.version>
     </properties>
 
     <dependencyManagement>
@@ -332,6 +333,7 @@
             <groupId>org.lwjgl</groupId>
             <artifactId>lwjgl-stb</artifactId>
             <classifier>${lwjgl.natives}</classifier>
+            <scope>runtime</scope>
         </dependency>
         <dependency>
             <groupId>org.lwjgl</groupId>
@@ -372,6 +374,11 @@
             <groupId>org.lwjglx</groupId>
             <artifactId>lwjgl3-awt</artifactId>
             <version>${lwjgl3-awt.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.joml</groupId>
+            <artifactId>joml</artifactId>
+            <version>${joml.version}</version>
         </dependency>
     </dependencies>
 

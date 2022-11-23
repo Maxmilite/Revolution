@@ -4,8 +4,29 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="75d0cbf2-0ea0-4775-b5db-694f0ee2e8ff" name="Changes" comment="A">
+    <list default="true" id="75d0cbf2-0ea0-4775-b5db-694f0ee2e8ff" name="Changes" comment="Update on 2022-11-23 14:17">
+      <change afterPath="$PROJECT_DIR$/src/main/java/sdu/engine/graph/Material.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/sdu/engine/graph/Model.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/sdu/engine/graph/Texture.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/sdu/engine/graph/TextureCache.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/sdu/engine/graph/UniformsMap.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/sdu/engine/scene/Entity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/sdu/engine/scene/Projection.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sdu/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Util.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sdu/Util.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/engine/Engine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sdu/engine/Engine.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/engine/FileUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sdu/engine/FileUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/engine/IAppLogic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sdu/engine/IAppLogic.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/engine/Window.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sdu/engine/Window.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/engine/graph/Mesh.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sdu/engine/graph/Mesh.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/engine/graph/Render.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sdu/engine/graph/Render.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/engine/graph/SceneRender.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sdu/engine/graph/SceneRender.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/engine/scene/Scene.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sdu/engine/scene/Scene.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/engine/scene/ShaderProgram.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sdu/engine/scene/ShaderProgram.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/shaders/scene.frag" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/shaders/scene.frag" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/shaders/scene.vert" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/shaders/scene.vert" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -54,14 +75,7 @@
       <recent name="D:\CodeSpace\Revolution\src\main\resources\shaders" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Main">
-    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Main" />
-      <module name="Revolution" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager" selected="Application.sdu.Main">
     <configuration name="MainBak" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="MainBak" />
       <module name="Revolution" />
@@ -69,9 +83,16 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="sdu.Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="sdu.Main" />
+      <module name="Revolution" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Main" />
+        <item itemvalue="Application.sdu.Main" />
         <item itemvalue="Application.MainBak" />
       </list>
     </recent_temporary>
@@ -92,7 +113,14 @@
       <option name="project" value="LOCAL" />
       <updated>1669104094415</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Update on 2022-11-23 14:17">
+      <created>1669184277528</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1669184277528</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -108,7 +136,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="A" />
-    <option name="LAST_COMMIT_MESSAGE" value="A" />
+    <MESSAGE value="Update on 2022-11-23 14:17" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update on 2022-11-23 14:17" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

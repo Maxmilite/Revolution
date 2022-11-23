@@ -1,0 +1,64 @@
+package sdu.engine.graph;
+
+import org.lwjgl.system.MemoryStack;
+
+import static org.lwjgl.opengl.GL30.*;
+import static org.lwjgl.stb.STBImage.*;
+
+import java.nio.ByteBuffer;
+import java.nio.IntBuffer;
+
+public class Texture {
+
+    private int textureId;
+    private final String texturePath;
+
+    private void generateTexture(int width, int height, ByteBuffer buffer) {
+        textureId = glGenTextures();
+        glBindTexture(GL_TEXTURE_2D, textureId);
+        glPixelStorei(GL_UNPACK_ALIGNMENT, 1);
+        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
+        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
+        glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, width, height, 0,
+                GL_RGBA, GL_UNSIGNED_BYTE, buffer);
+        glGenerateMipmap(GL_TEXTURE_2D);
+    }
+
+    public String getTexturePath() {
+        return texturePath;
+    }
+
+    public void cleanup() {
+        glDeleteTextures(textureId);
+    }
+
+    public void bind() {
+        glBindTexture(GL_TEXTURE_2D, textureId);
+    }
+
+    public Texture(int width, int height, ByteBuffer buffer) {
+        this.texturePath = "";
+        generateTexture(width, height, buffer);
+    }
+
+    public Texture(String texturePath) {
+        try (MemoryStack stack = MemoryStack.stackPush()) {
+            this.texturePath = texturePath;
+            IntBuffer w = stack.mallocInt(1);
+            IntBuffer h = stack.mallocInt(1);
+            IntBuffer channels = stack.mallocInt(1);
+
+            ByteBuffer buf = stbi_load(texturePath, w, h, channels, 4);
+            if (buf == null) {
+                throw new RuntimeException("Image file [" + texturePath + "] not loaded: " + stbi_failure_reason());
+            }
+
+            int width = w.get();
+            int height = h.get();
+
+            generateTexture(width, height, buf);
+
+            stbi_image_free(buf);
+        }
+    }
+}

@@ -1,8 +1,8 @@
-package engine.graph;
+package sdu.engine.graph;
 
 import org.lwjgl.opengl.GL;
-import engine.Window;
-import engine.scene.Scene;
+import sdu.engine.Window;
+import sdu.engine.scene.Scene;
 
 import static org.lwjgl.opengl.GL11.*;
 
