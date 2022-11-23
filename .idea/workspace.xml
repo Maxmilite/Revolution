@@ -5,24 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="75d0cbf2-0ea0-4775-b5db-694f0ee2e8ff" name="Changes" comment="Update on 2022-11-23 14:17">
-      <change afterPath="$PROJECT_DIR$/src/main/java/sdu/engine/models/CubeItem.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/sdu/engine/models/Item.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/sdu/engine/models/ItemManager.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/sdu/engine/models/TitleItem.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/textures/cube.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/textures/default/default_texture.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/textures/default/default_texture.psd" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/textures/title.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/textures/title.psd" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sdu/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sdu/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sdu/engine/Window.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sdu/engine/Window.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sdu/engine/graph/Render.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sdu/engine/graph/Render.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sdu/engine/graph/SceneRender.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sdu/engine/graph/SceneRender.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sdu/engine/graph/Texture.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sdu/engine/graph/Texture.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sdu/engine/graph/TextureCache.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sdu/engine/graph/TextureCache.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sdu/engine/graph/UniformsMap.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sdu/engine/graph/UniformsMap.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/shaders/scene.vert" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/shaders/scene.vert" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -62,10 +45,10 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "last_opened_file_path": "D:/CodeSpace/Revolution",
-    "project.structure.last.edited": "Libraries",
+    "project.structure.last.edited": "Artifacts",
     "project.structure.proportion": "0.15039062",
     "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "preferences.pluginManager"
+    "settings.editor.selected.configurable": "configurable.group.tools"
   }
 }]]></component>
   <component name="RecentsManager">
