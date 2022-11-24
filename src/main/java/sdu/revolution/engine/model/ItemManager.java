@@ -1,20 +1,31 @@
 package sdu.revolution.engine.model;
 
-import sdu.revolution.engine.Window;
+import org.joml.Vector3f;
+import sdu.revolution.engine.main.Window;
 import sdu.revolution.engine.graph.Render;
-import sdu.revolution.engine.model.items.CubeItem;
-import sdu.revolution.engine.model.items.TitleItem;
+import sdu.revolution.engine.model.items.GrassBlock;
+import sdu.revolution.engine.model.items.DirtBlock;
+import sdu.revolution.engine.model.terrain.Plain;
 import sdu.revolution.engine.scene.Scene;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class ItemManager {
+    public static final int MAP_SIZE = 10;
+    public static final int LOWEST_HEIGHT = -2;
     public static List<Item> list;
+    public static Plain plain = new Plain(MAP_SIZE);
     public static void init() {
         list = new ArrayList<>();
-        list.add(new CubeItem());
-        list.add(new TitleItem());
+        for (int i = -MAP_SIZE; i <= MAP_SIZE; ++i)
+            for (int j = -MAP_SIZE; j <= MAP_SIZE; ++j)  {
+                int height = plain.getHeight(i, j);
+                list.add(new GrassBlock(new Vector3f(i, height, j)));
+                for (int k = height - 1; k >= LOWEST_HEIGHT; --k) {
+                    list.add(new DirtBlock(new Vector3f(i, k, j)));
+                }
+            }
     }
     public static void init(Window window, Scene scene, Render render) {
         for (var i : list) {

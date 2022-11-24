@@ -1,6 +1,6 @@
 package sdu.revolution.engine.graph;
 
-import sdu.revolution.Util;
+import sdu.revolution.engine.main.Util;
 
 import java.util.HashMap;
 import java.util.Map;

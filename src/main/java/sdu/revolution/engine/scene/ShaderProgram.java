@@ -1,7 +1,7 @@
 package sdu.revolution.engine.scene;
 
 import org.lwjgl.opengl.GL30;
-import sdu.revolution.engine.FileUtil;
+import sdu.revolution.engine.main.FileUtil;
 
 import java.util.*;
 

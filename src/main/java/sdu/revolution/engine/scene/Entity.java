@@ -50,6 +50,12 @@ public class Entity {
         position.z = z;
     }
 
+    public final void setPosition(Vector3f vec) {
+        position.x = vec.x;
+        position.y = vec.y;
+        position.z = vec.z;
+    }
+
     public void setRotation(float x, float y, float z, float angle) {
         this.rotation.fromAxisAngleRad(x, y, z, angle);
     }

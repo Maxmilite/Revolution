@@ -1,6 +1,6 @@
 package sdu.revolution.engine.model;
 
-import sdu.revolution.engine.Window;
+import sdu.revolution.engine.main.Window;
 import sdu.revolution.engine.graph.Render;
 import sdu.revolution.engine.scene.Scene;
 

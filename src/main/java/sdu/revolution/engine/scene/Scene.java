@@ -1,7 +1,9 @@
 package sdu.revolution.engine.scene;
 
+import sdu.revolution.engine.main.IGuiInstance;
 import sdu.revolution.engine.graph.Model;
 import sdu.revolution.engine.graph.TextureCache;
+import sdu.revolution.engine.scene.lights.SceneLights;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -10,11 +12,36 @@ public class Scene {
     private final Projection projection;
     private final Map<String, Model> modelMap;
     private final TextureCache textureCache;
+    private final Camera camera;
+    private SceneLights sceneLights;
+    private SkyBox skyBox;
+
+    public SkyBox getSkyBox() {
+        return skyBox;
+    }
+
+    public void setSkyBox(SkyBox skyBox) {
+        this.skyBox = skyBox;
+    }
 
     public Scene(int width, int height) {
         modelMap = new HashMap<>();
         projection = new Projection(width, height);
         textureCache = new TextureCache();
+        camera = new Camera();
+        sceneLights = new SceneLights();
+    }
+
+    public SceneLights getSceneLights() {
+        return sceneLights;
+    }
+
+    public void setSceneLights(SceneLights sceneLights) {
+        this.sceneLights = sceneLights;
+    }
+
+    public Camera getCamera() {
+        return camera;
     }
 
     public void addEntity(Entity entity) {
@@ -50,4 +77,13 @@ public class Scene {
         projection.updateProjMatrix(width, height);
     }
 
+    private IGuiInstance guiInstance;
+
+    public IGuiInstance getGuiInstance() {
+        return guiInstance;
+    }
+
+    public void setGuiInstance(IGuiInstance guiInstance) {
+        this.guiInstance = guiInstance;
+    }
 }
