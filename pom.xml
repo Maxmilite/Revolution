@@ -7,7 +7,7 @@
     <groupId>io.github.maxmilite</groupId>
     <artifactId>Revolution</artifactId>
     <version>1.0.0</version>
-
+    <packaging>jar</packaging>
     <properties>
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
@@ -15,6 +15,8 @@
         <lwjgl3-awt.version>0.1.8</lwjgl3-awt.version>
         <lwjgl.natives>natives-windows</lwjgl.natives>
         <joml.version>1.10.5</joml.version>
+        <imgui-java.version>1.86.4</imgui-java.version>
+        <native.target>natives-windows</native.target>
     </properties>
 
     <dependencyManagement>
@@ -379,6 +381,22 @@
             <groupId>org.joml</groupId>
             <artifactId>joml</artifactId>
             <version>${joml.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>io.github.spair</groupId>
+            <artifactId>imgui-java-binding</artifactId>
+            <version>${imgui-java.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>io.github.spair</groupId>
+            <artifactId>imgui-java-${native.target}</artifactId>
+            <version>${imgui-java.version}</version>
+            <scope>runtime</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.alibaba.fastjson2</groupId>
+            <artifactId>fastjson2</artifactId>
+            <version>2.0.19</version>
         </dependency>
     </dependencies>
 
