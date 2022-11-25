@@ -15,9 +15,10 @@ public class ItemManager {
     public static final int MAP_SIZE = 10;
     public static final int LOWEST_HEIGHT = -2;
     public static List<Item> list;
-    public static Plain plain = new Plain(MAP_SIZE);
+    public static Plain plain;
     public static void init() {
         list = new ArrayList<>();
+        plain = new Plain(MAP_SIZE);
         for (int i = -MAP_SIZE; i <= MAP_SIZE; ++i)
             for (int j = -MAP_SIZE; j <= MAP_SIZE; ++j)  {
                 int height = plain.getHeight(i, j);
@@ -26,6 +27,7 @@ public class ItemManager {
                     list.add(new DirtBlock(new Vector3f(i, k, j)));
                 }
             }
+        plain.cleanup();
     }
     public static void init(Window window, Scene scene, Render render) {
         for (var i : list) {

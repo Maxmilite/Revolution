@@ -1,8 +1,10 @@
 package sdu.revolution.engine.graph;
 
 import org.joml.Matrix4f;
-import sdu.revolution.engine.main.Util;
-import sdu.revolution.engine.scene.*;
+import sdu.revolution.engine.main.Utils;
+import sdu.revolution.engine.scene.Entity;
+import sdu.revolution.engine.scene.Scene;
+import sdu.revolution.engine.scene.SkyBox;
 
 import java.util.*;
 
@@ -11,16 +13,16 @@ import static org.lwjgl.opengl.GL30.glBindVertexArray;
 
 public class SkyBoxRender {
 
-    private ShaderProgram shaderProgram;
+    private final ShaderProgram shaderProgram;
 
     private UniformsMap uniformsMap;
 
-    private Matrix4f viewMatrix;
+    private final Matrix4f viewMatrix;
 
     public SkyBoxRender() {
         List<ShaderProgram.ShaderModuleData> shaderModuleDataList = new ArrayList<>();
-        shaderModuleDataList.add(new ShaderProgram.ShaderModuleData(Util.getResourceDir() + "/shaders/skybox.vert", GL_VERTEX_SHADER));
-        shaderModuleDataList.add(new ShaderProgram.ShaderModuleData(Util.getResourceDir() + "/shaders/skybox.frag", GL_FRAGMENT_SHADER));
+        shaderModuleDataList.add(new ShaderProgram.ShaderModuleData(Utils.getResourceDir() + "/shaders/skybox.vert", GL_VERTEX_SHADER));
+        shaderModuleDataList.add(new ShaderProgram.ShaderModuleData(Utils.getResourceDir() + "/shaders/skybox.frag", GL_FRAGMENT_SHADER));
         shaderProgram = new ShaderProgram(shaderModuleDataList);
         viewMatrix = new Matrix4f();
         createUniforms();

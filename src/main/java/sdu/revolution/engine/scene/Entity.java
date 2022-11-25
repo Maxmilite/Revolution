@@ -9,7 +9,16 @@ public class Entity {
     private Matrix4f modelMatrix;
     private Vector3f position;
     private Quaternionf rotation;
+    private AnimationData animationData;
     private float scale;
+
+    public AnimationData getAnimationData() {
+        return animationData;
+    }
+
+    public void setAnimationData(AnimationData animationData) {
+        this.animationData = animationData;
+    }
 
     public Entity(String id, String modelId) {
         this.id = id;

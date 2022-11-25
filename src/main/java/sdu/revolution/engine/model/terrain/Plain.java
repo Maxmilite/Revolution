@@ -13,8 +13,12 @@ public class Plain {
             new Vector2i(0, 1), new Vector2i(0, -1),
             new Vector2i(1, 0), new Vector2i(-1, 0),
     };
-    private boolean checkOutOfBound(Vector2i vec) {
+    private boolean checkNotOutOfBound(Vector2i vec) {
         return Math.abs(vec.x) <= size && Math.abs(vec.y) <= size;
+    }
+    public void cleanup() {
+        height = null;
+        vis = null;
     }
     private void genTerrain() {
         Queue<Vector2i> q = new LinkedList<>();
@@ -22,7 +26,7 @@ public class Plain {
         while (!q.isEmpty()) {
             Vector2i vec = q.peek();
             q.poll();
-            if (!checkOutOfBound(vec))
+            if (!checkNotOutOfBound(vec))
                 continue;
             if (vis[vec.x + size][vec.y + size])
                 continue;
@@ -30,7 +34,7 @@ public class Plain {
             int curHeight = height[vec.x + size][vec.y + size];
             for (var i : dxy) {
                 vec.add(i);
-                if (!checkOutOfBound(vec))
+                if (!checkNotOutOfBound(vec))
                     continue;
                 if (!vis[vec.x + size][vec.y + size]) {
                     double rand = Math.random();

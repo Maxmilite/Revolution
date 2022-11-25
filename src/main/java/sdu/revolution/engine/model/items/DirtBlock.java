@@ -1,7 +1,7 @@
 package sdu.revolution.engine.model.items;
 
 import org.joml.Vector3f;
-import sdu.revolution.engine.main.Util;
+import sdu.revolution.engine.main.Utils;
 import sdu.revolution.engine.main.Window;
 import sdu.revolution.engine.graph.Model;
 import sdu.revolution.engine.graph.Render;
@@ -15,8 +15,8 @@ public class DirtBlock implements Item {
     public Vector3f defaultLocation;
 
     public void init(Window window, Scene scene, Render render) {
-        Model cubeModel = ModelLoader.loadModel("cube-model" + defaultLocation, Util.getResourceDir() + "/models/cube/dirt.obj",
-                scene.getTextureCache());
+        Model cubeModel = ModelLoader.loadModel("cube-model" + defaultLocation, Utils.getResourceDir() + "/models/cube/dirt.obj",
+                scene.getTextureCache(), false);
         scene.addModel(cubeModel);
 
         cubeEntity = new Entity("cube-entity" + defaultLocation, cubeModel.getId());

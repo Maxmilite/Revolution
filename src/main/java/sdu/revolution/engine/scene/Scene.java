@@ -15,6 +15,7 @@ public class Scene {
     private final Camera camera;
     private SceneLights sceneLights;
     private SkyBox skyBox;
+    private Fog fog;
 
     public SkyBox getSkyBox() {
         return skyBox;
@@ -30,6 +31,15 @@ public class Scene {
         textureCache = new TextureCache();
         camera = new Camera();
         sceneLights = new SceneLights();
+        fog = new Fog();
+    }
+
+    public Fog getFog() {
+        return fog;
+    }
+
+    public void setFog(Fog fog) {
+        this.fog = fog;
     }
 
     public SceneLights getSceneLights() {

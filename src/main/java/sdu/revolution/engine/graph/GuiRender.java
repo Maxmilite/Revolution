@@ -3,11 +3,9 @@ package sdu.revolution.engine.graph;
 import imgui.*;
 import imgui.type.ImInt;
 import org.joml.Vector2f;
-import sdu.revolution.engine.main.Util;
 import sdu.revolution.engine.main.IGuiInstance;
 import sdu.revolution.engine.main.Window;
 import sdu.revolution.engine.scene.Scene;
-import sdu.revolution.engine.scene.ShaderProgram;
 
 import java.nio.ByteBuffer;
 import java.util.*;
@@ -18,14 +16,14 @@ public class GuiRender {
 
     private GuiMesh guiMesh;
     private Vector2f scale;
-    private ShaderProgram shaderProgram;
+    private final ShaderProgram shaderProgram;
     private Texture texture;
     private UniformsMap uniformsMap;
 
     public GuiRender(Window window) {
         List<ShaderProgram.ShaderModuleData> shaderModuleDataList = new ArrayList<>();
-        shaderModuleDataList.add(new ShaderProgram.ShaderModuleData(Util.getResourceDir() + "/shaders/gui.vert", GL_VERTEX_SHADER));
-        shaderModuleDataList.add(new ShaderProgram.ShaderModuleData(Util.getResourceDir() + "/shaders/gui.frag", GL_FRAGMENT_SHADER));
+        shaderModuleDataList.add(new ShaderProgram.ShaderModuleData("resources/shaders/gui.vert", GL_VERTEX_SHADER));
+        shaderModuleDataList.add(new ShaderProgram.ShaderModuleData("resources/shaders/gui.frag", GL_FRAGMENT_SHADER));
         shaderProgram = new ShaderProgram(shaderModuleDataList);
         createUniforms();
         createUIResources(window);
@@ -69,7 +67,7 @@ public class GuiRender {
 
         glEnable(GL_BLEND);
         glBlendEquation(GL_FUNC_ADD);
-        glBlendFuncSeparate(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA, GL_ONE, GL_ONE_MINUS_SRC_ALPHA);
+        glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
         glDisable(GL_DEPTH_TEST);
         glDisable(GL_CULL_FACE);
 

@@ -1,34 +1,34 @@
 package sdu.revolution.engine.graph;
 
-import sdu.revolution.engine.main.Util;
-
-import java.util.HashMap;
-import java.util.Map;
+import java.io.FileInputStream;
+import java.util.*;
 
 public class TextureCache {
-    public static final String DEFAULT_TEXTURE = Util.getResourceDir() + "/textures/default/default_texture.png";
-    private final Map<String, Texture> map;
+
+    public static final String DEFAULT_TEXTURE = "resources/textures/default/default_texture.png";
+
+    private final Map<String, Texture> textureMap;
 
     public TextureCache() {
-        map = new HashMap<>();
-        map.put(DEFAULT_TEXTURE, new Texture(DEFAULT_TEXTURE));
+        textureMap = new HashMap<>();
+        textureMap.put(DEFAULT_TEXTURE, new Texture(DEFAULT_TEXTURE));
     }
 
     public void cleanup() {
-        map.values().forEach(Texture::cleanup);
+        textureMap.values().forEach(Texture::cleanup);
     }
 
-    public Texture createTexture(String path) {
-        return map.computeIfAbsent(path, Texture::new);
+    public Texture createTexture(String texturePath) {
+        return textureMap.computeIfAbsent(texturePath, Texture::new);
     }
 
-    public Texture getTexture(String path) {
+    public Texture getTexture(String texturePath) {
         Texture texture = null;
-        if (path != null) {
-            texture = map.get(path);
+        if (texturePath != null) {
+            texture = textureMap.get(texturePath);
         }
         if (texture == null) {
-            texture = map.get(DEFAULT_TEXTURE);
+            texture = textureMap.get(DEFAULT_TEXTURE);
         }
         return texture;
     }

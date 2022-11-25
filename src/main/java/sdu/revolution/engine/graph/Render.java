@@ -4,19 +4,19 @@ import org.lwjgl.opengl.GL;
 import sdu.revolution.engine.main.Window;
 import sdu.revolution.engine.scene.Scene;
 
-import static org.lwjgl.opengl.GL11.*;
+import static org.lwjgl.opengl.GL13.*;
 
 public class Render {
 
-    private final SceneRender sceneRender;
     private final GuiRender guiRender;
-    private SkyBoxRender skyBoxRender;
+    private final SceneRender sceneRender;
+    private final SkyBoxRender skyBoxRender;
 
     public Render(Window window) {
         GL.createCapabilities();
+        glEnable(GL_MULTISAMPLE);
         glEnable(GL_DEPTH_TEST);
-        glEnable(GL_CULL_FACE);
-        glCullFace(GL_BACK);
+
         sceneRender = new SceneRender();
         guiRender = new GuiRender(window);
         skyBoxRender = new SkyBoxRender();

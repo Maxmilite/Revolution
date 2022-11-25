@@ -4,16 +4,13 @@ import imgui.ImGui;
 import imgui.ImGuiIO;
 import imgui.flag.ImGuiCond;
 import org.joml.Vector2f;
-import org.joml.Vector3f;
+import sdu.revolution.engine.graph.Model;
 import sdu.revolution.engine.graph.Render;
 import sdu.revolution.engine.main.*;
 import sdu.revolution.engine.model.ItemManager;
-import sdu.revolution.engine.scene.Camera;
-import sdu.revolution.engine.scene.Scene;
-import sdu.revolution.engine.scene.SkyBox;
-import sdu.revolution.engine.scene.lights.PointLight;
+import sdu.revolution.engine.scene.*;
 import sdu.revolution.engine.scene.lights.SceneLights;
-import sdu.revolution.engine.scene.lights.SpotLight;
+import sdu.revolution.engine.scene.SkyBox;
 
 import java.util.logging.Logger;
 
@@ -27,16 +24,18 @@ public class Main implements IAppLogic, IGuiInstance {
     private static final float SPRINT_AMPLIFIER = 2.0f;
     private static boolean isCursorDisabled;
     public static long start_time;
-    private static boolean wasTabPressed;
+    private static boolean wasAltPressed;
+    private static AnimationData animationData;
 
     public static void main(String[] args) {
         isCursorDisabled = true;
-        wasTabPressed = false;
-        Logger.getGlobal().info("\n" + Util.getTitle() + "\nThanks for your playing.");
+        wasAltPressed = false;
+        Logger.getGlobal().info("\n" + Utils.getTitle() + "\nThanks for your playing.");
         ItemManager.init();
         start_time = System.currentTimeMillis();
         INSTANCE = new Main();
-        Engine engine = new Engine(Util.getTitle(), new Window.WindowOptions(), INSTANCE);
+        Window.WindowOptions options = new Window.WindowOptions();
+        Engine engine = new Engine(Utils.getTitle(), options, INSTANCE);
         engine.start();
     }
 
@@ -50,13 +49,29 @@ public class Main implements IAppLogic, IGuiInstance {
         ItemManager.init(window, scene, render);
 
         SceneLights sceneLights = new SceneLights();
-        sceneLights.getAmbientLight().setIntensity(0.1f);
+        sceneLights.getAmbientLight().setIntensity(0.3f);
+        sceneLights.getAmbientLight().setColor(0.5f, 0.5f, 0.5f);
         sceneLights.getDirLight().setPosition(-0.9f, 0.6f, 0.4f);
-        sceneLights.getDirLight().setIntensity(1f);
+        sceneLights.getDirLight().setIntensity(0.6f);
         scene.setSceneLights(sceneLights);
-        SkyBox skyBox = new SkyBox(Util.getResourceDir() + "/models/skybox/skybox.obj", scene.getTextureCache());
+
+        String bobModelId = "bobModel";
+        Model bobModel = ModelLoader.loadModel(bobModelId, "resources/models/bob/boblamp.md5mesh",
+                scene.getTextureCache(), true);
+        scene.addModel(bobModel);
+        Entity bobEntity = new Entity("bobEntity", bobModelId);
+        bobEntity.setScale(0.05f);
+        bobEntity.updateModelMatrix();
+        animationData = new AnimationData(bobModel.getAnimationList().get(0));
+        bobEntity.setAnimationData(animationData);
+        scene.addEntity(bobEntity);
+
+        SkyBox skyBox = new SkyBox(Utils.getResourceDir() + "/models/skybox/skybox.obj", scene.getTextureCache());
         skyBox.getSkyBoxEntity().setScale(500);
         scene.setSkyBox(skyBox);
+        scene.setGuiInstance(this);
+        glfwSetCursorPos(window.getHandle(), window.getWidth() >> 1, window.getHeight() >> 1);
+        Logger.getGlobal().info("Graphics System initialized.");
     }
 
     @Override
@@ -82,27 +97,42 @@ public class Main implements IAppLogic, IGuiInstance {
             camera.moveDown(move);
         }
 
-        if (glfwGetKey(window.getHandle(), GLFW_KEY_TAB) == GLFW_PRESS) {
-            wasTabPressed = true;
+        if (glfwGetKey(window.getHandle(), GLFW_KEY_LEFT_ALT) == GLFW_PRESS) {
+            wasAltPressed = true;
         }
 
-        if (glfwGetKey(window.getHandle(), GLFW_KEY_TAB) == GLFW_RELEASE && wasTabPressed) {
+        if (glfwGetKey(window.getHandle(), GLFW_KEY_LEFT_ALT) == GLFW_RELEASE && wasAltPressed) {
             isCursorDisabled = !isCursorDisabled;
-            wasTabPressed = false;
+            wasAltPressed = false;
         }
 
         MouseInput mouseInput = window.getMouseInput();
-        if (isCursorDisabled || window.getMouseInput().isRightButtonPressed()) {
+        if (isCursorDisabled) {
             Vector2f displVec = mouseInput.getDisplVec();
             camera.addRotation((float) Math.toRadians(displVec.x * MOUSE_SENSITIVITY), (float) Math.toRadians(displVec.y * MOUSE_SENSITIVITY));
         }
+        if (!isCursorDisabled && window.getMouseInput().isRightButtonPressed()) {
+            Vector2f displVec = mouseInput.getDisplVec();
+            camera.addRotation((float) Math.toRadians(-displVec.x * MOUSE_SENSITIVITY), (float) Math.toRadians(-displVec.y * MOUSE_SENSITIVITY));
+        }
+
     }
 
     @Override
     public void update(Window window, Scene scene, long diffTimeMillis) {
+        animationData.nextFrame();
         ItemManager.update(window, scene, diffTimeMillis);
-        if (isCursorDisabled) glfwSetInputMode(window.getHandle(), GLFW_CURSOR, GLFW_CURSOR_DISABLED);
-        else glfwSetInputMode(window.getHandle(), GLFW_CURSOR, GLFW_CURSOR_NORMAL);
+        if (isCursorDisabled) {
+            if (glfwGetInputMode(window.getHandle(), GLFW_CURSOR) == GLFW_CURSOR_NORMAL) {
+                glfwSetInputMode(window.getHandle(), GLFW_CURSOR, GLFW_CURSOR_DISABLED);
+            }
+        }
+        else {
+            if (glfwGetInputMode(window.getHandle(), GLFW_CURSOR) == GLFW_CURSOR_DISABLED) {
+                glfwSetInputMode(window.getHandle(), GLFW_CURSOR, GLFW_CURSOR_NORMAL);
+                glfwSetCursorPos(window.getHandle(), window.getWidth() >> 1, window.getHeight() >> 1);
+            }
+        }
     }
 
     @Override

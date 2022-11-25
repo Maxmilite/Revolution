@@ -2,6 +2,8 @@ package sdu.revolution.engine.scene;
 
 import org.joml.*;
 
+import java.lang.Math;
+
 public class Camera {
 
     private Vector3f direction;

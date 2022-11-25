@@ -8,9 +8,9 @@ import static org.lwjgl.opengl.GL30.*;
 
 public class GuiMesh {
 
-    private int indicesVBO;
-    private int vaoId;
-    private int verticesVBO;
+    private final int indicesVBO;
+    private final int vaoId;
+    private final int verticesVBO;
 
     public GuiMesh() {
         vaoId = glGenVertexArrays();

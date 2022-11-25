@@ -14,7 +14,7 @@ public class MouseInput {
     private boolean rightButtonPressed;
 
     public MouseInput(long windowHandle) {
-        previousPos = new Vector2f(-1, -1);
+        previousPos = new Vector2f(1919810, 1919810);
         currentPos = new Vector2f();
         displVec = new Vector2f();
         leftButtonPressed = false;
@@ -41,9 +41,10 @@ public class MouseInput {
     }
 
     public void input() {
+
         displVec.x = 0;
         displVec.y = 0;
-        if (previousPos.x > 0 && previousPos.y > 0 && inWindow) {
+        if (previousPos.x != 1919810 && previousPos.y != 1919810 && inWindow) {
             double deltax = currentPos.x - previousPos.x;
             double deltay = currentPos.y - previousPos.y;
             boolean rotateX = deltax != 0;

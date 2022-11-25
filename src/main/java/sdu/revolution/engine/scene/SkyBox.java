@@ -1,14 +1,15 @@
 package sdu.revolution.engine.scene;
 
-import sdu.revolution.engine.graph.*;
+import sdu.revolution.engine.graph.Model;
+import sdu.revolution.engine.graph.TextureCache;
 
 public class SkyBox {
 
-    private Entity skyBoxEntity;
-    private Model skyBoxModel;
+    private final Entity skyBoxEntity;
+    private final Model skyBoxModel;
 
     public SkyBox(String skyBoxModelPath, TextureCache textureCache) {
-        skyBoxModel = ModelLoader.loadModel("skybox-model", skyBoxModelPath, textureCache);
+        skyBoxModel = ModelLoader.loadModel("skybox-model", skyBoxModelPath, textureCache, false);
         skyBoxEntity = new Entity("skyBoxEntity-entity", skyBoxModel.getId());
     }
 

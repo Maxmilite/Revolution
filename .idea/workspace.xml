@@ -10,73 +10,106 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="75d0cbf2-0ea0-4775-b5db-694f0ee2e8ff" name="Changes" comment="Update on 2022-11-23 14:17">
-      <change afterPath="$PROJECT_DIR$/src/main/java/sdu/revolution/LightControls.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/sdu/revolution/engine/graph/GuiRender.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/sdu/revolution/engine/graph/SkyBoxRender.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/sdu/revolution/engine/gui/MainGui.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/sdu/revolution/engine/main/IGuiInstance.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/sdu/revolution/engine/main/MouseInput.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/sdu/revolution/engine/model/items/DirtBlock.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/sdu/revolution/engine/model/items/GrassBlock.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/sdu/revolution/engine/model/terrain/Plain.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/sdu/revolution/engine/scene/Camera.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/sdu/revolution/engine/scene/SkyBox.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/sdu/revolution/engine/scene/lights/AmbientLight.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/sdu/revolution/engine/scene/lights/DirLight.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/sdu/revolution/engine/scene/lights/PointLight.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/sdu/revolution/engine/scene/lights/SceneLights.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/sdu/revolution/engine/scene/lights/SpotLight.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/models/cube/dirt.mtl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/models/cube/dirt.obj" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/models/cube/dirt.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/models/cube/grass.mtl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/models/cube/grass.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/models/cube/grass.png.bak" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/models/cube/stone.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/models/quad/quad.mtl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/models/quad/quad.obj" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/models/quad/quad.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/models/skybox/hills_bk.tga" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/models/skybox/hills_dn.tga" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/models/skybox/hills_ft.tga" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/models/skybox/hills_lf.tga" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/models/skybox/hills_rt.tga" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/models/skybox/hills_up.tga" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/models/skybox/new-skybox.psd" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/models/skybox/skybox.mtl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/models/skybox/skybox.obj" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/models/skybox/skybox.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/models/skybox/skybox.png.bak" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/shaders/gui.frag" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/shaders/gui.vert" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/shaders/skybox.frag" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/shaders/skybox.vert" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hs_err_pid10036.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hs_err_pid23144.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/models/bob/boblamp.md5anim" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/models/bob/boblamp.md5mesh" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/models/bob/guard1_body.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/models/bob/guard1_body_h.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/models/bob/guard1_body_s.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/models/bob/guard1_face.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/models/bob/guard1_face_local.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/models/bob/guard1_face_s.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/models/bob/guard1_helmet.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/models/bob/guard1_helmet_h.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/models/bob/guard1_helmet_s.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/models/bob/iron_grill.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/models/bob/round_grill.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/models/bob/round_grill_h.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/models/skybox/backup/skybox.obj" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/models/skybox/new-skybox/back.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/models/skybox/new-skybox/bottom.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/models/skybox/new-skybox/front.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/models/skybox/new-skybox/left.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/models/skybox/new-skybox/new-skybox.psd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/models/skybox/new-skybox/right.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/models/skybox/new-skybox/top.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/models/skybox/old-skybox/hills_bk.tga" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/models/skybox/old-skybox/hills_dn.tga" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/models/skybox/old-skybox/hills_ft.tga" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/models/skybox/old-skybox/hills_lf.tga" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/models/skybox/old-skybox/hills_rt.tga" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/models/skybox/old-skybox/hills_up.tga" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/models/skybox/old-skybox/old-skybox.psd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/models/skybox/skybox.mtl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/models/skybox/skybox.obj" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/models/skybox/skybox.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/sdu/revolution/engine/main/Utils.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/sdu/revolution/engine/scene/AnimationData.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/sdu/revolution/engine/scene/Fog.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/sdu/revolution/engine/scene/Node.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/sdu/revolution/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sdu/revolution/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sdu/revolution/Util.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sdu/revolution/engine/main/Util.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sdu/revolution/engine/Engine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sdu/revolution/engine/main/Engine.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sdu/revolution/engine/FileUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sdu/revolution/engine/main/FileUtil.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sdu/revolution/engine/IAppLogic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sdu/revolution/engine/main/IAppLogic.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sdu/revolution/engine/Window.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sdu/revolution/engine/main/Window.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/sdu/revolution/engine/graph/GuiMesh.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sdu/revolution/engine/graph/GuiMesh.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/sdu/revolution/engine/graph/GuiRender.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sdu/revolution/engine/graph/GuiRender.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/sdu/revolution/engine/graph/Material.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sdu/revolution/engine/graph/Material.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/sdu/revolution/engine/graph/Mesh.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sdu/revolution/engine/graph/Mesh.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/sdu/revolution/engine/graph/Model.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sdu/revolution/engine/graph/Model.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/sdu/revolution/engine/graph/Render.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sdu/revolution/engine/graph/Render.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/sdu/revolution/engine/graph/SceneRender.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sdu/revolution/engine/graph/SceneRender.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/sdu/revolution/engine/graph/SkyBoxRender.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sdu/revolution/engine/graph/SkyBoxRender.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/sdu/revolution/engine/graph/Texture.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sdu/revolution/engine/graph/Texture.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/sdu/revolution/engine/graph/TextureCache.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sdu/revolution/engine/graph/TextureCache.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/sdu/revolution/engine/graph/UniformsMap.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sdu/revolution/engine/graph/UniformsMap.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sdu/revolution/engine/model/Item.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sdu/revolution/engine/model/Item.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/sdu/revolution/engine/gui/MainGui.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sdu/revolution/engine/main/gui/MainGui.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/sdu/revolution/engine/main/MouseInput.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sdu/revolution/engine/main/MouseInput.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/sdu/revolution/engine/main/Util.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/sdu/revolution/engine/main/Window.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sdu/revolution/engine/main/Window.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/sdu/revolution/engine/model/ItemManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sdu/revolution/engine/model/ItemManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sdu/revolution/engine/model/items/CubeItem.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sdu/revolution/engine/model/items/TitleItem.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sdu/revolution/engine/scene/AssimpLoader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sdu/revolution/engine/scene/ModelLoader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/sdu/revolution/engine/model/items/DirtBlock.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sdu/revolution/engine/model/items/DirtBlock.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/sdu/revolution/engine/model/items/GrassBlock.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sdu/revolution/engine/model/items/GrassBlock.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/sdu/revolution/engine/model/terrain/Plain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sdu/revolution/engine/model/terrain/Plain.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/sdu/revolution/engine/scene/Camera.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sdu/revolution/engine/scene/Camera.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/sdu/revolution/engine/scene/Entity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sdu/revolution/engine/scene/Entity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/sdu/revolution/engine/scene/ModelLoader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sdu/revolution/engine/scene/ModelLoader.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/sdu/revolution/engine/scene/Scene.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sdu/revolution/engine/scene/Scene.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sdu/revolution/engine/scene/ShaderProgram.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sdu/revolution/engine/scene/ShaderProgram.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/models/cube/cube.mtl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/models/cube/cube.obj" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/models/cube/grass.obj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/models/cube/cube.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/shaders/scene.frag" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/shaders/scene.frag" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/shaders/scene.vert" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/shaders/scene.vert" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/sdu/revolution/engine/scene/ShaderProgram.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sdu/revolution/engine/graph/ShaderProgram.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/sdu/revolution/engine/scene/SkyBox.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sdu/revolution/engine/scene/SkyBox.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/models/card/obj.mtl" beforeDir="false" afterPath="$PROJECT_DIR$/resources/models/card/obj.mtl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/models/card/tinker.obj" beforeDir="false" afterPath="$PROJECT_DIR$/resources/models/card/tinker.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/models/cube/dirt.mtl" beforeDir="false" afterPath="$PROJECT_DIR$/resources/models/cube/dirt.mtl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/models/cube/dirt.obj" beforeDir="false" afterPath="$PROJECT_DIR$/resources/models/cube/dirt.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/models/cube/dirt.png" beforeDir="false" afterPath="$PROJECT_DIR$/resources/models/cube/dirt.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/models/cube/grass.mtl" beforeDir="false" afterPath="$PROJECT_DIR$/resources/models/cube/grass.mtl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/models/cube/grass.obj" beforeDir="false" afterPath="$PROJECT_DIR$/resources/models/cube/grass.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/models/cube/grass.png" beforeDir="false" afterPath="$PROJECT_DIR$/resources/models/cube/grass.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/models/cube/grass.png.bak" beforeDir="false" afterPath="$PROJECT_DIR$/resources/models/cube/grass.png.bak" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/models/cube/stone.png" beforeDir="false" afterPath="$PROJECT_DIR$/resources/models/cube/stone.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/models/quad/quad.mtl" beforeDir="false" afterPath="$PROJECT_DIR$/resources/models/quad/quad.mtl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/models/quad/quad.obj" beforeDir="false" afterPath="$PROJECT_DIR$/resources/models/quad/quad.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/models/quad/quad.png" beforeDir="false" afterPath="$PROJECT_DIR$/resources/models/quad/quad.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/models/skybox/hills_bk.tga" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/models/skybox/hills_dn.tga" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/models/skybox/hills_ft.tga" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/models/skybox/hills_lf.tga" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/models/skybox/hills_rt.tga" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/models/skybox/hills_up.tga" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/models/skybox/new-skybox.psd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/models/skybox/skybox.mtl" beforeDir="false" afterPath="$PROJECT_DIR$/resources/models/skybox/backup/skybox.mtl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/models/skybox/skybox.obj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/models/skybox/skybox.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/models/skybox/skybox.png.bak" beforeDir="false" afterPath="$PROJECT_DIR$/resources/models/skybox/skybox.png.bak" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/shaders/gui.frag" beforeDir="false" afterPath="$PROJECT_DIR$/resources/shaders/gui.frag" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/shaders/gui.vert" beforeDir="false" afterPath="$PROJECT_DIR$/resources/shaders/gui.vert" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/shaders/scene.frag" beforeDir="false" afterPath="$PROJECT_DIR$/resources/shaders/scene.frag" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/shaders/scene.vert" beforeDir="false" afterPath="$PROJECT_DIR$/resources/shaders/scene.vert" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/shaders/skybox.frag" beforeDir="false" afterPath="$PROJECT_DIR$/resources/shaders/skybox.frag" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/shaders/skybox.vert" beforeDir="false" afterPath="$PROJECT_DIR$/resources/shaders/skybox.vert" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/textures/default/default_texture.png" beforeDir="false" afterPath="$PROJECT_DIR$/resources/textures/default/default_texture.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/textures/default/default_texture.psd" beforeDir="false" afterPath="$PROJECT_DIR$/resources/textures/default/default_texture.psd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/textures/title.png" beforeDir="false" afterPath="$PROJECT_DIR$/resources/textures/title.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/textures/title.psd" beforeDir="false" afterPath="$PROJECT_DIR$/resources/textures/title.psd" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -116,8 +149,8 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "last_opened_file_path": "D:/CodeSpace/Revolution/src/main/resources/models/cube",
-    "project.structure.last.edited": "Artifacts",
+    "last_opened_file_path": "D:/CodeSpace/Revolution/src/main/java/sdu/revolution/engine/skybox/scene",
+    "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.15039062",
     "project.structure.side.proportion": "0.2",
     "settings.editor.selected.configurable": "preferences.fileTypes"
@@ -125,9 +158,15 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\CodeSpace\Revolution\src\main\resources\models\cube" />
+      <recent name="D:\CodeSpace\Revolution\src\main\java\sdu\revolution\engine\skybox\scene" />
+      <recent name="D:\CodeSpace\Revolution\src\main\java\sdu\revolution\engine\skybox\graph" />
+      <recent name="D:\CodeSpace\Revolution\resources\models\skybox" />
+      <recent name="D:\CodeSpace\Revolution\resources\shaders" />
+      <recent name="D:\CodeSpace\Revolution\resources" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\CodeSpace\Revolution\resources\models" />
+      <recent name="D:\CodeSpace\Revolution\resources" />
       <recent name="D:\CodeSpace\Revolution\src\main\resources\models" />
       <recent name="D:\CodeSpace\Revolution\src\main\resources\shaders" />
     </key>
@@ -135,7 +174,20 @@
       <recent name="sdu.revolution.engine.model.items" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.sdu.revolution.Main">
+  <component name="RunManager" selected="Application.Main">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="sdu.revolution.Main" />
+      <module name="Revolution" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="sdu.revolution.engine.main.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="MainBak" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="MainBak" />
       <module name="Revolution" />
@@ -150,22 +202,9 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="sdu.revolution.Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="sdu.revolution.Main" />
-      <module name="Revolution" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="sdu.revolution.engine.main.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.sdu.revolution.Main" />
+        <item itemvalue="Application.Main" />
         <item itemvalue="Application.sdu.Main" />
         <item itemvalue="Application.MainBak" />
       </list>
