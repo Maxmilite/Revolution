@@ -24,12 +24,10 @@ public class Main implements IAppLogic, IGuiInstance {
     private static final float SPRINT_AMPLIFIER = 2.0f;
     private static boolean isCursorDisabled;
     public static long start_time;
-    private static boolean wasAltPressed;
     private static AnimationData animationData;
 
     public static void main(String[] args) {
         isCursorDisabled = true;
-        wasAltPressed = false;
         Logger.getGlobal().info("\n" + Utils.getTitle() + "\nThanks for your playing.");
         ItemManager.init();
         start_time = System.currentTimeMillis();
@@ -71,6 +69,7 @@ public class Main implements IAppLogic, IGuiInstance {
         scene.setSkyBox(skyBox);
         scene.setGuiInstance(this);
         glfwSetCursorPos(window.getHandle(), window.getWidth() >> 1, window.getHeight() >> 1);
+        scene.getCamera().setPosition(1f, 1f, 1f);
         Logger.getGlobal().info("Graphics System initialized.");
     }
 
@@ -97,14 +96,7 @@ public class Main implements IAppLogic, IGuiInstance {
             camera.moveDown(move);
         }
 
-        if (glfwGetKey(window.getHandle(), GLFW_KEY_LEFT_ALT) == GLFW_PRESS) {
-            wasAltPressed = true;
-        }
-
-        if (glfwGetKey(window.getHandle(), GLFW_KEY_LEFT_ALT) == GLFW_RELEASE && wasAltPressed) {
-            isCursorDisabled = !isCursorDisabled;
-            wasAltPressed = false;
-        }
+        isCursorDisabled = glfwGetKey(window.getHandle(), GLFW_KEY_LEFT_ALT) != GLFW_PRESS;
 
         MouseInput mouseInput = window.getMouseInput();
         if (isCursorDisabled) {
