@@ -87,6 +87,8 @@ public class ExampleGui extends Panel {
     private final SplitPanel splitPanel;
     private ImageView imageView;
 
+    public void resize() {}
+
     public ExampleGui(int width, int height) {
         super(0, 0, width, height);
         //@formatter:off
@@ -98,7 +100,7 @@ public class ExampleGui extends Panel {
         focusedGuiLabel.getStyle().setBorder(new SimpleLineBorder(ColorConstants.red(), 1));
         focusedGuiLabel.getListenerMap()
                 .addListener(LabelWidthChangeEvent.class, new UpdateLabelWidthListener());
-
+        
         this.add(focusedGuiLabel);
 
         this.add(debugLabel = new Label("Debug Label", 10, height - 75, width - 20, 20));

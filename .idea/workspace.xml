@@ -10,45 +10,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="75d0cbf2-0ea0-4775-b5db-694f0ee2e8ff" name="Changes" comment="Update on 2022-11-23 14:17">
-      <change afterPath="$PROJECT_DIR$/hs_err_pid14380.log" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hs_err_pid19080.log" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hs_err_pid23880.log" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hs_err_pid4424.log" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hs_err_pid7128.log" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/com/spinyowl/legui/demo/1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/com/spinyowl/legui/demo/1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/com/spinyowl/legui/demo/2.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/com/spinyowl/legui/demo/2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/com/spinyowl/legui/demo/3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/com/spinyowl/legui/demo/json.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/com/spinyowl/legui/demo/normal.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/com/spinyowl/legui/demo/toggle.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/com/spinyowl/legui/demo/toggled.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/com/spinyowl/legui/style/font/FontAwesome.otf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/com/spinyowl/legui/style/font/MaterialIcons-Regular.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/com/spinyowl/legui/style/font/NotoEmoji-Regular.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/com/spinyowl/legui/style/font/Roboto-Bold.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/com/spinyowl/legui/style/font/Roboto-Light.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/com/spinyowl/legui/style/font/Roboto-Regular.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/com/spinyowl/legui/style/font/entypo.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/com/spinyowl/legui/style/font/materialdesignicons.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/com/spinyowl/legui/version.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/fonts/Microsoft YaHei Mono.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/sdu/revolution/engine/gui/ExampleGui.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/sdu/revolution/engine/gui/GUI.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/sdu/revolution/engine/gui/MainMenu.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/sdu/revolution/engine/main/EventHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sdu/revolution/LightControls.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sdu/revolution/LightControls.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sdu/revolution/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sdu/revolution/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sdu/revolution/engine/main/Engine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sdu/revolution/engine/main/Engine.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sdu/revolution/engine/main/IGuiInstance.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sdu/revolution/engine/main/IGuiInstance.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sdu/revolution/engine/main/MouseInput.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sdu/revolution/engine/main/MouseInput.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sdu/revolution/engine/main/Window.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sdu/revolution/engine/main/Window.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sdu/revolution/engine/main/gui/MainGui.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sdu/revolution/engine/model/ItemManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sdu/revolution/engine/model/ItemManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sdu/revolution/engine/model/terrain/Plain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sdu/revolution/engine/model/terrain/Plain.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/sdu/revolution/engine/gui/ExampleGui.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sdu/revolution/engine/gui/ExampleGui.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/sdu/revolution/engine/gui/MainMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sdu/revolution/engine/gui/MainMenu.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -78,23 +42,23 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "Downloaded.Files.Path.Enabled": "false",
-    "Repository.Attach.Annotations": "false",
-    "Repository.Attach.JavaDocs": "false",
-    "Repository.Attach.Sources": "false",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "last_opened_file_path": "D:/CodeSpace/Revolution/resources",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.15039062",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "preferences.fileTypes"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/CodeSpace/Revolution/resources&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15039062&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.fileTypes&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\CodeSpace\Revolution\resources" />

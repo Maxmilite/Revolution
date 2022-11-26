@@ -25,14 +25,14 @@ public class MainMenu implements IGuiInstance {
 
     private int width, height;
     private Frame frame;
-    private GUI gui;
+    private ExampleGui gui;
     private Context context;
     private Renderer renderer;
     private DefaultInitializer initializer;
     private Animator animator;
 
     private void createGuiElements(Frame frame, int w, int h) {
-        gui = new GUI(w, h);
+        gui = new ExampleGui(w, h);
         gui.setFocusable(false);
         gui.getStyle().setMinWidth(100F);
         gui.getStyle().setMinHeight(100F);
