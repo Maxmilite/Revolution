@@ -12,6 +12,10 @@ import sdu.revolution.engine.scene.Scene;
 import sdu.revolution.engine.scene.lights.*;
 
 public class LightControls implements IGuiInstance {
+    @Override
+    public void update() {
+
+    }
 
     private float[] ambientColor;
     private float[] ambientFactor;

@@ -13,7 +13,7 @@ import java.util.List;
 
 public class ItemManager {
     public static final int MAP_SIZE = 10;
-    public static final int LOWEST_HEIGHT = -2;
+    public static final int LOWEST_HEIGHT = -1;
     public static List<Item> list;
     public static Plain plain;
     public static void init() {

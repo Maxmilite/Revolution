@@ -6,4 +6,5 @@ public interface IGuiInstance {
     void drawGui();
 
     boolean handleGuiInput(Scene scene, Window window);
+    void update();
 }

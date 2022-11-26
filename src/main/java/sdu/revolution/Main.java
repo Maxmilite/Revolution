@@ -6,35 +6,57 @@ import imgui.flag.ImGuiCond;
 import org.joml.Vector2f;
 import sdu.revolution.engine.graph.Model;
 import sdu.revolution.engine.graph.Render;
+import sdu.revolution.engine.gui.MainMenu;
 import sdu.revolution.engine.main.*;
 import sdu.revolution.engine.model.ItemManager;
 import sdu.revolution.engine.scene.*;
 import sdu.revolution.engine.scene.lights.SceneLights;
-import sdu.revolution.engine.scene.SkyBox;
 
-import java.util.logging.Logger;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import static org.lwjgl.glfw.GLFW.*;
 
+
 public class Main implements IAppLogic, IGuiInstance {
+    public static class Logger {
+        public static void info(String x) {
+            System.out.println("\033[0m[\033[31mRevolution\033[0m] \033[33m" + new Date() + "\033[0m | Info : \033[32m" + x + "\033[0m");
+        }
+    }
+
     public static Main INSTANCE;
-    private LightControls lightControls;
     private static final float MOUSE_SENSITIVITY = 0.1f;
     private static final float MOVEMENT_SPEED = 0.005f;
     private static final float SPRINT_AMPLIFIER = 2.0f;
     private static boolean isCursorDisabled;
-    public static long start_time;
     private static AnimationData animationData;
+    private static Engine engine;
+    public static MainMenu menu;
 
     public static void main(String[] args) {
+
+        System.setProperty("joml.nounsafe", Boolean.TRUE.toString());
+        System.setProperty("java.awt.headless", Boolean.TRUE.toString());
+
         isCursorDisabled = true;
-        Logger.getGlobal().info("\n" + Utils.getTitle() + "\nThanks for your playing.");
+
+
+        Logger.info("Revolution: Thanks for your playing.");
+
         ItemManager.init();
-        start_time = System.currentTimeMillis();
         INSTANCE = new Main();
         Window.WindowOptions options = new Window.WindowOptions();
-        Engine engine = new Engine(Utils.getTitle(), options, INSTANCE);
+        SimpleDateFormat format = new SimpleDateFormat();
+        format.applyPattern("yyyy-MM-dd HH:mm:ss");
+        Logger.info("Game started at " + format.format(new Date()) + ".");
+        engine = new Engine(Utils.getTitle(), options, INSTANCE);
+        menu = new MainMenu();
         engine.start();
+    }
+
+    public static Engine getEngine() {
+        return engine;
     }
 
     @Override
@@ -44,6 +66,7 @@ public class Main implements IAppLogic, IGuiInstance {
 
     @Override
     public void init(Window window, Scene scene, Render render) {
+        long startTime = System.currentTimeMillis();
         ItemManager.init(window, scene, render);
 
         SceneLights sceneLights = new SceneLights();
@@ -54,8 +77,7 @@ public class Main implements IAppLogic, IGuiInstance {
         scene.setSceneLights(sceneLights);
 
         String bobModelId = "bobModel";
-        Model bobModel = ModelLoader.loadModel(bobModelId, "resources/models/bob/boblamp.md5mesh",
-                scene.getTextureCache(), true);
+        Model bobModel = ModelLoader.loadModel(bobModelId, "resources/models/bob/boblamp.md5mesh", scene.getTextureCache(), true);
         scene.addModel(bobModel);
         Entity bobEntity = new Entity("bobEntity", bobModelId);
         bobEntity.setScale(0.05f);
@@ -70,7 +92,11 @@ public class Main implements IAppLogic, IGuiInstance {
         scene.setGuiInstance(this);
         glfwSetCursorPos(window.getHandle(), window.getWidth() >> 1, window.getHeight() >> 1);
         scene.getCamera().setPosition(1f, 1f, 1f);
-        Logger.getGlobal().info("Graphics System initialized.");
+
+//        scene.setGuiInstance(new MainMenu());
+
+        long endTime = System.currentTimeMillis();
+        Logger.info(String.format("Graphics System initialized. Using %.2f seconds.", (endTime - startTime) / 1000.0));
     }
 
     @Override
@@ -98,7 +124,9 @@ public class Main implements IAppLogic, IGuiInstance {
 
         isCursorDisabled = glfwGetKey(window.getHandle(), GLFW_KEY_LEFT_ALT) != GLFW_PRESS;
 
+
         MouseInput mouseInput = window.getMouseInput();
+
         if (isCursorDisabled) {
             Vector2f displVec = mouseInput.getDisplVec();
             camera.addRotation((float) Math.toRadians(displVec.x * MOUSE_SENSITIVITY), (float) Math.toRadians(displVec.y * MOUSE_SENSITIVITY));
@@ -118,8 +146,7 @@ public class Main implements IAppLogic, IGuiInstance {
             if (glfwGetInputMode(window.getHandle(), GLFW_CURSOR) == GLFW_CURSOR_NORMAL) {
                 glfwSetInputMode(window.getHandle(), GLFW_CURSOR, GLFW_CURSOR_DISABLED);
             }
-        }
-        else {
+        } else {
             if (glfwGetInputMode(window.getHandle(), GLFW_CURSOR) == GLFW_CURSOR_DISABLED) {
                 glfwSetInputMode(window.getHandle(), GLFW_CURSOR, GLFW_CURSOR_NORMAL);
                 glfwSetCursorPos(window.getHandle(), window.getWidth() >> 1, window.getHeight() >> 1);
@@ -131,7 +158,6 @@ public class Main implements IAppLogic, IGuiInstance {
     public void drawGui() {
         ImGui.newFrame();
         ImGui.setNextWindowPos(0, 0, ImGuiCond.Always);
-//        ImGui.showDemoWindow();
         ImGui.endFrame();
         ImGui.render();
     }
@@ -146,5 +172,10 @@ public class Main implements IAppLogic, IGuiInstance {
         imGuiIO.setMouseDown(1, mouseInput.isRightButtonPressed());
 
         return imGuiIO.getWantCaptureMouse() || imGuiIO.getWantCaptureKeyboard();
+    }
+
+    @Override
+    public void update() {
+
     }
 }

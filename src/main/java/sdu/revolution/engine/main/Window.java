@@ -2,6 +2,7 @@ package sdu.revolution.engine.main;
 
 import org.cooder.tinylog.Logger;
 import org.lwjgl.glfw.*;
+import org.lwjgl.opengl.GL;
 import org.lwjgl.system.MemoryUtil;
 
 import java.util.concurrent.Callable;
@@ -75,6 +76,8 @@ public class Window {
         } else {
             glfwSwapInterval(1);
         }
+
+        GL.createCapabilities();
 
         glfwShowWindow(windowHandle);
 

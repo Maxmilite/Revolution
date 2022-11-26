@@ -1,7 +1,12 @@
 package sdu.revolution.engine.main;
 
+import sdu.revolution.Main;
+import sdu.revolution.engine.gui.MainMenu;
 import sdu.revolution.engine.scene.Scene;
 import sdu.revolution.engine.graph.Render;
+
+import static org.lwjgl.glfw.GLFW.glfwDestroyWindow;
+import static org.lwjgl.glfw.GLFW.glfwTerminate;
 
 public class Engine {
 
@@ -14,6 +19,14 @@ public class Engine {
     private final Scene scene;
     private final int targetFps;
     private final int targetUps;
+
+    public Window getWindow() {
+        return window;
+    }
+
+    public Scene getScene() {
+        return scene;
+    }
 
     public Engine(String windowTitle, Window.WindowOptions opts, IAppLogic appLogic) {
         window = new Window(windowTitle, opts, () -> {
@@ -34,6 +47,10 @@ public class Engine {
         render.cleanup();
         scene.cleanup();
         window.cleanup();
+        Main.menu.cleanup();
+        Main.Logger.info("Program will exit normally.");
+        glfwDestroyWindow(window.getHandle());
+        glfwTerminate();
     }
 
     private void resize() {
@@ -72,6 +89,9 @@ public class Engine {
 
             if (targetFps <= 0 || deltaFps >= 1) {
                 render.render(window, scene);
+                if (Main.menu != null) {
+                    Main.menu.update();
+                }
                 deltaFps--;
                 window.update();
             }

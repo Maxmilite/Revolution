@@ -1,6 +1,7 @@
 package sdu.revolution.engine.model.terrain;
 
 import org.joml.Vector2i;
+import sdu.revolution.engine.model.ItemManager;
 
 import java.util.LinkedList;
 import java.util.Queue;
@@ -38,7 +39,14 @@ public class Plain {
                     continue;
                 if (!vis[vec.x + size][vec.y + size]) {
                     double rand = Math.random();
-                    if (curHeight < 0) {
+                    if (curHeight == ItemManager.LOWEST_HEIGHT) {
+                        if (rand <= 0.2) {
+                            height[vec.x + size][vec.y + size] = curHeight;
+                        } else {
+                            height[vec.x + size][vec.y + size] = 0;
+                        }
+                    }
+                    else if (curHeight < 0) {
                         if (rand <= 0.15) {
                             height[vec.x + size][vec.y + size] = curHeight;
                         } else if (rand <= 0.2) {
@@ -47,9 +55,9 @@ public class Plain {
                             height[vec.x + size][vec.y + size] = curHeight + 1;
                         }
                     } else if (curHeight > 0) {
-                        if (rand <= 0.15) {
+                        if (rand <= 0.2) {
                             height[vec.x + size][vec.y + size] = curHeight;
-                        } else if (rand <= 0.2) {
+                        } else if (rand <= 0.3) {
                             height[vec.x + size][vec.y + size] = curHeight + 1;
                         } else {
                             height[vec.x + size][vec.y + size] = curHeight - 1;
