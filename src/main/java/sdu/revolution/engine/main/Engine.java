@@ -5,8 +5,7 @@ import sdu.revolution.engine.gui.MainMenu;
 import sdu.revolution.engine.scene.Scene;
 import sdu.revolution.engine.graph.Render;
 
-import static org.lwjgl.glfw.GLFW.glfwDestroyWindow;
-import static org.lwjgl.glfw.GLFW.glfwTerminate;
+import static org.lwjgl.glfw.GLFW.*;
 
 public class Engine {
 
@@ -19,6 +18,7 @@ public class Engine {
     private final Scene scene;
     private final int targetFps;
     private final int targetUps;
+    private int varWidth, varHeight;
 
     public Window getWindow() {
         return window;
@@ -40,6 +40,11 @@ public class Engine {
         scene = new Scene(window.getWidth(), window.getHeight());
         appLogic.init(window, scene, render);
         running = true;
+        int[] arrWidth = new int[1];
+        int[] arrHeight = new int[1];
+        glfwGetFramebufferSize(window.getHandle(), arrWidth, arrHeight);
+        varWidth = arrWidth[0];
+        varHeight = arrHeight[0];
     }
 
     private void cleanup() {
@@ -54,10 +59,19 @@ public class Engine {
     }
 
     private void resize() {
+        Main.Logger.info("Resize() function called");
         int width = window.getWidth();
         int height = window.getHeight();
         scene.resize(width, height);
         render.resize(width, height);
+        int[] arrWidth = new int[1];
+        int[] arrHeight = new int[1];
+        glfwGetFramebufferSize(window.getHandle(), arrWidth, arrHeight);
+        width = arrWidth[0];
+        height = arrHeight[0];
+        varWidth = width;
+        varHeight = height;
+        Main.menu.resize(width, height);
     }
 
     private void run() {
@@ -96,6 +110,17 @@ public class Engine {
                 window.update();
             }
             initialTime = now;
+
+            int[] arrWidth = new int[1];
+            int[] arrHeight = new int[1];
+            glfwGetFramebufferSize(window.getHandle(), arrWidth, arrHeight);
+            int width = arrWidth[0];
+            int height = arrHeight[0];
+            if (width != varWidth || height != varHeight) {
+                resize();
+                varWidth = width;
+                varHeight = height;
+            }
         }
 
         cleanup();

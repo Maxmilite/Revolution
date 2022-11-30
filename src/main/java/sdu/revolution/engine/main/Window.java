@@ -4,6 +4,7 @@ import org.cooder.tinylog.Logger;
 import org.lwjgl.glfw.*;
 import org.lwjgl.opengl.GL;
 import org.lwjgl.system.MemoryUtil;
+import sdu.revolution.Main;
 
 import java.util.concurrent.Callable;
 
@@ -86,6 +87,7 @@ public class Window {
         glfwGetFramebufferSize(windowHandle, arrWidth, arrHeight);
         width = arrWidth[0];
         height = arrHeight[0];
+
 
         mouseInput = new MouseInput(windowHandle);
     }

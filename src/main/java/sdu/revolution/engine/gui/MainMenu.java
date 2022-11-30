@@ -3,14 +3,16 @@ package sdu.revolution.engine.gui;
 import com.spinyowl.legui.DefaultInitializer;
 import com.spinyowl.legui.animation.Animator;
 import com.spinyowl.legui.animation.AnimatorProvider;
-import com.spinyowl.legui.component.Component;
-import com.spinyowl.legui.component.Frame;
+import com.spinyowl.legui.component.*;
+import com.spinyowl.legui.style.Border;
 import com.spinyowl.legui.style.Style;
+import com.spinyowl.legui.style.border.SimpleLineBorder;
 import com.spinyowl.legui.style.color.ColorConstants;
+import com.spinyowl.legui.style.font.FontRegistry;
 import com.spinyowl.legui.system.context.Context;
-import com.spinyowl.legui.system.layout.LayoutManager;
 import com.spinyowl.legui.system.renderer.Renderer;
 import org.joml.Vector2i;
+import org.joml.Vector4f;
 import sdu.revolution.Main;
 import sdu.revolution.engine.main.IGuiInstance;
 import sdu.revolution.engine.main.Window;
@@ -18,21 +20,22 @@ import sdu.revolution.engine.scene.Scene;
 
 import java.util.Objects;
 
-import static org.lwjgl.glfw.GLFW.glfwGetPrimaryMonitor;
-import static org.lwjgl.glfw.GLFW.glfwGetVideoMode;
+import static com.spinyowl.legui.component.optional.align.HorizontalAlign.CENTER;
+import static com.spinyowl.legui.component.optional.align.VerticalAlign.MIDDLE;
+import static org.lwjgl.glfw.GLFW.*;
 
 public class MainMenu implements IGuiInstance {
 
     private int width, height;
     private Frame frame;
-    private ExampleGui gui;
+    private GUI gui;
     private Context context;
     private Renderer renderer;
     private DefaultInitializer initializer;
     private Animator animator;
 
     private void createGuiElements(Frame frame, int w, int h) {
-        gui = new ExampleGui(w, h);
+        gui = new GUI(w, h);
         gui.setFocusable(false);
         gui.getStyle().setMinWidth(100F);
         gui.getStyle().setMinHeight(100F);
@@ -44,9 +47,57 @@ public class MainMenu implements IGuiInstance {
         frame.getContainer().add(gui);
     }
 
+    public void reload() {
+        if (renderer != null) {
+            renderer.destroy();
+        }
+        int[] arrWidth = new int[1];
+        int[] arrHeight = new int[1];
+        glfwGetFramebufferSize(Main.getEngine().getWindow().getHandle(), arrWidth, arrHeight);
+        width = arrWidth[0];
+        height = arrHeight[0];
+        gui.resize(width, height);
+        frame = new Frame(width, height);
+        createGuiElements(frame, width, height);
+        Label label = new Label(width / 2.0f - 200.0f, 50, 400, 100);
+        label.getTextState().setText("Your layout has been reloaded.");
+        label.getStyle().setTextColor(new Vector4f(1.0f, 1.0f, 1.0f, 0.0f));
+        label.getStyle().setBorder(new SimpleLineBorder());
+        label.getStyle().setFont("YaHei Mono");
+        label.getStyle().setFontSize(40f);
+        label.getStyle().setHorizontalAlign(CENTER);
+        label.getStyle().setVerticalAlign(MIDDLE);
+        gui.add(label);
+        initializer = new DefaultInitializer(Main.getEngine().getWindow().getHandle(), frame);
+        renderer = initializer.getRenderer();
+        animator = AnimatorProvider.getAnimator();
+        renderer.initialize();
+        context = initializer.getContext();
+        Main.Logger.info(this, "Layout Reloaded");
+        new Thread(() -> {
+            try {
+                for (int i = 1; i <= 100; ++i) {
+                    label.getStyle().setTextColor(new Vector4f(1.0f, 1.0f, 1.0f, i / 100.0f));
+                    Thread.sleep(1);
+                }
+                Thread.sleep(1000);
+                for (int i = 1; i <= 100; ++i) {
+                    label.getStyle().setTextColor(new Vector4f(1.0f, 1.0f, 1.0f, (100 - i) / 100.0f));
+                    Thread.sleep(1);
+                }
+                gui.remove(label);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }).start();
+    }
+
     public MainMenu() {
-        width = Objects.requireNonNull(glfwGetVideoMode(glfwGetPrimaryMonitor())).width();
-        height = Objects.requireNonNull(glfwGetVideoMode(glfwGetPrimaryMonitor())).height();
+        int[] arrWidth = new int[1];
+        int[] arrHeight = new int[1];
+        glfwGetFramebufferSize(Main.getEngine().getWindow().getHandle(), arrWidth, arrHeight);
+        width = arrWidth[0];
+        height = arrHeight[0];
         frame = new Frame(width, height);
         createGuiElements(frame, width, height);
         initializer = new DefaultInitializer(Main.getEngine().getWindow().getHandle(), frame);
@@ -57,7 +108,8 @@ public class MainMenu implements IGuiInstance {
     }
 
     @Override
-    public void drawGui() { }
+    public void drawGui() {
+    }
 
     @Override
     public boolean handleGuiInput(Scene scene, Window window) {
@@ -70,11 +122,11 @@ public class MainMenu implements IGuiInstance {
         Vector2i windowSize = context.getFramebufferSize();
 
         // We need to relayout components.
-        if (gui.getGenerateEventsByLayoutManager().isChecked()) {
-            LayoutManager.getInstance().layout(frame, context);
-        } else {
-            LayoutManager.getInstance().layout(frame);
-        }
+//        if (gui.getGenerateEventsByLayoutManager().isChecked()) {
+//            LayoutManager.getInstance().layout(frame, context);
+//        } else {
+//            LayoutManager.getInstance().layout(frame);
+//        }
 
         // render frame
         renderer.render(frame, context);
@@ -98,10 +150,10 @@ public class MainMenu implements IGuiInstance {
     private void updateElement() {
         if (context != null) {
             Component mouseTargetGui = context.getMouseTargetGui();
-            gui.getMouseTargetLabel().getTextState().setText("-> " + (mouseTargetGui == null ? null : mouseTargetGui.getClass().getSimpleName()));
+//            gui.getMouseTargetLabel().getTextState().setText("-> " + (mouseTargetGui == null ? null : mouseTargetGui.getClass().getSimpleName()));
 
             Component focusedGui = context.getFocusedGui();
-            gui.getFocusedGuiLabel().getTextState().setText("-> " + (focusedGui == null ? null : focusedGui.getClass().getSimpleName()));
+//            gui.getFocusedGuiLabel().getTextState().setText("-> " + (focusedGui == null ? null : focusedGui.getClass().getSimpleName()));
         }
     }
 
@@ -112,7 +164,6 @@ public class MainMenu implements IGuiInstance {
     public void resize(int w, int h) {
         width = w;
         height = h;
-        gui.resize();
+        reload();
     }
-
 }

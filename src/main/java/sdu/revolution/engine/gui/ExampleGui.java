@@ -67,8 +67,10 @@ import com.spinyowl.legui.style.shadow.Shadow;
 import com.spinyowl.legui.theme.Theme;
 import com.spinyowl.legui.theme.Themes;
 import com.spinyowl.legui.util.TextUtil;
+
 import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;
+
 import org.joml.Vector2f;
 import org.joml.Vector4f;
 import org.lwjgl.glfw.GLFW;
@@ -87,20 +89,27 @@ public class ExampleGui extends Panel {
     private final SplitPanel splitPanel;
     private ImageView imageView;
 
-    public void resize() {}
+    public void resize() {
+    }
 
     public ExampleGui(int width, int height) {
         super(0, 0, width, height);
         //@formatter:off
+
+        // 创建 Panel
         createNinePanels();
 
+
+        // 创建 鼠标追踪 Target
         this.add(mouseTargetLabel = new Label("Hello Label 1", 10, height - 30, width - 20, 20));
 
+
+        // 创建
         focusedGuiLabel = new Label("Hello Label 2", 10, height - 50, width - 20, 20);
         focusedGuiLabel.getStyle().setBorder(new SimpleLineBorder(ColorConstants.red(), 1));
         focusedGuiLabel.getListenerMap()
                 .addListener(LabelWidthChangeEvent.class, new UpdateLabelWidthListener());
-        
+
         this.add(focusedGuiLabel);
 
         this.add(debugLabel = new Label("Debug Label", 10, height - 75, width - 20, 20));

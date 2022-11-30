@@ -12,6 +12,7 @@ import sdu.revolution.engine.model.ItemManager;
 import sdu.revolution.engine.scene.*;
 import sdu.revolution.engine.scene.lights.SceneLights;
 
+import java.security.AlgorithmConstraints;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -23,24 +24,29 @@ public class Main implements IAppLogic, IGuiInstance {
         public static void info(String x) {
             System.out.println("\033[0m[\033[31mRevolution\033[0m] \033[33m" + new Date() + "\033[0m | Info : \033[32m" + x + "\033[0m");
         }
+
+        public static void info(Object object, String x) {
+            System.out.println("\033[0m[\033[31mRevolution\033[0m] \033[33m" + new Date() + "\033[0m | Info from " + object.getClass().getSimpleName() + " : \033[32m" + x + "\033[0m");
+        }
     }
 
     public static Main INSTANCE;
     private static final float MOUSE_SENSITIVITY = 0.1f;
     private static final float MOVEMENT_SPEED = 0.005f;
     private static final float SPRINT_AMPLIFIER = 2.0f;
-    private static boolean isCursorDisabled;
+    public static boolean isControlled;
     private static AnimationData animationData;
     private static Engine engine;
     public static MainMenu menu;
+    private static boolean isAltPressed;
 
     public static void main(String[] args) {
 
         System.setProperty("joml.nounsafe", Boolean.TRUE.toString());
         System.setProperty("java.awt.headless", Boolean.TRUE.toString());
 
-        isCursorDisabled = true;
-
+        isControlled = false;
+        isAltPressed = false;
 
         Logger.info("Revolution: Thanks for your playing.");
 
@@ -101,48 +107,47 @@ public class Main implements IAppLogic, IGuiInstance {
 
     @Override
     public void input(Window window, Scene scene, long diffTimeMillis, boolean inputConsumed) {
-        // Nothing to be done yet
-        ItemManager.input(window, scene, diffTimeMillis);
-        float move = diffTimeMillis * MOVEMENT_SPEED;
-        if (window.isKeyPressed(GLFW_KEY_LEFT_CONTROL)) move *= SPRINT_AMPLIFIER;
-        Camera camera = scene.getCamera();
-        if (window.isKeyPressed(GLFW_KEY_W)) {
-            camera.moveForward(move);
-        } else if (window.isKeyPressed(GLFW_KEY_S)) {
-            camera.moveBackwards(move);
-        }
-        if (window.isKeyPressed(GLFW_KEY_A)) {
-            camera.moveLeft(move);
-        } else if (window.isKeyPressed(GLFW_KEY_D)) {
-            camera.moveRight(move);
-        }
-        if (window.isKeyPressed(GLFW_KEY_UP) || window.isKeyPressed(GLFW_KEY_SPACE)) {
-            camera.moveUp(move);
-        } else if (window.isKeyPressed(GLFW_KEY_DOWN) || window.isKeyPressed(GLFW_KEY_LEFT_SHIFT)) {
-            camera.moveDown(move);
-        }
+        if (isControlled) {
+            // Nothing to be done yet
+            ItemManager.input(window, scene, diffTimeMillis);
+            float move = diffTimeMillis * MOVEMENT_SPEED;
+            if (window.isKeyPressed(GLFW_KEY_LEFT_CONTROL)) move *= SPRINT_AMPLIFIER;
+            Camera camera = scene.getCamera();
+            if (window.isKeyPressed(GLFW_KEY_W)) {
+                camera.moveForward(move);
+            } else if (window.isKeyPressed(GLFW_KEY_S)) {
+                camera.moveBackwards(move);
+            }
+            if (window.isKeyPressed(GLFW_KEY_A)) {
+                camera.moveLeft(move);
+            } else if (window.isKeyPressed(GLFW_KEY_D)) {
+                camera.moveRight(move);
+            }
+            if (window.isKeyPressed(GLFW_KEY_UP) || window.isKeyPressed(GLFW_KEY_SPACE)) {
+                camera.moveUp(move);
+            } else if (window.isKeyPressed(GLFW_KEY_DOWN) || window.isKeyPressed(GLFW_KEY_LEFT_SHIFT)) {
+                camera.moveDown(move);
+            }
 
-        isCursorDisabled = glfwGetKey(window.getHandle(), GLFW_KEY_LEFT_ALT) != GLFW_PRESS;
+            MouseInput mouseInput = window.getMouseInput();
 
-
-        MouseInput mouseInput = window.getMouseInput();
-
-        if (isCursorDisabled) {
             Vector2f displVec = mouseInput.getDisplVec();
             camera.addRotation((float) Math.toRadians(displVec.x * MOUSE_SENSITIVITY), (float) Math.toRadians(displVec.y * MOUSE_SENSITIVITY));
         }
-        if (!isCursorDisabled && window.getMouseInput().isRightButtonPressed()) {
-            Vector2f displVec = mouseInput.getDisplVec();
-            camera.addRotation((float) Math.toRadians(-displVec.x * MOUSE_SENSITIVITY), (float) Math.toRadians(-displVec.y * MOUSE_SENSITIVITY));
-        }
 
+        if (glfwGetKey(window.getHandle(), GLFW_KEY_GRAVE_ACCENT) == GLFW_PRESS) {
+            isAltPressed = true;
+        } else if (isAltPressed) {
+            isControlled = !isControlled;
+            isAltPressed = false;
+        }
     }
 
     @Override
     public void update(Window window, Scene scene, long diffTimeMillis) {
         animationData.nextFrame();
         ItemManager.update(window, scene, diffTimeMillis);
-        if (isCursorDisabled) {
+        if (isControlled) {
             if (glfwGetInputMode(window.getHandle(), GLFW_CURSOR) == GLFW_CURSOR_NORMAL) {
                 glfwSetInputMode(window.getHandle(), GLFW_CURSOR, GLFW_CURSOR_DISABLED);
             }
@@ -167,7 +172,7 @@ public class Main implements IAppLogic, IGuiInstance {
         ImGuiIO imGuiIO = ImGui.getIO();
         MouseInput mouseInput = window.getMouseInput();
         Vector2f mousePos = mouseInput.getCurrentPos();
-        if (!isCursorDisabled) imGuiIO.setMousePos(mousePos.x, mousePos.y);
+        if (!isControlled) imGuiIO.setMousePos(mousePos.x, mousePos.y);
         imGuiIO.setMouseDown(0, mouseInput.isLeftButtonPressed());
         imGuiIO.setMouseDown(1, mouseInput.isRightButtonPressed());
 
