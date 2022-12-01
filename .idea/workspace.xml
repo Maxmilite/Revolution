@@ -1,37 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="ArtifactsWorkspaceSettings">
-    <artifacts-to-build>
-      <artifact name="Revolution:jar" />
-    </artifacts-to-build>
-  </component>
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="75d0cbf2-0ea0-4775-b5db-694f0ee2e8ff" name="Changes" comment="Update on 2022-11-23 14:17">
-      <change afterPath="$PROJECT_DIR$/resources/fonts/impact.ttf" afterDir="false" />
+    <list default="true" id="b6622123-b0ba-4321-a811-fe3998f53e85" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sdu/revolution/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sdu/revolution/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sdu/revolution/engine/gui/ExampleGui.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sdu/revolution/engine/gui/ExampleGui.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hs_err_pid10036.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hs_err_pid14380.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hs_err_pid19080.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hs_err_pid23144.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hs_err_pid23880.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hs_err_pid4424.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hs_err_pid7128.log" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/sdu/revolution/engine/gui/GUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sdu/revolution/engine/gui/GUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sdu/revolution/engine/gui/MainMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sdu/revolution/engine/gui/MainMenu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sdu/revolution/engine/main/Engine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sdu/revolution/engine/main/Engine.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sdu/revolution/engine/main/Window.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sdu/revolution/engine/main/Window.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/sdu/revolution/engine/model/terrain/Plain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sdu/revolution/engine/model/terrain/Plain.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
-  </component>
-  <component name="FileTemplateManagerImpl">
-    <option name="RECENT_TEMPLATES">
-      <list>
-        <option value="Interface" />
-        <option value="shader-template" />
-        <option value="Class" />
-      </list>
-    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -39,56 +29,31 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
-  <component name="ProjectId" id="2HKlVkpO1Sz2RySqqHS8dAUXrzH" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
-    <ConfirmationsSetting value="2" id="Add" />
-  </component>
+  <component name="ProjectId" id="2IJud8RdQj7wDdUJsVrZBHT39mp" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
     "Downloaded.Files.Path.Enabled": "false",
     "Repository.Attach.Annotations": "false",
     "Repository.Attach.JavaDocs": "false",
     "Repository.Attach.Sources": "false",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "last_opened_file_path": "D:/CodeSpace/Revolution/resources/fonts",
-    "project.structure.last.edited": "Modules",
+    "project.structure.last.edited": "Libraries",
     "project.structure.proportion": "0.15039062",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "preferences.keymap"
+    "project.structure.side.proportion": "0.2"
   }
 }]]></component>
-  <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\CodeSpace\Revolution\resources\fonts" />
-      <recent name="D:\CodeSpace\Revolution\resources" />
-      <recent name="D:\CodeSpace\Revolution\src\main\java\sdu\revolution\engine\skybox\scene" />
-      <recent name="D:\CodeSpace\Revolution\src\main\java\sdu\revolution\engine\skybox\graph" />
-      <recent name="D:\CodeSpace\Revolution\resources\models\skybox" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="D:\CodeSpace\Revolution\resources\models" />
-      <recent name="D:\CodeSpace\Revolution\resources" />
-      <recent name="D:\CodeSpace\Revolution\src\main\resources\models" />
-      <recent name="D:\CodeSpace\Revolution\src\main\resources\shaders" />
-    </key>
-    <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="sdu.revolution.engine.model.items" />
-    </key>
-  </component>
-  <component name="RunManager" selected="Application.Main">
+  <component name="RunManager">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="sdu.revolution.Main" />
       <module name="Revolution" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="sdu.revolution.engine.main.*" />
+          <option name="PATTERN" value="sdu.revolution.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -96,73 +61,21 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="MainBak" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="MainBak" />
-      <module name="Revolution" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="sdu.Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="sdu.Main" />
-      <module name="Revolution" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="Application.Main" />
-        <item itemvalue="Application.sdu.Main" />
-        <item itemvalue="Application.MainBak" />
       </list>
     </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="75d0cbf2-0ea0-4775-b5db-694f0ee2e8ff" name="Changes" comment="" />
-      <created>1668041683903</created>
+      <changelist id="b6622123-b0ba-4321-a811-fe3998f53e85" name="Changes" comment="" />
+      <created>1669912094876</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1668041683903</updated>
+      <updated>1669912094876</updated>
     </task>
-    <task id="LOCAL-00001" summary="A">
-      <created>1669104094415</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1669104094415</updated>
-    </task>
-    <task id="LOCAL-00002" summary="Update on 2022-11-23 14:17">
-      <created>1669184277528</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1669184277528</updated>
-    </task>
-    <option name="localTasksCounter" value="3" />
     <servers />
-  </component>
-  <component name="Vcs.Log.Tabs.Properties">
-    <option name="TAB_STATES">
-      <map>
-        <entry key="MAIN">
-          <value>
-            <State />
-          </value>
-        </entry>
-      </map>
-    </option>
-  </component>
-  <component name="VcsManagerConfiguration">
-    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="A" />
-    <MESSAGE value="Update on 2022-11-23 14:17" />
-    <option name="LAST_COMMIT_MESSAGE" value="Update on 2022-11-23 14:17" />
-  </component>
-  <component name="XSLT-Support.FileAssociations.UIState">
-    <expand />
-    <select />
   </component>
 </project>

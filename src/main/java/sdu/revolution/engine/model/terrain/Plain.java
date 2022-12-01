@@ -3,7 +3,9 @@ package sdu.revolution.engine.model.terrain;
 import org.joml.Vector2i;
 import sdu.revolution.engine.model.ItemManager;
 
+import java.util.Arrays;
 import java.util.LinkedList;
+import java.util.List;
 import java.util.Queue;
 
 public class Plain {
@@ -33,7 +35,19 @@ public class Plain {
                 continue;
             vis[vec.x + size][vec.y + size] = true;
             int curHeight = height[vec.x + size][vec.y + size];
-            for (var i : dxy) {
+            List<Vector2i> vecList;
+            if (Math.abs(vec.x) > Math.abs(vec.y)) {
+                vecList = Arrays.asList(
+                        new Vector2i(0, 1), new Vector2i(0, -1),
+                        new Vector2i(1, 0), new Vector2i(-1, 0)
+                );
+            } else {
+                vecList = Arrays.asList(
+                        new Vector2i(1, 0), new Vector2i(-1, 0),
+                        new Vector2i(0, 1), new Vector2i(0, -1)
+                );
+            }
+            for (var i : vecList) {
                 vec.add(i);
                 if (!checkNotOutOfBound(vec))
                     continue;
