@@ -97,7 +97,7 @@ public class Main implements IAppLogic, IGuiInstance {
         scene.setSkyBox(skyBox);
         scene.setGuiInstance(this);
         glfwSetCursorPos(window.getHandle(), window.getWidth() >> 1, window.getHeight() >> 1);
-        scene.getCamera().setPosition(1f, 1f, 1f);
+        scene.getCamera().setPosition(0f, 2.5f, 2f);
 
 //        scene.setGuiInstance(new MainMenu());
 

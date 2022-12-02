@@ -5,18 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b6622123-b0ba-4321-a811-fe3998f53e85" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hs_err_pid10036.log" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/hs_err_pid14380.log" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/hs_err_pid19080.log" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/hs_err_pid23144.log" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/hs_err_pid23880.log" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/hs_err_pid4424.log" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/hs_err_pid7128.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/sdu/revolution/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sdu/revolution/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/sdu/revolution/engine/gui/GUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sdu/revolution/engine/gui/GUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sdu/revolution/engine/model/terrain/Plain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sdu/revolution/engine/model/terrain/Plain.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,19 +26,19 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Downloaded.Files.Path.Enabled": "false",
-    "Repository.Attach.Annotations": "false",
-    "Repository.Attach.JavaDocs": "false",
-    "Repository.Attach.Sources": "false",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "project.structure.last.edited": "Libraries",
-    "project.structure.proportion": "0.15039062",
-    "project.structure.side.proportion": "0.2"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15039062&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="sdu.revolution.Main" />
