@@ -16,6 +16,8 @@ out vec3 outNormal;
 out vec3 outTangent;
 out vec3 outBitangent;
 out vec2 outTextCoord;
+out vec3 outViewPosition;
+out vec4 outWorldPosition;
 
 uniform mat4 projectionMatrix;
 uniform mat4 viewMatrix;
@@ -55,10 +57,13 @@ void main()
         initBitangent = vec4(bitangent, 0.0);
     }
 
+
     mat4 modelViewMatrix = viewMatrix * modelMatrix;
     vec4 mvPosition = modelViewMatrix * initPos;
     gl_Position = projectionMatrix * mvPosition;
     outPosition = mvPosition.xyz;
+    outViewPosition  = mvPosition.xyz;
+    outWorldPosition = modelMatrix * initPos;
     outNormal = normalize(modelViewMatrix * initNormal).xyz;
     outTangent = normalize(modelViewMatrix * initTangent).xyz;
     outBitangent = normalize(modelViewMatrix * initBitangent).xyz;

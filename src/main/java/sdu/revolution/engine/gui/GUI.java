@@ -12,6 +12,7 @@ import com.spinyowl.legui.style.Style;
 import com.spinyowl.legui.style.border.SimpleLineBorder;
 import com.spinyowl.legui.style.color.ColorConstants;
 import com.spinyowl.legui.style.color.ColorUtil;
+import com.spinyowl.legui.style.font.Font;
 import com.spinyowl.legui.style.font.FontRegistry;
 import com.spinyowl.legui.style.length.Length;
 import com.spinyowl.legui.style.length.LengthType;
@@ -23,6 +24,8 @@ import sdu.revolution.Main;
 import java.util.Arrays;
 import java.util.List;
 
+
+// Todo: Reduce duplicate code
 
 public class GUI extends Panel {
     private int width, height;
@@ -54,7 +57,7 @@ public class GUI extends Panel {
         Label val = new Label(content);
         val.getStyle().setTextColor(ColorUtil.rgba(0, 255, 255, 1f));
         val.getStyle().setFontSize(24f);
-        val.getStyle().setFont("Impact");
+        val.getStyle().setFont("YaHei");
         val.getStyle().setVerticalAlign(VerticalAlign.TOP);
         val.getStyle().setHorizontalAlign(HorizontalAlign.CENTER);
         val.getStyle().setPaddingTop(new Length(72f, LengthType.PIXEL));
@@ -194,7 +197,9 @@ public class GUI extends Panel {
         );
         buttons.get(5).getListenerMap().addListener(MouseClickEvent.class, (MouseClickEventListener) event -> {
             if (event.getAction() == MouseClickEvent.MouseClickAction.RELEASE) {
-                prompt("Are you sure to quit to desktop?", () -> GLFW.glfwSetWindowShouldClose(Main.getEngine().getWindow().getHandle(), true), () -> {});
+                prompt("Are you sure to quit to desktop?",
+                        () -> GLFW.glfwSetWindowShouldClose(Main.getEngine().getWindow().getHandle(), true),
+                        () -> {});
 //                GLFW.glfwSetWindowShouldClose(Main.getEngine().getWindow().getHandle(), true);
             }
         });
@@ -318,7 +323,7 @@ public class GUI extends Panel {
         subPanel.getStyle().setHorizontalAlign(HorizontalAlign.CENTER);
         float panelWidth = subPanel.getSize().x;
         float panelHeight = subPanel.getSize().y;
-        Label title = new Label("Title");
+        Label title = new Label("Sub Menu");
         title.getStyle().setTextColor(ColorUtil.rgba(0, 255, 255, 1f));
         title.getStyle().setFontSize(48f);
         title.getStyle().setFont("Impact");
@@ -365,6 +370,17 @@ public class GUI extends Panel {
     }
 
     private void createDebugPanel() {
+
+        Label debug = new Label("Version Not Final, Does Not Represent Actual Game Footage.");
+        debug.setSize(width, 200);
+        debug.getStyle().setHorizontalAlign(HorizontalAlign.CENTER);
+        debug.getStyle().setVerticalAlign(VerticalAlign.TOP);
+        debug.setPosition(0, 200);
+        debug.getStyle().setFontSize(48F);
+        debug.getStyle().setTextColor(new Vector4f(1.0f, 1.0f, 1.0f, 0.5f));
+        debug.getStyle().setFont(FontRegistry.ROBOTO_REGULAR);
+        this.add(debug);
+
         createReloadButton();
 
         Button switchButton = new Button("SubMenu");
@@ -387,11 +403,17 @@ public class GUI extends Panel {
         optionButton.getStyle().setFontSize(24f);
         optionButton.getListenerMap().addListener(MouseClickEvent.class, (MouseClickEventListener) event -> {
             if (event.getAction() == MouseClickEvent.MouseClickAction.RELEASE) {
-                this.add(optionPanel);
-                runSlide(optionPanel, 200, new Vector2f(400, 600), new Vector2f((width / 2) - 200, (height / 2) - 300));
+                callOptionPanel();
             }
         });
         this.add(optionButton);
+    }
+
+    public void callOptionPanel() {
+        if (!this.contains(optionPanel)) {
+            this.add(optionPanel);
+            runSlide(optionPanel, 200, new Vector2f(400, 600), new Vector2f((width / 2) - 200, (height / 2) - 300));
+        }
     }
 
     private void createStyle() {
@@ -449,6 +471,8 @@ public class GUI extends Panel {
         this.height = height;
         FontRegistry.registerFont("YaHei Mono", "resources/fonts/Microsoft YaHei Mono.ttf");
         FontRegistry.registerFont("Impact", "resources/fonts/impact.ttf");
+        FontRegistry.registerFont("YaHei", "resources/fonts/msyh.ttc");
+        FontRegistry.registerFont("XinWei", "resources/fonts/STXINWEI.TTF");
         createStyle();
         createPanels();
         createSubPanel();
@@ -459,8 +483,7 @@ public class GUI extends Panel {
     public void resize(int w, int h) {
         this.width = w;
         this.height = h;
-        createPanels();
-        createDebugPanel();
+
         reloadButton.setPosition(width - 100, height - 100);
     }
 

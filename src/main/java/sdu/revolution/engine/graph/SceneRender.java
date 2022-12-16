@@ -1,6 +1,7 @@
 package sdu.revolution.engine.graph;
 
 import org.joml.*;
+import sdu.revolution.Main;
 import sdu.revolution.engine.scene.*;
 import sdu.revolution.engine.scene.lights.*;
 
@@ -72,9 +73,15 @@ public class SceneRender {
         uniformsMap.createUniform("fog.active");
         uniformsMap.createUniform("fog.color");
         uniformsMap.createUniform("fog.density");
+
+        for (int i = 0; i < CascadeShadow.SHADOW_MAP_CASCADE_COUNT; i++) {
+            uniformsMap.createUniform("cascadeshadows[" + i + "]" + ".projViewMatrix");
+            uniformsMap.createUniform("cascadeshadows[" + i + "]" + ".splitDistance");
+            uniformsMap.createUniform("shadowMap_" + i);
+        }
     }
 
-    public void render(Scene scene) {
+    public void render(Scene scene, ShadowRender shadowRender) {
         glEnable(GL_BLEND);
         glBlendEquation(GL_FUNC_ADD);
         glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
@@ -130,6 +137,20 @@ public class SceneRender {
                 }
             }
         }
+
+        uniformsMap.setUniform("txtSampler", 0);
+        uniformsMap.setUniform("normalSampler", 1);
+
+        int start = 2;
+        List<CascadeShadow> cascadeShadows = shadowRender.getCascadeShadows();
+        for (int i = 0; i < CascadeShadow.SHADOW_MAP_CASCADE_COUNT; i++) {
+            uniformsMap.setUniform("shadowMap_" + i, start + i);
+            CascadeShadow cascadeShadow = cascadeShadows.get(i);
+            uniformsMap.setUniform("cascadeshadows[" + i + "]" + ".projViewMatrix", cascadeShadow.getProjViewMatrix());
+            uniformsMap.setUniform("cascadeshadows[" + i + "]" + ".splitDistance", cascadeShadow.getSplitDistance());
+        }
+
+        shadowRender.getShadowBuffer().bindTextures(GL_TEXTURE2);
 
         glBindVertexArray(0);
 

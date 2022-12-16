@@ -94,6 +94,7 @@ public class Main implements IAppLogic, IGuiInstance {
 
         SkyBox skyBox = new SkyBox(Utils.getResourceDir() + "/models/skybox/skybox.obj", scene.getTextureCache());
         skyBox.getSkyBoxEntity().setScale(500);
+        System.out.println(skyBox.getSkyBoxEntity().getPosition().toString());
         scene.setSkyBox(skyBox);
         scene.setGuiInstance(this);
         glfwSetCursorPos(window.getHandle(), window.getWidth() >> 1, window.getHeight() >> 1);
@@ -140,6 +141,11 @@ public class Main implements IAppLogic, IGuiInstance {
         } else if (isAltPressed) {
             isControlled = !isControlled;
             isAltPressed = false;
+        }
+
+        if (window.isKeyPressed(GLFW_KEY_ESCAPE)) {
+            menu.callPause();
+            isControlled = false;
         }
     }
 
