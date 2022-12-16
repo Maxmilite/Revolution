@@ -141,6 +141,11 @@ public class Main implements IAppLogic, IGuiInstance {
             isControlled = !isControlled;
             isAltPressed = false;
         }
+
+        if (window.isKeyPressed(GLFW_KEY_ESCAPE)) {
+            menu.callPause();
+            isControlled = false;
+        }
     }
 
     @Override

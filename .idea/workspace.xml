@@ -5,15 +5,30 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b6622123-b0ba-4321-a811-fe3998f53e85" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/fonts/STXINWEI.TTF" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/fonts/msyh.ttc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/fonts/msyhbd.ttc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/fonts/msyhhv.ttc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/fonts/msyhl.ttc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/fonts/msyhsb.ttc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/fonts/msyhsl.ttc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/sdu/revolution/engine/gui/GuiLibrary.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/sdu/revolution/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sdu/revolution/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/sdu/revolution/engine/gui/GUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sdu/revolution/engine/gui/GUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/sdu/revolution/engine/gui/MainMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sdu/revolution/engine/gui/MainMenu.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -22,23 +37,32 @@
     <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectId" id="2IJud8RdQj7wDdUJsVrZBHT39mp" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
-    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
-    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
-    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15039062&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Downloaded.Files.Path.Enabled": "false",
+    "Repository.Attach.Annotations": "false",
+    "Repository.Attach.JavaDocs": "false",
+    "Repository.Attach.Sources": "false",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "last_opened_file_path": "D:/CodeSpace/Revolution/resources/fonts",
+    "project.structure.last.edited": "Libraries",
+    "project.structure.proportion": "0.15039062",
+    "project.structure.side.proportion": "0.2"
   }
-}</component>
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\CodeSpace\Revolution\resources\fonts" />
+    </key>
+  </component>
   <component name="RunManager">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="sdu.revolution.Main" />
@@ -69,5 +93,16 @@
       <updated>1669912094876</updated>
     </task>
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>

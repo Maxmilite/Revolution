@@ -10,7 +10,6 @@ import com.spinyowl.legui.event.MouseClickEvent;
 import com.spinyowl.legui.listener.MouseClickEventListener;
 import com.spinyowl.legui.style.Style;
 import com.spinyowl.legui.style.border.SimpleLineBorder;
-import com.spinyowl.legui.style.color.ColorConstants;
 import com.spinyowl.legui.style.color.ColorUtil;
 import com.spinyowl.legui.style.font.FontRegistry;
 import com.spinyowl.legui.style.length.Length;
@@ -23,6 +22,10 @@ import sdu.revolution.Main;
 import java.util.Arrays;
 import java.util.List;
 
+import static sdu.revolution.engine.gui.GuiLibrary.Color.AQUA;
+
+
+// Todo: Reduce duplicate code
 
 public class GUI extends Panel {
     private int width, height;
@@ -36,43 +39,29 @@ public class GUI extends Panel {
     @SuppressWarnings({"unchecked", "rawtypes"})
     public void prompt(String content, Runnable yesFunction, Runnable noFunction) {
         Panel promptPanel = new Panel();
-        promptPanel.getStyle().getBackground().setColor(new Vector4f(0.0f, 0.0f, 0.0f, 0.75f));
-        promptPanel.getStyle().setBorder(new SimpleLineBorder(new Vector4f(1f, 1f, 1f, 1f), 1));
+        GuiLibrary.setAlign(promptPanel, VerticalAlign.MIDDLE, HorizontalAlign.CENTER);
+        GuiLibrary.setPanelStyle(promptPanel);
         promptPanel.setSize(400, 200);
-        promptPanel.getStyle().setVerticalAlign(VerticalAlign.MIDDLE);
-        promptPanel.getStyle().setHorizontalAlign(HorizontalAlign.CENTER);
         promptPanel.setPosition((width / 2) - 200, (height / 2) - 100);
         Label title = new Label("Prompt");
-        title.getStyle().setTextColor(ColorUtil.rgba(0, 255, 255, 1f));
-        title.getStyle().setFontSize(32f);
-        title.getStyle().setFont("Impact");
-        title.getStyle().setVerticalAlign(VerticalAlign.TOP);
-        title.getStyle().setHorizontalAlign(HorizontalAlign.CENTER);
+        title.getStyle().setTextColor(GuiLibrary.getColor(AQUA));
+        GuiLibrary.setFont(title, "Impact", 32f);
+        GuiLibrary.setAlign(title, VerticalAlign.TOP, HorizontalAlign.CENTER);
         title.getStyle().setPaddingTop(new Length(20f, LengthType.PIXEL));
         title.setSize(promptPanel.getSize());
         promptPanel.add(title);
         Label val = new Label(content);
-        val.getStyle().setTextColor(ColorUtil.rgba(0, 255, 255, 1f));
+        val.getStyle().setTextColor(GuiLibrary.getColor(AQUA));
         val.getStyle().setFontSize(24f);
-        val.getStyle().setFont("Impact");
-        val.getStyle().setVerticalAlign(VerticalAlign.TOP);
-        val.getStyle().setHorizontalAlign(HorizontalAlign.CENTER);
+        val.getStyle().setFont("YaHei");
+        GuiLibrary.setAlign(val, VerticalAlign.TOP, HorizontalAlign.CENTER);
         val.getStyle().setPaddingTop(new Length(72f, LengthType.PIXEL));
         val.setSize(promptPanel.getSize());
         promptPanel.add(val);
         float panelWidth = promptPanel.getSize().x;
         float panelHeight = promptPanel.getSize().y;
         Button close = new Button("\uE14C", panelWidth - 48, 18, 30, 30);
-        close.getStyle().setTextColor(ColorUtil.rgba(0, 255, 255, 1f));
-        close.getStyle().setHorizontalAlign(HorizontalAlign.CENTER);
-        close.getStyle().setVerticalAlign(VerticalAlign.MIDDLE);
-        close.getStyle().setFontSize(24f);
-        close.getStyle().setFont(FontRegistry.MATERIAL_ICONS_REGULAR);
-        close.getStyle().getBackground().setColor(new Vector4f(ColorConstants.TRANSPARENT));
-        close.getHoveredStyle().getBackground().setColor(new Vector4f(ColorConstants.TRANSPARENT));
-        close.getHoveredStyle().setTextColor(new Vector4f(1f, 1f, 0f, 1f));
-        close.getPressedStyle().getBackground().setColor(new Vector4f(ColorConstants.TRANSPARENT));
-        close.getPressedStyle().setTextColor(new Vector4f(ColorConstants.WHITE));
+        GuiLibrary.setCloseButtonStyle(close, 24f);
         close.getListenerMap().addListener(MouseClickEvent.class, (MouseClickEventListener) event -> {
             if (event.getAction() == MouseClickEvent.MouseClickAction.RELEASE) {
                 runSlide(promptPanel, 100, new Vector2f(400, 0), new Vector2f((width / 2) - 200, (height / 2)));
@@ -89,18 +78,8 @@ public class GUI extends Panel {
         promptPanel.add(close);
         Button yesButton = new Button("Yes", panelWidth / 2 - 150f, panelHeight - 70f, 120f, 50f),
                 noButton = new Button("No", panelWidth / 2 + 30f, panelHeight - 70f, 120f, 50f);
-        yesButton.getStyle().setTextColor(ColorUtil.rgba(0, 255, 255, 1f));
-        yesButton.getStyle().setHorizontalAlign(HorizontalAlign.CENTER);
-        yesButton.getStyle().setVerticalAlign(VerticalAlign.MIDDLE);
-        yesButton.getStyle().setFontSize(20f);
-        yesButton.getStyle().setFont("Impact");
-        yesButton.getStyle().getBackground().setColor(0.3f, 0.3f, 0.3f, 1.0f);
-        noButton.getStyle().setTextColor(ColorUtil.rgba(0, 255, 255, 1f));
-        noButton.getStyle().setHorizontalAlign(HorizontalAlign.CENTER);
-        noButton.getStyle().setVerticalAlign(VerticalAlign.MIDDLE);
-        noButton.getStyle().setFontSize(20f);
-        noButton.getStyle().setFont("Impact");
-        noButton.getStyle().getBackground().setColor(0.3f, 0.3f, 0.3f, 1.0f);
+        GuiLibrary.setButtonStyle(yesButton);
+        GuiLibrary.setButtonStyle(noButton);
         yesButton.getListenerMap().addListener(MouseClickEvent.class, (MouseClickEventListener) event -> {
             if (event.getAction() == MouseClickEvent.MouseClickAction.RELEASE) {
                 yesFunction.run();
@@ -140,12 +119,11 @@ public class GUI extends Panel {
     @SuppressWarnings({"unchecked", "rawtypes"})
     private void createOptionPanel() {
         optionPanel = new Panel();
-        optionPanel.getStyle().getBackground().setColor(new Vector4f(0.0f, 0.0f, 0.0f, 0.75f));
-        optionPanel.getStyle().setBorder(new SimpleLineBorder(new Vector4f(1f, 1f, 1f, 1f), 1));
-//        optionPanel.setSize(400, 600);
-        optionPanel.setSize(400, 0);
+        GuiLibrary.setPanelStyle(optionPanel);
         optionPanel.getStyle().setVerticalAlign(VerticalAlign.MIDDLE);
         optionPanel.getStyle().setHorizontalAlign(HorizontalAlign.CENTER);
+//        optionPanel.setSize(400, 600);
+        optionPanel.setSize(400, 0);
 //        optionPanel.setPosition((width / 2) - 200, (height / 2) - 300);
         optionPanel.setPosition((width / 2) - 200, (height / 2));
         Label title = new Label("Game Options");
@@ -160,16 +138,7 @@ public class GUI extends Panel {
         float panelWidth = optionPanel.getSize().x;
         float panelHeight = optionPanel.getSize().y;
         Button close = new Button("\uE14C", panelWidth - 60, 18, 40, 40);
-        close.getStyle().setTextColor(ColorUtil.rgba(0, 255, 255, 1f));
-        close.getStyle().setHorizontalAlign(HorizontalAlign.CENTER);
-        close.getStyle().setVerticalAlign(VerticalAlign.MIDDLE);
-        close.getStyle().setFontSize(36f);
-        close.getStyle().setFont(FontRegistry.MATERIAL_ICONS_REGULAR);
-        close.getStyle().getBackground().setColor(new Vector4f(ColorConstants.TRANSPARENT));
-        close.getHoveredStyle().getBackground().setColor(new Vector4f(ColorConstants.TRANSPARENT));
-        close.getHoveredStyle().setTextColor(new Vector4f(1f, 1f, 0f, 1f));
-        close.getPressedStyle().getBackground().setColor(new Vector4f(ColorConstants.TRANSPARENT));
-        close.getPressedStyle().setTextColor(new Vector4f(ColorConstants.WHITE));
+        GuiLibrary.setCloseButtonStyle(close, 36f);
         close.getListenerMap().addListener(MouseClickEvent.class, (MouseClickEventListener) event -> {
             if (event.getAction() == MouseClickEvent.MouseClickAction.RELEASE) {
                 runSlide(optionPanel, 200, new Vector2f(400, 0), new Vector2f((width / 2) - 200, (height / 2)));
@@ -194,18 +163,13 @@ public class GUI extends Panel {
         );
         buttons.get(5).getListenerMap().addListener(MouseClickEvent.class, (MouseClickEventListener) event -> {
             if (event.getAction() == MouseClickEvent.MouseClickAction.RELEASE) {
-                prompt("Are you sure to quit to desktop?", () -> GLFW.glfwSetWindowShouldClose(Main.getEngine().getWindow().getHandle(), true), () -> {});
+                prompt("Are you sure to quit to desktop?",
+                        () -> GLFW.glfwSetWindowShouldClose(Main.getEngine().getWindow().getHandle(), true),
+                        () -> {});
 //                GLFW.glfwSetWindowShouldClose(Main.getEngine().getWindow().getHandle(), true);
             }
         });
-        buttons.forEach((e) -> {
-            e.getStyle().setTextColor(ColorUtil.rgba(0, 255, 255, 1f));
-            e.getStyle().setHorizontalAlign(HorizontalAlign.CENTER);
-            e.getStyle().setVerticalAlign(VerticalAlign.MIDDLE);
-            e.getStyle().setFontSize(20f);
-            e.getStyle().setFont("Impact");
-            e.getStyle().getBackground().setColor(0.3f, 0.3f, 0.3f, 1.0f);
-        });
+        buttons.forEach(GuiLibrary::setButtonStyle);
         buttons.forEach(optionPanel::add);
     }
 
@@ -310,15 +274,14 @@ public class GUI extends Panel {
     @SuppressWarnings({"unchecked", "rawtypes"})
     private void createSubPanel() {
         subPanel = new Panel();
-        subPanel.getStyle().getBackground().setColor(new Vector4f(0.0f, 0.0f, 0.0f, 0.75f));
-        subPanel.getStyle().setBorder(new SimpleLineBorder(new Vector4f(1f, 1f, 1f, 1f), 1));
+        GuiLibrary.setPanelStyle(subPanel);
         subPanel.setPosition(40, 40);
         subPanel.setSize(width - 80f, height - 80f);
         subPanel.getStyle().setVerticalAlign(VerticalAlign.TOP);
         subPanel.getStyle().setHorizontalAlign(HorizontalAlign.CENTER);
         float panelWidth = subPanel.getSize().x;
         float panelHeight = subPanel.getSize().y;
-        Label title = new Label("Title");
+        Label title = new Label("Sub Menu");
         title.getStyle().setTextColor(ColorUtil.rgba(0, 255, 255, 1f));
         title.getStyle().setFontSize(48f);
         title.getStyle().setFont("Impact");
@@ -335,26 +298,10 @@ public class GUI extends Panel {
                 new Button(panelWidth / 2 + 240f, panelHeight - 100f, 180f, 60f),
                 new Button(panelWidth / 2 + 460f, panelHeight - 100f, 180f, 60f)
         );
-        buttons.forEach((e) -> {
-            e.getStyle().setTextColor(ColorUtil.rgba(0, 255, 255, 1f));
-            e.getStyle().setHorizontalAlign(HorizontalAlign.CENTER);
-            e.getStyle().setVerticalAlign(VerticalAlign.MIDDLE);
-            e.getStyle().setFontSize(20f);
-            e.getStyle().setFont("Impact");
-            e.getStyle().getBackground().setColor(0.3f, 0.3f, 0.3f, 1.0f);
-        });
+        buttons.forEach(GuiLibrary::setButtonStyle);
         buttons.forEach(subPanel::add);
         Button close = new Button("\uE14C", panelWidth - 60, 20, 40, 40);
-        close.getStyle().setTextColor(ColorUtil.rgba(0, 255, 255, 1f));
-        close.getStyle().setHorizontalAlign(HorizontalAlign.CENTER);
-        close.getStyle().setVerticalAlign(VerticalAlign.MIDDLE);
-        close.getStyle().setFontSize(60f);
-        close.getStyle().setFont(FontRegistry.MATERIAL_ICONS_REGULAR);
-        close.getStyle().getBackground().setColor(new Vector4f(ColorConstants.TRANSPARENT));
-        close.getHoveredStyle().getBackground().setColor(new Vector4f(ColorConstants.TRANSPARENT));
-        close.getHoveredStyle().setTextColor(new Vector4f(1f, 1f, 0f, 1f));
-        close.getPressedStyle().getBackground().setColor(new Vector4f(ColorConstants.TRANSPARENT));
-        close.getPressedStyle().setTextColor(new Vector4f(ColorConstants.WHITE));
+        GuiLibrary.setCloseButtonStyle(close, 60f);
         close.getListenerMap().addListener(MouseClickEvent.class, (MouseClickEventListener) event -> {
             if (event.getAction() == MouseClickEvent.MouseClickAction.RELEASE) {
                 runTransition(subPanel, 0, 0, 400,
@@ -365,6 +312,17 @@ public class GUI extends Panel {
     }
 
     private void createDebugPanel() {
+
+        Label debug = new Label("Version Not Final, Does Not Represent Actual Game Footage.");
+        debug.setSize(width, 200);
+        debug.getStyle().setHorizontalAlign(HorizontalAlign.CENTER);
+        debug.getStyle().setVerticalAlign(VerticalAlign.TOP);
+        debug.setPosition(0, 200);
+        debug.getStyle().setFontSize(48F);
+        debug.getStyle().setTextColor(new Vector4f(1.0f, 1.0f, 1.0f, 0.5f));
+        debug.getStyle().setFont(FontRegistry.ROBOTO_REGULAR);
+        this.add(debug);
+
         createReloadButton();
 
         Button switchButton = new Button("SubMenu");
@@ -387,11 +345,17 @@ public class GUI extends Panel {
         optionButton.getStyle().setFontSize(24f);
         optionButton.getListenerMap().addListener(MouseClickEvent.class, (MouseClickEventListener) event -> {
             if (event.getAction() == MouseClickEvent.MouseClickAction.RELEASE) {
-                this.add(optionPanel);
-                runSlide(optionPanel, 200, new Vector2f(400, 600), new Vector2f((width / 2) - 200, (height / 2) - 300));
+                callOptionPanel();
             }
         });
         this.add(optionButton);
+    }
+
+    public void callOptionPanel() {
+        if (!this.contains(optionPanel)) {
+            this.add(optionPanel);
+            runSlide(optionPanel, 200, new Vector2f(400, 600), new Vector2f((width / 2) - 200, (height / 2) - 300));
+        }
     }
 
     private void createStyle() {
@@ -449,6 +413,8 @@ public class GUI extends Panel {
         this.height = height;
         FontRegistry.registerFont("YaHei Mono", "resources/fonts/Microsoft YaHei Mono.ttf");
         FontRegistry.registerFont("Impact", "resources/fonts/impact.ttf");
+        FontRegistry.registerFont("YaHei", "resources/fonts/msyh.ttc");
+        FontRegistry.registerFont("XinWei", "resources/fonts/STXINWEI.TTF");
         createStyle();
         createPanels();
         createSubPanel();
@@ -459,8 +425,7 @@ public class GUI extends Panel {
     public void resize(int w, int h) {
         this.width = w;
         this.height = h;
-        createPanels();
-        createDebugPanel();
+
         reloadButton.setPosition(width - 100, height - 100);
     }
 

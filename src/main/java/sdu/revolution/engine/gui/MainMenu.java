@@ -3,12 +3,12 @@ package sdu.revolution.engine.gui;
 import com.spinyowl.legui.DefaultInitializer;
 import com.spinyowl.legui.animation.Animator;
 import com.spinyowl.legui.animation.AnimatorProvider;
-import com.spinyowl.legui.component.*;
-import com.spinyowl.legui.style.Border;
+import com.spinyowl.legui.component.Component;
+import com.spinyowl.legui.component.Frame;
+import com.spinyowl.legui.component.Label;
 import com.spinyowl.legui.style.Style;
 import com.spinyowl.legui.style.border.SimpleLineBorder;
 import com.spinyowl.legui.style.color.ColorConstants;
-import com.spinyowl.legui.style.font.FontRegistry;
 import com.spinyowl.legui.system.context.Context;
 import com.spinyowl.legui.system.renderer.Renderer;
 import org.joml.Vector2i;
@@ -18,11 +18,9 @@ import sdu.revolution.engine.main.IGuiInstance;
 import sdu.revolution.engine.main.Window;
 import sdu.revolution.engine.scene.Scene;
 
-import java.util.Objects;
-
 import static com.spinyowl.legui.component.optional.align.HorizontalAlign.CENTER;
 import static com.spinyowl.legui.component.optional.align.VerticalAlign.MIDDLE;
-import static org.lwjgl.glfw.GLFW.*;
+import static org.lwjgl.glfw.GLFW.glfwGetFramebufferSize;
 
 public class MainMenu implements IGuiInstance {
 
@@ -56,6 +54,7 @@ public class MainMenu implements IGuiInstance {
         glfwGetFramebufferSize(Main.getEngine().getWindow().getHandle(), arrWidth, arrHeight);
         width = arrWidth[0];
         height = arrHeight[0];
+        gui.clearChildComponents();
         gui.resize(width, height);
         frame = new Frame(width, height);
         createGuiElements(frame, width, height);
@@ -63,7 +62,7 @@ public class MainMenu implements IGuiInstance {
         label.getTextState().setText("Your layout has been reloaded.");
         label.getStyle().setTextColor(new Vector4f(1.0f, 1.0f, 1.0f, 0.0f));
         label.getStyle().setBorder(new SimpleLineBorder());
-        label.getStyle().setFont("YaHei Mono");
+        label.getStyle().setFont("Impact");
         label.getStyle().setFontSize(40f);
         label.getStyle().setHorizontalAlign(CENTER);
         label.getStyle().setVerticalAlign(MIDDLE);
@@ -165,5 +164,9 @@ public class MainMenu implements IGuiInstance {
         width = w;
         height = h;
         reload();
+    }
+
+    public void callPause() {
+        gui.callOptionPanel();
     }
 }
