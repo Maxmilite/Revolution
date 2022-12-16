@@ -16,11 +16,13 @@ out vec3 outNormal;
 out vec3 outTangent;
 out vec3 outBitangent;
 out vec2 outTextCoord;
+out float outSelected;
 
 uniform mat4 projectionMatrix;
 uniform mat4 viewMatrix;
 uniform mat4 modelMatrix;
 uniform mat4 bonesMatrices[MAX_BONES];
+uniform float isSelected;
 
 void main()
 {
@@ -63,4 +65,5 @@ void main()
     outTangent = normalize(modelViewMatrix * initTangent).xyz;
     outBitangent = normalize(modelViewMatrix * initBitangent).xyz;
     outTextCoord = texCoord;
+    outSelected = isSelected;
 }

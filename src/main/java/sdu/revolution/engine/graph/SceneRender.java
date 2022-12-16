@@ -43,6 +43,7 @@ public class SceneRender {
         uniformsMap.createUniform("material.hasNormalMap");
         uniformsMap.createUniform("ambientLight.factor");
         uniformsMap.createUniform("ambientLight.color");
+        uniformsMap.createUniform("isSelected");
 
         for (int i = 0; i < MAX_POINT_LIGHTS; i++) {
             String name = "pointLights[" + i + "]";
@@ -124,6 +125,11 @@ public class SceneRender {
                             uniformsMap.setUniform("bonesMatrices", AnimationData.DEFAULT_BONES_MATRICES);
                         } else {
                             uniformsMap.setUniform("bonesMatrices", animationData.getCurrentFrame().boneMatrices());
+                        }
+                        if (entity.isSelected()) {
+                            uniformsMap.setUniform("isSelected", 1.0f);
+                        } else {
+                            uniformsMap.setUniform("isSelected", 0.0f);
                         }
                         glDrawElements(GL_TRIANGLES, mesh.getNumVertices(), GL_UNSIGNED_INT, 0);
                     }

@@ -22,6 +22,10 @@ public class Camera {
         rotation = new Vector2f();
     }
 
+    public Vector3f getDirection() {
+        return direction;
+    }
+
     public void addRotation(float x, float y) {
         rotation.add(x, y);
         recalculate();
@@ -71,7 +75,7 @@ public class Camera {
         recalculate();
     }
 
-    private void recalculate() {
+    public void recalculate() {
         viewMatrix.identity().rotateX(rotation.x).rotateY(rotation.y).translate(-position.x, -position.y, -position.z);
     }
 

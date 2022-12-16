@@ -9,6 +9,7 @@ in vec3 outNormal;
 in vec3 outTangent;
 in vec3 outBitangent;
 in vec2 outTextCoord;
+in float outSelected;
 
 out vec4 fragColor;
 
@@ -161,4 +162,9 @@ void main() {
     if (fog.active == 1) {
         fragColor = calcFog(outPosition, fragColor, fog, ambientLight.color, dirLight);
     }
+
+    if (outSelected > 0) {
+        fragColor = vec4(fragColor.x, fragColor.y, 1, 1);
+    }
+
 }

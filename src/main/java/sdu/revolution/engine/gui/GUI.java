@@ -10,6 +10,7 @@ import com.spinyowl.legui.event.MouseClickEvent;
 import com.spinyowl.legui.listener.MouseClickEventListener;
 import com.spinyowl.legui.style.Style;
 import com.spinyowl.legui.style.border.SimpleLineBorder;
+import com.spinyowl.legui.style.color.ColorConstants;
 import com.spinyowl.legui.style.color.ColorUtil;
 import com.spinyowl.legui.style.font.FontRegistry;
 import com.spinyowl.legui.style.length.Length;
@@ -394,6 +395,18 @@ public class GUI extends Panel {
         panels.forEach(this::add);
     }
 
+    private void createCursor() {
+        Label cursor = new Label("\uE145");
+        cursor.getStyle().setFont(FontRegistry.MATERIAL_ICONS_REGULAR);
+        cursor.getStyle().setFontSize(36.0f);
+        cursor.getStyle().setVerticalAlign(VerticalAlign.MIDDLE);
+        cursor.getStyle().setHorizontalAlign(HorizontalAlign.CENTER);
+        cursor.getStyle().setTextColor(ColorConstants.white());
+        cursor.setPosition(0, 0);
+        cursor.setSize(width, height);
+        this.add(cursor);
+    }
+
     private void createReloadButton() {
         reloadButton = new Button("Reload");
         reloadButton.setSize(200, 80);
@@ -416,6 +429,7 @@ public class GUI extends Panel {
         FontRegistry.registerFont("YaHei", "resources/fonts/msyh.ttc");
         FontRegistry.registerFont("XinWei", "resources/fonts/STXINWEI.TTF");
         createStyle();
+        createCursor();
         createPanels();
         createSubPanel();
         createDebugPanel();

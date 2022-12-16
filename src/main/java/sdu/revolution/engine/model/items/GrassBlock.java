@@ -10,7 +10,7 @@ import sdu.revolution.engine.scene.ModelLoader;
 import sdu.revolution.engine.scene.Entity;
 import sdu.revolution.engine.scene.Scene;
 
-public class GrassBlock implements Item {
+public class GrassBlock extends Item {
     public Entity cubeEntity;
     public Vector3f defaultLocation;
 
@@ -23,6 +23,7 @@ public class GrassBlock implements Item {
         cubeEntity.setPosition(defaultLocation);
         cubeEntity.updateModelMatrix();
         scene.addEntity(cubeEntity);
+        super.entity = cubeEntity;
     }
     public GrassBlock(Vector3f vec) {
         this.defaultLocation = vec;

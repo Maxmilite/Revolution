@@ -10,7 +10,16 @@ public class Entity {
     private Vector3f position;
     private Quaternionf rotation;
     private AnimationData animationData;
+    private boolean selected;
     private float scale;
+
+    public void setSelected(boolean selected) {
+        this.selected = selected;
+    }
+
+    public boolean isSelected() {
+        return selected;
+    }
 
     public AnimationData getAnimationData() {
         return animationData;
@@ -27,6 +36,7 @@ public class Entity {
         position = new Vector3f();
         rotation = new Quaternionf();
         scale = 1;
+        selected = false;
     }
 
     public String getId() {

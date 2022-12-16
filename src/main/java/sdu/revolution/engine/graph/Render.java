@@ -2,6 +2,7 @@ package sdu.revolution.engine.graph;
 
 import org.lwjgl.opengl.GL;
 import sdu.revolution.engine.main.Window;
+import sdu.revolution.engine.scene.Camera;
 import sdu.revolution.engine.scene.Scene;
 
 import static org.lwjgl.opengl.GL13.*;
@@ -34,6 +35,7 @@ public class Render {
         skyBoxRender.render(scene);
         sceneRender.render(scene);
         guiRender.render(scene);
+
     }
 
     public void resize(int width, int height) {
