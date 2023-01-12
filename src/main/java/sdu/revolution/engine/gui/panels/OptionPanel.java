@@ -21,13 +21,10 @@ import java.util.List;
 import static sdu.revolution.engine.gui.GuiLibrary.runSlide;
 
 public class OptionPanel extends PanelInstance {
-    public int width, height;
 
     @SuppressWarnings("rawtypes,unchecked")
     @Override
     public void init() {
-        this.width = GuiLibrary.width;
-        this.height = GuiLibrary.height;
         GuiLibrary.setPanelStyle(this);
         this.getStyle().setVerticalAlign(VerticalAlign.MIDDLE);
         this.getStyle().setHorizontalAlign(HorizontalAlign.CENTER);
@@ -63,7 +60,7 @@ public class OptionPanel extends PanelInstance {
         );
         buttons.get(5).getListenerMap().addListener(MouseClickEvent.class, (MouseClickEventListener) event -> {
             if (event.getAction() == MouseClickEvent.MouseClickAction.RELEASE) {
-                Main.menu.getGui().prompt("Are you sure to quit to desktop?",
+                GuiLibrary.prompt("Are you sure to quit to desktop?",
                         () -> GLFW.glfwSetWindowShouldClose(Main.getEngine().getWindow().getHandle(), true),
                         () -> {
                         });

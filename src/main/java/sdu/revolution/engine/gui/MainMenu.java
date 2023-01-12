@@ -79,6 +79,7 @@ public class MainMenu implements IGuiInstance {
         animator = AnimatorProvider.getAnimator();
         renderer.initialize();
         context = initializer.getContext();
+        gui.panelStack.clear();
         Main.Logger.info(this, "Layout Reloaded");
         new Thread(() -> {
             try {
@@ -174,9 +175,6 @@ public class MainMenu implements IGuiInstance {
     }
 
     public boolean callPause() {
-        if (!gui.optionPanel.isOpen())
-            return false;
-        gui.call(OptionPanel.class);
-        return true;
+        return gui.pause();
     }
 }

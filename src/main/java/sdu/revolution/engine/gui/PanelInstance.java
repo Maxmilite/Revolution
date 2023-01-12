@@ -5,16 +5,13 @@ import com.spinyowl.legui.component.Panel;
 public class PanelInstance extends Panel {
     protected boolean isWindow;
     protected boolean isOpen;
+    public int width, height;
     public PanelInstance() {
         super();
         this.isWindow = true;
         this.isOpen = false;
-        this.init();
-    }
-    public PanelInstance(boolean isWindow) {
-        super();
-        this.isWindow = isWindow;
-        this.isOpen = false;
+        this.width = GuiLibrary.width;
+        this.height = GuiLibrary.height;
         this.init();
     }
     public void init() {}

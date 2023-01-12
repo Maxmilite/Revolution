@@ -5,14 +5,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b6622123-b0ba-4321-a811-fe3998f53e85" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/sdu/revolution/engine/gui/PanelInstance.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/sdu/revolution/engine/gui/panels/DebugPanel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/sdu/revolution/engine/gui/panels/PromptPanel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/sdu/revolution/engine/gui/panels/SubPanel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/sdu/revolution/LightControls.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/sdu/revolution/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sdu/revolution/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/sdu/revolution/engine/gui/GUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sdu/revolution/engine/gui/GUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sdu/revolution/engine/gui/GuiInstance.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sdu/revolution/engine/gui/GuiInstance.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/sdu/revolution/engine/gui/GuiLibrary.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sdu/revolution/engine/gui/GuiLibrary.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/sdu/revolution/engine/gui/MainMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sdu/revolution/engine/gui/MainMenu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sdu/revolution/engine/gui/OptionPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sdu/revolution/engine/gui/panels/OptionPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/sdu/revolution/engine/gui/PanelInstance.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sdu/revolution/engine/gui/PanelInstance.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/sdu/revolution/engine/gui/panels/OptionPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sdu/revolution/engine/gui/panels/OptionPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/sdu/revolution/engine/main/MouseInput.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sdu/revolution/engine/main/MouseInput.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/sdu/revolution/engine/main/Window.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sdu/revolution/engine/main/Window.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

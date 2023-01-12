@@ -1,7 +1,6 @@
 package sdu.revolution.engine.model;
 
 import org.joml.Vector2d;
-import org.joml.Vector2f;
 import org.joml.Vector3f;
 import sdu.revolution.Main;
 import sdu.revolution.engine.graph.Render;
@@ -18,7 +17,6 @@ import java.util.List;
 
 import static org.lwjgl.glfw.GLFW.glfwGetCursorPos;
 
-@SuppressWarnings("ConstantConditions")
 public class ItemManager {
     public static final int MAP_SIZE = 10;
     public static final int LOWEST_HEIGHT = -1;
@@ -58,7 +56,7 @@ public class ItemManager {
         Vector2d currentPos = new Vector2d(arrX[0], arrY[0]);
         if (Main.isControlled) {
             cameraDetector.selectItem(list, Main.getEngine().getScene().getCamera());
-        } else {
+        } else if (Main.getEngine().getWindow().isMouseInWindow()) {
             mouseDetector.selectItem(list, window, currentPos, Main.getEngine().getScene().getCamera());
         }
         for (var i : list) {

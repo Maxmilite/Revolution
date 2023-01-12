@@ -2,16 +2,24 @@ package sdu.revolution.engine.gui;
 
 import com.spinyowl.legui.component.Button;
 import com.spinyowl.legui.component.Component;
+import com.spinyowl.legui.component.Label;
 import com.spinyowl.legui.component.Panel;
 import com.spinyowl.legui.component.optional.align.HorizontalAlign;
 import com.spinyowl.legui.component.optional.align.VerticalAlign;
+import com.spinyowl.legui.event.MouseClickEvent;
+import com.spinyowl.legui.listener.MouseClickEventListener;
 import com.spinyowl.legui.style.border.SimpleLineBorder;
 import com.spinyowl.legui.style.color.ColorConstants;
 import com.spinyowl.legui.style.color.ColorUtil;
 import com.spinyowl.legui.style.font.FontRegistry;
+import com.spinyowl.legui.style.length.Length;
+import com.spinyowl.legui.style.length.LengthType;
 import org.joml.Vector2f;
 import org.joml.Vector4f;
 import sdu.revolution.Main;
+import sdu.revolution.engine.gui.panels.PromptPanel;
+
+import static sdu.revolution.engine.gui.GuiLibrary.Color.AQUA;
 
 public class GuiLibrary {
     public static int width, height;
@@ -61,6 +69,7 @@ public class GuiLibrary {
     }
 
     public static void runSlide(Component component, int duration, Vector2f targetSize, Vector2f targetPosition) {
+        Main.menu.getGui().lock = true;
 //        component.getChildComponents().forEach((e) -> runSlide(e, duration, targetSize, targetPosition));
         float targetWidth = targetSize.x, targetHeight = targetSize.y;
         float targetPositionX = targetPosition.x, targetPositionY = targetPosition.y;
@@ -85,9 +94,18 @@ public class GuiLibrary {
                 e.printStackTrace();
             }
         }).start();
+        new Thread(() -> {
+            try {
+                Thread.sleep(duration + 200);
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
+            }
+            Main.menu.getGui().lock = false;
+        }).start();
     }
 
     public static void runTransition(Component component, int fadeInTime, int duration, int fadeOutTime, int opts) {
+        Main.menu.getGui().lock = true;
         component.getChildComponents().forEach((e) -> runTransition(e, fadeInTime, duration, fadeOutTime, opts & 3));
         if ((opts & TRANSITION_BACKGROUND) != 0) {
             Vector4f vec = new Vector4f(component.getStyle().getBackground().getColor());
@@ -156,5 +174,22 @@ public class GuiLibrary {
                 component.getStyle().setTextColor(vec);
             }).start();
         }
+        new Thread(() -> {
+            try {
+                Thread.sleep(fadeInTime + duration + fadeOutTime + 200);
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
+            }
+            Main.menu.getGui().lock = false;
+        }).start();
+    }
+
+    @SuppressWarnings("rawtypes, unchecked")
+    public static void prompt(String content, Runnable yesFunction, Runnable noFunction) {
+        if (Main.menu.getGui() == null)
+                return;
+        PromptPanel promptPanel = new PromptPanel(content, yesFunction, noFunction);
+        promptPanel.call();
+        Main.menu.getGui().panelStack.add(promptPanel);
     }
 }

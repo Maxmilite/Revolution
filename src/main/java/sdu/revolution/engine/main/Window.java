@@ -154,4 +154,7 @@ public class Window {
     public long getHandle() {
         return windowHandle;
     }
+    public boolean isMouseInWindow() {
+        return mouseInput.inWindow;
+    }
 }

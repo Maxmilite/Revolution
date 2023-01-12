@@ -1,7 +1,6 @@
 package sdu.revolution.engine.main;
 
 import org.joml.Vector2f;
-import sdu.revolution.Main;
 
 import static org.lwjgl.glfw.GLFW.*;
 
@@ -9,7 +8,7 @@ public class MouseInput {
 
     private Vector2f currentPos;
     private Vector2f displVec;
-    private boolean inWindow;
+    public boolean inWindow;
     private boolean leftButtonPressed;
     private Vector2f previousPos;
     private boolean rightButtonPressed;

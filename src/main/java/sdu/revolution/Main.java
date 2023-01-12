@@ -4,7 +4,6 @@ import org.joml.Vector2f;
 import sdu.revolution.engine.graph.Model;
 import sdu.revolution.engine.graph.Render;
 import sdu.revolution.engine.gui.MainMenu;
-import sdu.revolution.engine.gui.panels.OptionPanel;
 import sdu.revolution.engine.main.*;
 import sdu.revolution.engine.model.ItemManager;
 import sdu.revolution.engine.scene.*;
@@ -24,6 +23,10 @@ public class Main implements IAppLogic {
 
         public static void info(Object object, Object x) {
             System.out.println("\033[0m[\033[31mRevolution\033[0m] \033[33m" + new Date() + "\033[0m | Info from " + object.getClass().getSimpleName() + " : \033[32m" + x.toString() + "\033[0m");
+        }
+
+        public static void info(Class<?> object, Object x) {
+            System.out.println("\033[0m[\033[31mRevolution\033[0m] \033[33m" + new Date() + "\033[0m | Info from " + object.getSimpleName() + " : \033[32m" + x.toString() + "\033[0m");
         }
     }
 
@@ -139,11 +142,12 @@ public class Main implements IAppLogic {
             isAltPressed = false;
         }
 
+
+        // TODO: Use stack to control the sequence of panels
+        // Finished on 2023-01-12 23:05
         if (window.isKeyPressed(GLFW_KEY_ESCAPE)) {
             if (menu.callPause()) {
                 isControlled = false;
-            } else {
-                menu.getGui().close(OptionPanel.class);
             }
         }
 
