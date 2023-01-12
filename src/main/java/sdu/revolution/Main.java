@@ -4,6 +4,7 @@ import org.joml.Vector2f;
 import sdu.revolution.engine.graph.Model;
 import sdu.revolution.engine.graph.Render;
 import sdu.revolution.engine.gui.MainMenu;
+import sdu.revolution.engine.gui.panels.OptionPanel;
 import sdu.revolution.engine.main.*;
 import sdu.revolution.engine.model.ItemManager;
 import sdu.revolution.engine.scene.*;
@@ -104,7 +105,6 @@ public class Main implements IAppLogic {
     @Override
     public void input(Window window, Scene scene, long diffTimeMillis, boolean inputConsumed) {
         if (isControlled) {
-            Logger.info(diffTimeMillis);
             // Nothing to be done yet
             ItemManager.input(window, scene, diffTimeMillis);
             float move = diffTimeMillis * MOVEMENT_SPEED;
@@ -140,11 +140,10 @@ public class Main implements IAppLogic {
         }
 
         if (window.isKeyPressed(GLFW_KEY_ESCAPE)) {
-            if (!menu.getGui().isOptionPanelOpen) {
-                menu.callPause();
+            if (menu.callPause()) {
                 isControlled = false;
             } else {
-                menu.getGui().closeOptionPanel();
+                menu.getGui().close(OptionPanel.class);
             }
         }
 

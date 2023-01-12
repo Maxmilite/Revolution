@@ -5,13 +5,16 @@ import com.spinyowl.legui.component.Component;
 public class GuiInstance extends Component {
     private boolean isWindow;
     public GuiInstance() {
+        super();
+        this.isWindow = false;
         this.init();
     }
     public GuiInstance(boolean isWindow) {
+        super();
         this.isWindow = isWindow;
         this.init();
     }
-    private void init() {}
+    public void init() {}
     public boolean isWindow() {
         return isWindow;
     }
@@ -20,5 +23,4 @@ public class GuiInstance extends Component {
         isWindow = window;
     }
     public void close() {}
-    public void
 }

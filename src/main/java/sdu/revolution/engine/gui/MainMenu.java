@@ -14,6 +14,7 @@ import com.spinyowl.legui.system.renderer.Renderer;
 import org.joml.Vector2i;
 import org.joml.Vector4f;
 import sdu.revolution.Main;
+import sdu.revolution.engine.gui.panels.OptionPanel;
 import sdu.revolution.engine.main.IGuiInstance;
 import sdu.revolution.engine.main.Window;
 import sdu.revolution.engine.scene.Scene;
@@ -37,6 +38,8 @@ public class MainMenu implements IGuiInstance {
     }
 
     private void createGuiElements(Frame frame, int w, int h) {
+        GuiLibrary.width = w;
+        GuiLibrary.height = h;
         gui = new GUI(w, h);
         gui.setFocusable(false);
         gui.getStyle().setMinWidth(100F);
@@ -170,7 +173,10 @@ public class MainMenu implements IGuiInstance {
         reload();
     }
 
-    public void callPause() {
-        gui.callOptionPanel();
+    public boolean callPause() {
+        if (!gui.optionPanel.isOpen())
+            return false;
+        gui.call(OptionPanel.class);
+        return true;
     }
 }

@@ -16,40 +16,25 @@ import com.spinyowl.legui.style.length.Length;
 import com.spinyowl.legui.style.length.LengthType;
 import org.joml.Vector2f;
 import org.joml.Vector4f;
-import org.lwjgl.glfw.GLFW;
 import sdu.revolution.Main;
+import sdu.revolution.engine.gui.panels.OptionPanel;
 
 import java.util.Arrays;
 import java.util.List;
 
-import static sdu.revolution.engine.gui.GuiLibrary.*;
 import static sdu.revolution.engine.gui.GuiLibrary.Color.AQUA;
+import static sdu.revolution.engine.gui.GuiLibrary.*;
 
 
 // Todo: Reduce duplicate code
 
 public class GUI extends Panel {
-    private int width, height;
+    public int width, height;
     private Button reloadButton;
     private List<Panel> panels;
     private Style panelStyle;
     private Panel subPanel;
-    private Panel optionPanel;
-    public boolean isOptionPanelOpen;
-    public void closeOptionPanel() {
-        if (this.contains(optionPanel)) {
-            runSlide(optionPanel, 200, new Vector2f(400, 0), new Vector2f((width / 2) - 200, (height / 2)));
-            this.isOptionPanelOpen = false;
-            new Thread(() -> {
-                try {
-                    Thread.sleep(250);
-                } catch (InterruptedException e) {
-                    throw new RuntimeException(e);
-                }
-                this.remove(optionPanel);
-            }).start();
-        }
-    }
+    public OptionPanel optionPanel;
 
     @SuppressWarnings({"unchecked", "rawtypes"})
     public void prompt(String content, Runnable yesFunction, Runnable noFunction) {
@@ -132,54 +117,6 @@ public class GUI extends Panel {
     }
 
     @SuppressWarnings({"unchecked", "rawtypes"})
-    private void createOptionPanel() {
-        optionPanel = new Panel();
-        GuiLibrary.setPanelStyle(optionPanel);
-        optionPanel.getStyle().setVerticalAlign(VerticalAlign.MIDDLE);
-        optionPanel.getStyle().setHorizontalAlign(HorizontalAlign.CENTER);
-//        optionPanel.setSize(400, 600);
-        optionPanel.setSize(400, 0);
-//        optionPanel.setPosition((width / 2) - 200, (height / 2) - 300);
-        optionPanel.setPosition((width / 2) - 200, (height / 2));
-        Label title = new Label("Game Options");
-        title.getStyle().setTextColor(ColorUtil.rgba(0, 255, 255, 1f));
-        title.getStyle().setFontSize(36f);
-        title.getStyle().setFont("Impact");
-        title.getStyle().setVerticalAlign(VerticalAlign.TOP);
-        title.getStyle().setHorizontalAlign(HorizontalAlign.CENTER);
-        title.getStyle().setPaddingTop(new Length(20f, LengthType.PIXEL));
-        title.setSize(optionPanel.getSize());
-        optionPanel.add(title);
-        float panelWidth = optionPanel.getSize().x;
-        Button close = new Button("\uE14C", panelWidth - 60, 18, 40, 40);
-        GuiLibrary.setCloseButtonStyle(close, 36f);
-        close.getListenerMap().addListener(MouseClickEvent.class, (MouseClickEventListener) event -> {
-            if (event.getAction() == MouseClickEvent.MouseClickAction.RELEASE) {
-                closeOptionPanel();
-            }
-        });
-        optionPanel.add(close);
-        List<Button> buttons = Arrays.asList(
-                new Button("Settings", panelWidth / 2 - 90f, 10 + 1 * 80f, 180f, 60f),
-                new Button("Info", panelWidth / 2 - 90f, 10 + 2 * 80f, 180f, 60f),
-                new Button("Map", panelWidth / 2 - 90f, 10 + 3 * 80f, 180f, 60f),
-                new Button("Players", panelWidth / 2 - 90f, 10 + 4 * 80f, 180f, 60f),
-                new Button("Leave Server", panelWidth / 2 - 90f, 10 + 5 * 80f, 180f, 60f),
-                new Button("Quit to Desktop", panelWidth / 2 - 90f, 10 + 6 * 80f, 180f, 60f)
-        );
-        buttons.get(5).getListenerMap().addListener(MouseClickEvent.class, (MouseClickEventListener) event -> {
-            if (event.getAction() == MouseClickEvent.MouseClickAction.RELEASE) {
-                prompt("Are you sure to quit to desktop?",
-                        () -> GLFW.glfwSetWindowShouldClose(Main.getEngine().getWindow().getHandle(), true),
-                        () -> {});
-//                GLFW.glfwSetWindowShouldClose(Main.getEngine().getWindow().getHandle(), true);
-            }
-        });
-        buttons.forEach(GuiLibrary::setButtonStyle);
-        buttons.forEach(optionPanel::add);
-    }
-
-    @SuppressWarnings({"unchecked", "rawtypes"})
     private void createSubPanel() {
         subPanel = new Panel();
         GuiLibrary.setPanelStyle(subPanel);
@@ -253,24 +190,20 @@ public class GUI extends Panel {
         optionButton.getStyle().setFontSize(24f);
         optionButton.getListenerMap().addListener(MouseClickEvent.class, (MouseClickEventListener) event -> {
             if (event.getAction() == MouseClickEvent.MouseClickAction.RELEASE) {
-                callOptionPanel();
+                call(OptionPanel.class);
             }
         });
         this.add(optionButton);
     }
 
-    public void callOptionPanel() {
-        if (!this.contains(optionPanel)) {
-            this.add(optionPanel);
-            runSlide(optionPanel, 200, new Vector2f(400, 600), new Vector2f((width / 2) - 200, (height / 2) - 300));
-            new Thread(() -> {
-                try {
-                    Thread.sleep(250);
-                } catch (InterruptedException e) {
-                    throw new RuntimeException(e);
-                }
-                this.isOptionPanelOpen = true;
-            }).start();
+    public void call(Class<?> t) {
+        if (t == OptionPanel.class) {
+            this.optionPanel.call();
+        }
+    }
+    public void close(Class<?> t) {
+        if (t == OptionPanel.class) {
+            this.optionPanel.close();
         }
     }
 
@@ -348,8 +281,7 @@ public class GUI extends Panel {
         createPanels();
         createSubPanel();
         createDebugPanel();
-        createOptionPanel();
-        this.isOptionPanelOpen = false;
+        optionPanel = new OptionPanel();
     }
 
     public void resize(int w, int h) {

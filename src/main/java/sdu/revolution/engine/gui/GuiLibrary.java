@@ -9,12 +9,12 @@ import com.spinyowl.legui.style.border.SimpleLineBorder;
 import com.spinyowl.legui.style.color.ColorConstants;
 import com.spinyowl.legui.style.color.ColorUtil;
 import com.spinyowl.legui.style.font.FontRegistry;
-import org.apache.commons.collections4.BagUtils;
 import org.joml.Vector2f;
 import org.joml.Vector4f;
 import sdu.revolution.Main;
 
 public class GuiLibrary {
+    public static int width, height;
     public static final int TRANSITION_BACKGROUND = 1, TRANSITION_FONT = 2, TRANSITION_REMOVAL = 4;
     public enum Color {
         AQUA
