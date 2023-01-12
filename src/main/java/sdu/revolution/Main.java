@@ -1,8 +1,5 @@
 package sdu.revolution;
 
-import imgui.ImGui;
-import imgui.ImGuiIO;
-import imgui.flag.ImGuiCond;
 import org.joml.Vector2f;
 import sdu.revolution.engine.graph.Model;
 import sdu.revolution.engine.graph.Render;
@@ -18,14 +15,14 @@ import java.util.Date;
 import static org.lwjgl.glfw.GLFW.*;
 
 
-public class Main implements IAppLogic, IGuiInstance {
+public class Main implements IAppLogic {
     public static class Logger {
-        public static void info(String x) {
-            System.out.println("\033[0m[\033[31mRevolution\033[0m] \033[33m" + new Date() + "\033[0m | Info : \033[32m" + x + "\033[0m");
+        public static void info(Object x) {
+            System.out.println("\033[0m[\033[31mRevolution\033[0m] \033[33m" + new Date() + "\033[0m | Info : \033[32m" + x.toString() + "\033[0m");
         }
 
-        public static void info(Object object, String x) {
-            System.out.println("\033[0m[\033[31mRevolution\033[0m] \033[33m" + new Date() + "\033[0m | Info from " + object.getClass().getSimpleName() + " : \033[32m" + x + "\033[0m");
+        public static void info(Object object, Object x) {
+            System.out.println("\033[0m[\033[31mRevolution\033[0m] \033[33m" + new Date() + "\033[0m | Info from " + object.getClass().getSimpleName() + " : \033[32m" + x.toString() + "\033[0m");
         }
     }
 
@@ -94,7 +91,7 @@ public class Main implements IAppLogic, IGuiInstance {
         SkyBox skyBox = new SkyBox(Utils.getResourceDir() + "/models/skybox/skybox.obj", scene.getTextureCache());
         skyBox.getSkyBoxEntity().setScale(500);
         scene.setSkyBox(skyBox);
-        scene.setGuiInstance(this);
+//        scene.setGuiInstance(this);
         glfwSetCursorPos(window.getHandle(), window.getWidth() >> 1, window.getHeight() >> 1);
         scene.getCamera().setPosition(0f, 2.5f, 2f);
 
@@ -107,6 +104,7 @@ public class Main implements IAppLogic, IGuiInstance {
     @Override
     public void input(Window window, Scene scene, long diffTimeMillis, boolean inputConsumed) {
         if (isControlled) {
+            Logger.info(diffTimeMillis);
             // Nothing to be done yet
             ItemManager.input(window, scene, diffTimeMillis);
             float move = diffTimeMillis * MOVEMENT_SPEED;
@@ -142,9 +140,14 @@ public class Main implements IAppLogic, IGuiInstance {
         }
 
         if (window.isKeyPressed(GLFW_KEY_ESCAPE)) {
-            menu.callPause();
-            isControlled = false;
+            if (!menu.getGui().isOptionPanelOpen) {
+                menu.callPause();
+                isControlled = false;
+            } else {
+                menu.getGui().closeOptionPanel();
+            }
         }
+
     }
 
     @Override
@@ -161,30 +164,5 @@ public class Main implements IAppLogic, IGuiInstance {
                 glfwSetCursorPos(window.getHandle(), window.getWidth() >> 1, window.getHeight() >> 1);
             }
         }
-    }
-
-    @Override
-    public void drawGui() {
-        ImGui.newFrame();
-        ImGui.setNextWindowPos(0, 0, ImGuiCond.Always);
-        ImGui.endFrame();
-        ImGui.render();
-    }
-
-    @Override
-    public boolean handleGuiInput(Scene scene, Window window) {
-        ImGuiIO imGuiIO = ImGui.getIO();
-        MouseInput mouseInput = window.getMouseInput();
-        Vector2f mousePos = mouseInput.getCurrentPos();
-        if (!isControlled) imGuiIO.setMousePos(mousePos.x, mousePos.y);
-        imGuiIO.setMouseDown(0, mouseInput.isLeftButtonPressed());
-        imGuiIO.setMouseDown(1, mouseInput.isRightButtonPressed());
-
-        return imGuiIO.getWantCaptureMouse() || imGuiIO.getWantCaptureKeyboard();
-    }
-
-    @Override
-    public void update() {
-
     }
 }

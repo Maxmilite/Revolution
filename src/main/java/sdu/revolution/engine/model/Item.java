@@ -6,6 +6,10 @@ import sdu.revolution.engine.graph.Render;
 import sdu.revolution.engine.scene.Entity;
 import sdu.revolution.engine.scene.Scene;
 
+import java.util.Arrays;
+import java.util.List;
+import java.util.Scanner;
+
 public class Item {
     public boolean selected;
     public Vector3f defaultLocation;
@@ -28,4 +32,6 @@ public class Item {
         this.selected = selected;
         entity.setSelected(selected);
     }
+
+
 }

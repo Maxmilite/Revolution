@@ -32,6 +32,10 @@ public class MainMenu implements IGuiInstance {
     private DefaultInitializer initializer;
     private Animator animator;
 
+    public GUI getGui() {
+        return gui;
+    }
+
     private void createGuiElements(Frame frame, int w, int h) {
         gui = new GUI(w, h);
         gui.setFocusable(false);

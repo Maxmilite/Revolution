@@ -36,6 +36,25 @@ public class GUI extends Panel {
     private Panel subPanel;
     private final int TRANSITION_BACKGROUND = 1, TRANSITION_FONT = 2, TRANSITION_REMOVAL = 4;
     private Panel optionPanel;
+    public boolean isOptionPanelOpen;
+
+    public Panel getOptionPanel() {
+        return optionPanel;
+    }
+    public void closeOptionPanel() {
+        if (this.contains(optionPanel)) {
+            runSlide(optionPanel, 200, new Vector2f(400, 0), new Vector2f((width / 2) - 200, (height / 2)));
+            this.isOptionPanelOpen = false;
+            new Thread(() -> {
+                try {
+                    Thread.sleep(250);
+                } catch (InterruptedException e) {
+                    throw new RuntimeException(e);
+                }
+                this.remove(optionPanel);
+            }).start();
+        }
+    }
 
     @SuppressWarnings({"unchecked", "rawtypes"})
     public void prompt(String content, Runnable yesFunction, Runnable noFunction) {
@@ -142,15 +161,7 @@ public class GUI extends Panel {
         GuiLibrary.setCloseButtonStyle(close, 36f);
         close.getListenerMap().addListener(MouseClickEvent.class, (MouseClickEventListener) event -> {
             if (event.getAction() == MouseClickEvent.MouseClickAction.RELEASE) {
-                runSlide(optionPanel, 200, new Vector2f(400, 0), new Vector2f((width / 2) - 200, (height / 2)));
-                new Thread(() -> {
-                    try {
-                        Thread.sleep(250);
-                    } catch (InterruptedException e) {
-                        throw new RuntimeException(e);
-                    }
-                    this.remove(optionPanel);
-                }).start();
+                closeOptionPanel();
             }
         });
         optionPanel.add(close);
@@ -356,6 +367,14 @@ public class GUI extends Panel {
         if (!this.contains(optionPanel)) {
             this.add(optionPanel);
             runSlide(optionPanel, 200, new Vector2f(400, 600), new Vector2f((width / 2) - 200, (height / 2) - 300));
+            new Thread(() -> {
+                try {
+                    Thread.sleep(250);
+                } catch (InterruptedException e) {
+                    throw new RuntimeException(e);
+                }
+                this.isOptionPanelOpen = true;
+            }).start();
         }
     }
 
@@ -434,6 +453,7 @@ public class GUI extends Panel {
         createSubPanel();
         createDebugPanel();
         createOptionPanel();
+        this.isOptionPanelOpen = false;
     }
 
     public void resize(int w, int h) {
