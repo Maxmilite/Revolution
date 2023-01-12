@@ -1,7 +1,6 @@
 package sdu.revolution.engine.gui;
 
 import com.spinyowl.legui.component.Button;
-import com.spinyowl.legui.component.Component;
 import com.spinyowl.legui.component.Label;
 import com.spinyowl.legui.component.Panel;
 import com.spinyowl.legui.component.optional.align.HorizontalAlign;
@@ -23,6 +22,7 @@ import sdu.revolution.Main;
 import java.util.Arrays;
 import java.util.List;
 
+import static sdu.revolution.engine.gui.GuiLibrary.*;
 import static sdu.revolution.engine.gui.GuiLibrary.Color.AQUA;
 
 
@@ -32,15 +32,10 @@ public class GUI extends Panel {
     private int width, height;
     private Button reloadButton;
     private List<Panel> panels;
-    private Style textStyle, panelStyle;
+    private Style panelStyle;
     private Panel subPanel;
-    private final int TRANSITION_BACKGROUND = 1, TRANSITION_FONT = 2, TRANSITION_REMOVAL = 4;
     private Panel optionPanel;
     public boolean isOptionPanelOpen;
-
-    public Panel getOptionPanel() {
-        return optionPanel;
-    }
     public void closeOptionPanel() {
         if (this.contains(optionPanel)) {
             runSlide(optionPanel, 200, new Vector2f(400, 0), new Vector2f((width / 2) - 200, (height / 2)));
@@ -156,7 +151,6 @@ public class GUI extends Panel {
         title.setSize(optionPanel.getSize());
         optionPanel.add(title);
         float panelWidth = optionPanel.getSize().x;
-        float panelHeight = optionPanel.getSize().y;
         Button close = new Button("\uE14C", panelWidth - 60, 18, 40, 40);
         GuiLibrary.setCloseButtonStyle(close, 36f);
         close.getListenerMap().addListener(MouseClickEvent.class, (MouseClickEventListener) event -> {
@@ -183,104 +177,6 @@ public class GUI extends Panel {
         });
         buttons.forEach(GuiLibrary::setButtonStyle);
         buttons.forEach(optionPanel::add);
-    }
-
-    private void runSlide(Component component, int duration, Vector2f targetSize, Vector2f targetPosition) {
-//        component.getChildComponents().forEach((e) -> runSlide(e, duration, targetSize, targetPosition));
-        float targetWidth = targetSize.x, targetHeight = targetSize.y;
-        float targetPositionX = targetPosition.x, targetPositionY = targetPosition.y;
-        float currentWidth = component.getSize().x, currentHeight = component.getSize().y;
-        float currentPositionX = component.getPosition().x, currentPositionY = component.getPosition().y;
-        new Thread(() -> {
-            try {
-                Vector2f deltaSize = new Vector2f(
-                        (10.0f / duration) * (targetWidth - currentWidth),
-                        (10.0f / duration) * (targetHeight - currentHeight)
-                );
-                Vector2f deltaPosition = new Vector2f(
-                        (10.0f / duration) * (targetPositionX - currentPositionX),
-                        (10.0f / duration) * (targetPositionY - currentPositionY)
-                );
-                for (int i = 1; i <= duration / 10; ++i) {
-                    component.setSize(component.getSize().add(deltaSize));
-                    component.setPosition(component.getPosition().add(deltaPosition));
-                    Thread.sleep(10);
-                }
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-        }).start();
-    }
-
-    private void runTransition(Component component, int fadeInTime, int duration, int fadeOutTime, int opts) {
-        component.getChildComponents().forEach((e) -> runTransition(e, fadeInTime, duration, fadeOutTime, opts & 3));
-        if ((opts & TRANSITION_BACKGROUND) != 0) {
-            Vector4f vec = new Vector4f(component.getStyle().getBackground().getColor());
-            var ref = new Object() {
-                float thickness = -1.0F;
-            };
-            if (component.getStyle().getBorder() != null) {
-                ref.thickness = ((SimpleLineBorder) component.getStyle().getBorder()).getThickness();
-            }
-            float limit = vec.w;
-            new Thread(() -> {
-                try {
-                    for (int i = 1; i <= fadeInTime / 10; ++i) {
-                        vec.w = (10.0f * i / fadeInTime) * limit;
-                        component.getStyle().getBackground().setColor(vec);
-                        if (component.getStyle().getBorder() != null)
-                            ((SimpleLineBorder) component.getStyle().getBorder()).setThickness((10.0f * i / fadeInTime) * ref.thickness);
-                        Thread.sleep(10);
-                    }
-                    Thread.sleep(duration);
-                    for (int i = 1; i <= fadeOutTime / 10; ++i) {
-                        float v = 10.0f * (fadeOutTime / 10 - i) / fadeOutTime;
-                        vec.w = v * limit;
-                        component.getStyle().getBackground().setColor(vec);
-                        if (component.getStyle().getBorder() != null)
-                            ((SimpleLineBorder) component.getStyle().getBorder()).setThickness(
-                                    v * ref.thickness
-                            );
-                        Thread.sleep(10);
-                        if (i == fadeOutTime / 10 && (opts & TRANSITION_REMOVAL) != 0) {
-                            this.remove(component);
-                        }
-                    }
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-                vec.w = limit;
-                component.getStyle().getBackground().setColor(vec);
-                if (component.getStyle().getBorder() != null)
-                    ((SimpleLineBorder) component.getStyle().getBorder()).setThickness(ref.thickness);
-            }).start();
-        }
-        if ((opts & TRANSITION_FONT) != 0) {
-            Vector4f vec = new Vector4f(component.getStyle().getTextColor());
-            float limit = vec.w;
-            new Thread(() -> {
-                try {
-                    for (int i = 1; i <= fadeInTime / 10; ++i) {
-                        vec.w = (10.0f * i / fadeInTime) * limit;
-                        component.getStyle().setTextColor(vec);
-                        Thread.sleep(10);
-                    }
-                    Thread.sleep(duration);
-                    for (int i = 1; i <= fadeOutTime / 10; ++i) {
-                        vec.w = (10.0f * (fadeOutTime / 10 - i) / fadeOutTime) * limit;
-                        component.getStyle().setTextColor(vec);
-                        Thread.sleep(10);
-                        if (i == fadeOutTime / 10 && (opts & TRANSITION_REMOVAL) != 0) {
-                            this.remove(component);
-                        }
-                    }
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-                vec.w = limit;
-                component.getStyle().setTextColor(vec);
-            }).start();
-        }
     }
 
     @SuppressWarnings({"unchecked", "rawtypes"})
