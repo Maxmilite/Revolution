@@ -12,8 +12,8 @@ import java.util.Scanner;
 
 public class Item {
     public boolean selected;
-    public Vector3f defaultLocation;
     public Entity entity;
+    public HitBox hitbox;
     public void init(Window window, Scene scene, Render render) {}
     public void input(Window window, Scene scene, long diffTimeMillis) {}
     public void update(Window window, Scene scene, long diffTimeMillis) {}
@@ -22,6 +22,10 @@ public class Item {
     }
     public float getScale() {
         return entity.getScale();
+    }
+
+    public HitBox getHitbox() {
+        return hitbox;
     }
 
     public boolean isSelected() {

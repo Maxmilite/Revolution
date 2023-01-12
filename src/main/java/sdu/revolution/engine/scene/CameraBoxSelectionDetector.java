@@ -3,6 +3,7 @@ package sdu.revolution.engine.scene;
 import org.joml.Intersectionf;
 import org.joml.Vector2f;
 import org.joml.Vector3f;
+import sdu.revolution.Main;
 import sdu.revolution.engine.model.Item;
 
 import java.util.List;
@@ -15,12 +16,16 @@ public class CameraBoxSelectionDetector {
 
     private Vector2f nearFar;
     private Vector3f dir;
+    private boolean isItemSelected;
+    private Item selectedItem;
 
     public CameraBoxSelectionDetector() {
         dir = new Vector3f();
         min = new Vector3f();
         max = new Vector3f();
         nearFar = new Vector2f();
+        this.isItemSelected = false;
+        this.selectedItem = null;
     }
 
     public void selectItem(List<Item> items, Camera camera) {
@@ -29,22 +34,29 @@ public class CameraBoxSelectionDetector {
     }
 
     public void selectItem(List<Item> items, Vector3f center, Vector3f dir) {
-        Item selectedItem = null;
+        selectedItem = null;
         float closestDistance = Float.POSITIVE_INFINITY;
         for (Item item : items) {
             item.setSelected(false);
-            min.set(item.getPosition());
-            max.set(item.getPosition());
-            min.add(-item.getScale() / 2, -item.getScale() / 2, -item.getScale() / 2);
-            max.add(item.getScale() / 2, item.getScale() / 2, item.getScale() / 2);
+            min.set(item.getHitbox().getNearestSurface());
+            max.set(item.getHitbox().getFarthestSurface());
             if (Intersectionf.intersectRayAab(center, dir, min, max, nearFar) && nearFar.x < closestDistance) {
                 closestDistance = nearFar.x;
                 selectedItem = item;
             }
         }
-
         if (selectedItem != null) {
             selectedItem.setSelected(true);
+            isItemSelected = true;
         }
+    }
+
+    public void cancelSelection(List<Item> items) {
+        if (!isItemSelected)
+            return;
+        for (var i : items) {
+            i.setSelected(false);
+        }
+        isItemSelected = true;
     }
 }

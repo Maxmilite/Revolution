@@ -5,6 +5,7 @@ import org.lwjgl.glfw.GLFWErrorCallback;
 import org.lwjgl.glfw.GLFWVidMode;
 import org.lwjgl.opengl.GL;
 import org.lwjgl.system.MemoryUtil;
+import sdu.revolution.Main;
 
 import java.util.concurrent.Callable;
 
@@ -21,6 +22,7 @@ public class Window {
     private final MouseInput mouseInput;
     private final Callable<Void> resizeFunc;
     private int width;
+    private boolean focused;
 
     public Window(String title, WindowOptions opts, Callable<Void> resizeFunc) {
         this.resizeFunc = resizeFunc;
@@ -91,6 +93,10 @@ public class Window {
 
 
         mouseInput = new MouseInput(windowHandle);
+        glfwSetWindowFocusCallback(windowHandle, (handle, entered) -> {
+            Main.Logger.info(this, "Window Focus Triggered.");
+            focused = entered;
+        });
     }
 
     public void cleanup() {
@@ -154,7 +160,7 @@ public class Window {
     public long getHandle() {
         return windowHandle;
     }
-    public boolean isMouseInWindow() {
-        return mouseInput.inWindow;
+    public boolean isWindowFocused() {
+        return this.focused;
     }
 }

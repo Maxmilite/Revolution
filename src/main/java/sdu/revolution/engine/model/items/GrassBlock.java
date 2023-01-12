@@ -5,6 +5,7 @@ import sdu.revolution.engine.main.Utils;
 import sdu.revolution.engine.main.Window;
 import sdu.revolution.engine.graph.Model;
 import sdu.revolution.engine.graph.Render;
+import sdu.revolution.engine.model.HitBox;
 import sdu.revolution.engine.model.Item;
 import sdu.revolution.engine.scene.ModelLoader;
 import sdu.revolution.engine.scene.Entity;
@@ -23,6 +24,7 @@ public class GrassBlock extends Item {
         cubeEntity.setPosition(defaultLocation);
         cubeEntity.updateModelMatrix();
         scene.addEntity(cubeEntity);
+        this.hitbox = new HitBox(defaultLocation, new Vector3f(1, 1, 1));
         super.entity = cubeEntity;
     }
     public GrassBlock(Vector3f vec) {
@@ -31,6 +33,5 @@ public class GrassBlock extends Item {
     public GrassBlock() { this(new Vector3f(0, 0, 0)); }
     public void input(Window window, Scene scene, long diffTimeMillis) { }
 
-    public void update(Window window, Scene scene, long diffTimeMillis) {
-    }
+    public void update(Window window, Scene scene, long diffTimeMillis) {}
 }

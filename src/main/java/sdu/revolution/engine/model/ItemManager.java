@@ -5,6 +5,7 @@ import org.joml.Vector3f;
 import sdu.revolution.Main;
 import sdu.revolution.engine.graph.Render;
 import sdu.revolution.engine.main.Window;
+import sdu.revolution.engine.model.items.BobModel;
 import sdu.revolution.engine.model.items.DirtBlock;
 import sdu.revolution.engine.model.items.GrassBlock;
 import sdu.revolution.engine.model.terrain.Plain;
@@ -15,7 +16,7 @@ import sdu.revolution.engine.scene.Scene;
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.lwjgl.glfw.GLFW.glfwGetCursorPos;
+import static org.lwjgl.glfw.GLFW.*;
 
 public class ItemManager {
     public static final int MAP_SIZE = 10;
@@ -35,6 +36,7 @@ public class ItemManager {
                     list.add(new DirtBlock(new Vector3f(i, k, j)));
                 }
             }
+        list.add(new BobModel(new Vector3f(0, 5, 0)));
         plain.cleanup();
         cameraDetector = new CameraBoxSelectionDetector();
         mouseDetector = new MouseBoxSelectionDetector();
@@ -54,9 +56,11 @@ public class ItemManager {
         double[] arrY = new double[1];
         glfwGetCursorPos(window.getHandle(), arrX, arrY);
         Vector2d currentPos = new Vector2d(arrX[0], arrY[0]);
-        if (Main.isControlled) {
+        if (!Main.menu.getGui().panelStack.isEmpty() || glfwGetWindowAttrib(window.getHandle(), GLFW_HOVERED) == 0) {
+            cameraDetector.cancelSelection(list);
+        } else if (Main.isControlled) {
             cameraDetector.selectItem(list, Main.getEngine().getScene().getCamera());
-        } else if (Main.getEngine().getWindow().isMouseInWindow()) {
+        } else {
             mouseDetector.selectItem(list, window, currentPos, Main.getEngine().getScene().getCamera());
         }
         for (var i : list) {

@@ -1,12 +1,13 @@
 package sdu.revolution;
 
 import org.joml.Vector2f;
-import sdu.revolution.engine.graph.Model;
 import sdu.revolution.engine.graph.Render;
 import sdu.revolution.engine.gui.MainMenu;
 import sdu.revolution.engine.main.*;
 import sdu.revolution.engine.model.ItemManager;
-import sdu.revolution.engine.scene.*;
+import sdu.revolution.engine.scene.Camera;
+import sdu.revolution.engine.scene.Scene;
+import sdu.revolution.engine.scene.SkyBox;
 import sdu.revolution.engine.scene.lights.SceneLights;
 
 import java.text.SimpleDateFormat;
@@ -35,7 +36,7 @@ public class Main implements IAppLogic {
     private static final float MOVEMENT_SPEED = 0.005f;
     private static final float SPRINT_AMPLIFIER = 2.0f;
     public static boolean isControlled;
-    private static AnimationData animationData;
+
     private static Engine engine;
     public static MainMenu menu;
     private static boolean isAltPressed;
@@ -82,24 +83,13 @@ public class Main implements IAppLogic {
         sceneLights.getDirLight().setIntensity(0.6f);
         scene.setSceneLights(sceneLights);
 
-        String bobModelId = "bobModel";
-        Model bobModel = ModelLoader.loadModel(bobModelId, "resources/models/bob/boblamp.md5mesh", scene.getTextureCache(), true);
-        scene.addModel(bobModel);
-        Entity bobEntity = new Entity("bobEntity", bobModelId);
-        bobEntity.setScale(0.05f);
-        bobEntity.updateModelMatrix();
-        animationData = new AnimationData(bobModel.getAnimationList().get(0));
-        bobEntity.setAnimationData(animationData);
-        scene.addEntity(bobEntity);
+
 
         SkyBox skyBox = new SkyBox(Utils.getResourceDir() + "/models/skybox/skybox.obj", scene.getTextureCache());
         skyBox.getSkyBoxEntity().setScale(500);
         scene.setSkyBox(skyBox);
-//        scene.setGuiInstance(this);
         glfwSetCursorPos(window.getHandle(), window.getWidth() >> 1, window.getHeight() >> 1);
         scene.getCamera().setPosition(0f, 2.5f, 2f);
-
-//        scene.setGuiInstance(new MainMenu());
 
         long endTime = System.currentTimeMillis();
         Logger.info(String.format("Graphics System initialized. Using %.2f seconds.", (endTime - startTime) / 1000.0));
@@ -155,7 +145,6 @@ public class Main implements IAppLogic {
 
     @Override
     public void update(Window window, Scene scene, long diffTimeMillis) {
-        animationData.nextFrame();
         ItemManager.update(window, scene, diffTimeMillis);
         if (isControlled) {
             if (glfwGetInputMode(window.getHandle(), GLFW_CURSOR) == GLFW_CURSOR_NORMAL) {

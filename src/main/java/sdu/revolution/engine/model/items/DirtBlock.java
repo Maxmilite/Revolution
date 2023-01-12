@@ -5,6 +5,7 @@ import sdu.revolution.engine.main.Utils;
 import sdu.revolution.engine.main.Window;
 import sdu.revolution.engine.graph.Model;
 import sdu.revolution.engine.graph.Render;
+import sdu.revolution.engine.model.HitBox;
 import sdu.revolution.engine.model.Item;
 import sdu.revolution.engine.scene.ModelLoader;
 import sdu.revolution.engine.scene.Entity;
@@ -24,6 +25,7 @@ public class DirtBlock extends Item {
         cubeEntity.updateModelMatrix();
         scene.addEntity(cubeEntity);
         super.entity = cubeEntity;
+        this.hitbox = new HitBox(defaultLocation, new Vector3f(1, 1, 1));
     }
     public DirtBlock(Vector3f vec) {
         this.defaultLocation = vec;

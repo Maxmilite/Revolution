@@ -1,6 +1,7 @@
 package sdu.revolution.engine.main;
 
 import org.joml.Vector2f;
+import sdu.revolution.Main;
 
 import static org.lwjgl.glfw.GLFW.*;
 
@@ -28,6 +29,8 @@ public class MouseInput {
 //            currentPos.y = (float) ypos;
 //        });
         glfwSetCursorEnterCallback(windowHandle, (handle, entered) -> inWindow = entered);
+
+
 //        glfwSetMouseButtonCallback(windowHandle, (handle, button, action, mode) -> {
 //            leftButtonPressed = button == GLFW_MOUSE_BUTTON_1 && action == GLFW_PRESS;
 //            rightButtonPressed = button == GLFW_MOUSE_BUTTON_2 && action == GLFW_PRESS;
