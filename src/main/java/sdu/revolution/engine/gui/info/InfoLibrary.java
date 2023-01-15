@@ -8,7 +8,7 @@ import java.util.Date;
 public class InfoLibrary {
     public static String getGUIStatus() {
         return "Name: " + Main.logic.player.name +
-                "  |  Time: " + new SimpleDateFormat("yyyy-MM-dd hh:mm:ss").format(new Date()) +
+                "  |  Time: " + new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()) +
                 "  |  Funds: " + Main.logic.player.balance;
     }
 

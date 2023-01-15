@@ -35,6 +35,7 @@ public class GUI extends Panel {
     public OptionPanel optionPanel;
     public DebugPanel debugPanel;
     public CardStack cards;
+    public boolean logon;
     public final List<PanelInstance> panelStack;
     public boolean lock;
 
@@ -145,6 +146,7 @@ public class GUI extends Panel {
         } else {
             panels.get(4).add(mainLabels.get(4));
         }
+        logon = false;
     }
 
     public void resize(int w, int h) {
@@ -173,5 +175,4 @@ public class GUI extends Panel {
         mainLabels.get(0).setTextState(new TextState(InfoLibrary.getTurnStatus()));
         cards.update();
     }
-
 }

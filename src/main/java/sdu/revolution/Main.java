@@ -10,10 +10,11 @@ import sdu.revolution.engine.scene.Scene;
 import sdu.revolution.engine.scene.SkyBox;
 import sdu.revolution.engine.scene.lights.SceneLights;
 import sdu.revolution.logic.LogicManager;
+import sdu.revolution.network.client.RevolutionClient;
 
+import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.TimeZone;
 
 import static org.lwjgl.glfw.GLFW.*;
 
@@ -38,31 +39,36 @@ public class Main implements IAppLogic {
     private static final float MOVEMENT_SPEED = 0.005f;
     private static final float SPRINT_AMPLIFIER = 2.0f;
     public static boolean isControlled;
+    private static boolean isAltPressed;
 
     private static Engine engine;
     public static MainMenu menu;
     public static LogicManager logic;
-    private static boolean isAltPressed;
+    public static RevolutionClient networkClient;
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException, InterruptedException {
 
         System.setProperty("joml.nounsafe", Boolean.TRUE.toString());
         System.setProperty("java.awt.headless", Boolean.TRUE.toString());
 
+        Logger.info("Revolution: Thanks for your playing.");
+        SimpleDateFormat format = new SimpleDateFormat();
+        format.applyPattern("yyyy-MM-dd HH:mm:ss");
+        Logger.info("Game started at " + format.format(new Date()) + ".");
+
+        Utils.loadConfig();
+        networkClient = new RevolutionClient();
+
         isControlled = false;
         isAltPressed = false;
-
-        Logger.info("Revolution: Thanks for your playing.");
 
         ItemManager.init();
         INSTANCE = new Main();
         Window.WindowOptions options = new Window.WindowOptions();
-        SimpleDateFormat format = new SimpleDateFormat();
-        format.applyPattern("yyyy-MM-dd HH:mm:ss");
-        Logger.info("Game started at " + format.format(new Date()) + ".");
         logic = new LogicManager();
         engine = new Engine(Utils.getTitle(), options, INSTANCE);
         menu = new MainMenu();
+        menu.showLogin();
         engine.start();
     }
 
@@ -72,7 +78,16 @@ public class Main implements IAppLogic {
 
     @Override
     public void cleanup() {
-        // Nothing to be done yet
+        try {
+            Utils.saveConfig();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        try {
+            networkClient.close();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     @Override
@@ -86,7 +101,6 @@ public class Main implements IAppLogic {
         sceneLights.getDirLight().setPosition(-0.9f, 0.6f, 0.4f);
         sceneLights.getDirLight().setIntensity(0.6f);
         scene.setSceneLights(sceneLights);
-
 
 
         SkyBox skyBox = new SkyBox(Utils.getResourceDir() + "/models/skybox/skybox.obj", scene.getTextureCache());

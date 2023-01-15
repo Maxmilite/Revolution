@@ -59,7 +59,6 @@ public class Engine {
     }
 
     private void resize() {
-        Main.Logger.info("Resize() function called");
         int width = window.getWidth();
         int height = window.getHeight();
         scene.resize(width, height);

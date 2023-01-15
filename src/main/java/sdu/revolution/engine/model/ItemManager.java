@@ -4,6 +4,7 @@ import org.joml.Vector2d;
 import org.joml.Vector3f;
 import sdu.revolution.Main;
 import sdu.revolution.engine.graph.Render;
+import sdu.revolution.engine.gui.screen.LoginScreen;
 import sdu.revolution.engine.main.Window;
 import sdu.revolution.engine.model.items.BobModel;
 import sdu.revolution.engine.model.items.DirtBlock;
@@ -19,7 +20,7 @@ import java.util.List;
 import static org.lwjgl.glfw.GLFW.*;
 
 public class ItemManager {
-    public static final int MAP_SIZE = 10;
+    public static final int MAP_SIZE = 5;
     public static final int LOWEST_HEIGHT = -1;
     public static List<Item> list;
     public static Plain plain;
@@ -56,7 +57,9 @@ public class ItemManager {
         double[] arrY = new double[1];
         glfwGetCursorPos(window.getHandle(), arrX, arrY);
         Vector2d currentPos = new Vector2d(arrX[0], arrY[0]);
-        if (!Main.menu.getGui().panelStack.isEmpty() || glfwGetWindowAttrib(window.getHandle(), GLFW_HOVERED) == 0) {
+        if (!Main.menu.getGui().panelStack.isEmpty()
+                || glfwGetWindowAttrib(window.getHandle(), GLFW_HOVERED) == 0
+        || !Main.menu.getGui().logon) {
             cameraDetector.cancelSelection(list);
         } else if (Main.isControlled) {
             cameraDetector.selectItem(list, Main.getEngine().getScene().getCamera());

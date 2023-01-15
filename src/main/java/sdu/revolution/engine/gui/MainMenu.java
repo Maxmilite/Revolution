@@ -14,7 +14,7 @@ import com.spinyowl.legui.system.renderer.Renderer;
 import org.joml.Vector2i;
 import org.joml.Vector4f;
 import sdu.revolution.Main;
-import sdu.revolution.engine.gui.panels.OptionPanel;
+import sdu.revolution.engine.gui.screen.LoginScreen;
 import sdu.revolution.engine.main.IGuiInstance;
 import sdu.revolution.engine.main.Window;
 import sdu.revolution.engine.scene.Scene;
@@ -83,14 +83,14 @@ public class MainMenu implements IGuiInstance {
         Main.Logger.info(this, "Layout Reloaded");
         new Thread(() -> {
             try {
-                for (int i = 1; i <= 100; ++i) {
+                for (int i = 1; i <= 100; i += 10) {
                     label.getStyle().setTextColor(new Vector4f(1.0f, 1.0f, 1.0f, i / 100.0f));
-                    Thread.sleep(1);
+                    Thread.sleep(10);
                 }
                 Thread.sleep(1000);
-                for (int i = 1; i <= 100; ++i) {
+                for (int i = 1; i <= 100; i += 10) {
                     label.getStyle().setTextColor(new Vector4f(1.0f, 1.0f, 1.0f, (100 - i) / 100.0f));
-                    Thread.sleep(1);
+                    Thread.sleep(10);
                 }
                 gui.remove(label);
             } catch (InterruptedException e) {
@@ -177,5 +177,10 @@ public class MainMenu implements IGuiInstance {
 
     public boolean callPause() {
         return gui.pause();
+    }
+
+    public void showLogin() {
+        LoginScreen loginScreen = new LoginScreen();
+        gui.add(loginScreen);
     }
 }

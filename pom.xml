@@ -410,6 +410,11 @@
             <artifactId>legui</artifactId>
             <version>${legui_version}</version>
         </dependency>
+        <dependency>
+            <groupId>commons-io</groupId>
+            <artifactId>commons-io</artifactId>
+            <version>2.4</version>
+        </dependency>
     </dependencies>
 
 </project>
