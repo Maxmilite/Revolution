@@ -4,19 +4,27 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b6622123-b0ba-4321-a811-fe3998f53e85" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/sdu/revolution/engine/model/HitBox.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/sdu/revolution/engine/model/items/BobModel.java" afterDir="false" />
+    <list default="true" id="b6622123-b0ba-4321-a811-fe3998f53e85" name="Changes" comment="Update on 2022-01-13 0:25">
+      <change afterPath="$PROJECT_DIR$/resources/scripts/v0.0002.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/textures/soldier.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/sdu/revolution/engine/gui/CardStack.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/sdu/revolution/engine/gui/info/InfoLibrary.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/sdu/revolution/engine/gui/info/InfoManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/sdu/revolution/engine/gui/models/Card.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/sdu/revolution/engine/gui/panels/InfoPanel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/sdu/revolution/logic/LogicManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/sdu/revolution/logic/Player.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/sdu/revolution/logic/SoldierCardManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/shaders/scene.frag" beforeDir="false" afterPath="$PROJECT_DIR$/resources/shaders/scene.frag" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/sdu/revolution/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sdu/revolution/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sdu/revolution/engine/main/MouseInput.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sdu/revolution/engine/main/MouseInput.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sdu/revolution/engine/main/Window.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sdu/revolution/engine/main/Window.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sdu/revolution/engine/model/Item.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sdu/revolution/engine/model/Item.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sdu/revolution/engine/model/ItemManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sdu/revolution/engine/model/ItemManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sdu/revolution/engine/model/items/DirtBlock.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sdu/revolution/engine/model/items/DirtBlock.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sdu/revolution/engine/model/items/GrassBlock.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sdu/revolution/engine/model/items/GrassBlock.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sdu/revolution/engine/scene/CameraBoxSelectionDetector.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sdu/revolution/engine/scene/CameraBoxSelectionDetector.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/sdu/revolution/engine/gui/GUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sdu/revolution/engine/gui/GUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/sdu/revolution/engine/gui/GuiInstance.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/sdu/revolution/engine/gui/GuiLibrary.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sdu/revolution/engine/gui/GuiLibrary.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/sdu/revolution/engine/gui/MainMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sdu/revolution/engine/gui/MainMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/sdu/revolution/engine/gui/panels/DebugPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sdu/revolution/engine/gui/panels/DebugPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/sdu/revolution/engine/gui/panels/OptionPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sdu/revolution/engine/gui/panels/OptionPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/sdu/revolution/engine/gui/panels/PromptPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sdu/revolution/engine/gui/panels/PromptPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/sdu/revolution/engine/gui/panels/SubPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sdu/revolution/engine/gui/panels/SubPanel.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -66,6 +74,9 @@
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\CodeSpace\Revolution\resources\fonts" />
     </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\CodeSpace\Revolution\resources\scripts" />
+    </key>
   </component>
   <component name="RunManager">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
@@ -96,6 +107,14 @@
       <option name="presentableId" value="Default" />
       <updated>1669912094876</updated>
     </task>
+    <task id="LOCAL-00001" summary="Update on 2022-01-13 0:25">
+      <created>1673540731801</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1673540731801</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -108,5 +127,9 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Update on 2022-01-13 0:25" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update on 2022-01-13 0:25" />
   </component>
 </project>

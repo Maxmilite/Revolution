@@ -9,9 +9,11 @@ import sdu.revolution.engine.scene.Camera;
 import sdu.revolution.engine.scene.Scene;
 import sdu.revolution.engine.scene.SkyBox;
 import sdu.revolution.engine.scene.lights.SceneLights;
+import sdu.revolution.logic.LogicManager;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.TimeZone;
 
 import static org.lwjgl.glfw.GLFW.*;
 
@@ -39,6 +41,7 @@ public class Main implements IAppLogic {
 
     private static Engine engine;
     public static MainMenu menu;
+    public static LogicManager logic;
     private static boolean isAltPressed;
 
     public static void main(String[] args) {
@@ -57,6 +60,7 @@ public class Main implements IAppLogic {
         SimpleDateFormat format = new SimpleDateFormat();
         format.applyPattern("yyyy-MM-dd HH:mm:ss");
         Logger.info("Game started at " + format.format(new Date()) + ".");
+        logic = new LogicManager();
         engine = new Engine(Utils.getTitle(), options, INSTANCE);
         menu = new MainMenu();
         engine.start();
@@ -146,6 +150,7 @@ public class Main implements IAppLogic {
     @Override
     public void update(Window window, Scene scene, long diffTimeMillis) {
         ItemManager.update(window, scene, diffTimeMillis);
+        menu.update();
         if (isControlled) {
             if (glfwGetInputMode(window.getHandle(), GLFW_CURSOR) == GLFW_CURSOR_NORMAL) {
                 glfwSetInputMode(window.getHandle(), GLFW_CURSOR, GLFW_CURSOR_DISABLED);

@@ -19,6 +19,15 @@ import java.util.List;
 import static sdu.revolution.engine.gui.GuiLibrary.*;
 
 public class SubPanel extends PanelInstance {
+    public String title;
+    public SubPanel(String title) {
+        this.isWindow = true;
+        this.isOpen = false;
+        this.width = GuiLibrary.width;
+        this.height = GuiLibrary.height;
+        this.title = title;
+        init();
+    }
     @SuppressWarnings("rawtypes, unchecked")
     @Override
     public void init() {
@@ -29,15 +38,15 @@ public class SubPanel extends PanelInstance {
         this.getStyle().setHorizontalAlign(HorizontalAlign.CENTER);
         float panelWidth = this.getSize().x;
         float panelHeight = this.getSize().y;
-        Label title = new Label("Sub Menu");
-        title.getStyle().setTextColor(ColorUtil.rgba(0, 255, 255, 1f));
-        title.getStyle().setFontSize(48f);
-        title.getStyle().setFont("Impact");
-        title.getStyle().setVerticalAlign(VerticalAlign.TOP);
-        title.getStyle().setHorizontalAlign(HorizontalAlign.CENTER);
-        title.getStyle().setPaddingTop(new Length(20f, LengthType.PIXEL));
-        title.setSize(this.getSize());
-        this.add(title);
+        Label titleLabel = new Label(title);
+        titleLabel.getStyle().setTextColor(ColorUtil.rgba(0, 255, 255, 1f));
+        titleLabel.getStyle().setFontSize(48f);
+        titleLabel.getStyle().setFont("Impact");
+        titleLabel.getStyle().setVerticalAlign(VerticalAlign.TOP);
+        titleLabel.getStyle().setHorizontalAlign(HorizontalAlign.CENTER);
+        titleLabel.getStyle().setPaddingTop(new Length(20f, LengthType.PIXEL));
+        titleLabel.setSize(this.getSize());
+        this.add(titleLabel);
         List<Button> buttons = Arrays.asList(
                 new Button(panelWidth / 2 - 640f, panelHeight - 100f, 180f, 60f),
                 new Button(panelWidth / 2 - 420f, panelHeight - 100f, 180f, 60f),
@@ -52,7 +61,7 @@ public class SubPanel extends PanelInstance {
         GuiLibrary.setCloseButtonStyle(close, 60f);
         close.getListenerMap().addListener(MouseClickEvent.class, (MouseClickEventListener) event -> {
             if (event.getAction() == MouseClickEvent.MouseClickAction.RELEASE) {
-                this.close();
+                Main.menu.getGui().close(this, true);
             }
         });
         this.add(close);

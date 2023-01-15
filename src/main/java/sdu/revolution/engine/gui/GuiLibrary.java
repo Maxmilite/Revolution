@@ -1,12 +1,10 @@
 package sdu.revolution.engine.gui;
 
-import com.spinyowl.legui.component.Button;
-import com.spinyowl.legui.component.Component;
-import com.spinyowl.legui.component.Label;
-import com.spinyowl.legui.component.Panel;
+import com.spinyowl.legui.component.*;
 import com.spinyowl.legui.component.optional.align.HorizontalAlign;
 import com.spinyowl.legui.component.optional.align.VerticalAlign;
 import com.spinyowl.legui.event.MouseClickEvent;
+import com.spinyowl.legui.image.loader.ImageLoader;
 import com.spinyowl.legui.listener.MouseClickEventListener;
 import com.spinyowl.legui.style.border.SimpleLineBorder;
 import com.spinyowl.legui.style.color.ColorConstants;
@@ -191,5 +189,14 @@ public class GuiLibrary {
         PromptPanel promptPanel = new PromptPanel(content, yesFunction, noFunction);
         promptPanel.call();
         Main.menu.getGui().panelStack.add(promptPanel);
+    }
+
+    public static ImageView createCardIcon(String path) {
+        // com/spinyowl/legui/demo/1.jpg
+        ImageView imageView = new ImageView(ImageLoader.loadImage(path));
+        imageView.setPosition(3, 0);
+        imageView.setSize(64, 64);
+        imageView.getStyle().setBorderRadius(0f);
+        return imageView;
     }
 }

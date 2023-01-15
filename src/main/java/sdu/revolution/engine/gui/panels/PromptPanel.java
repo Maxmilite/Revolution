@@ -2,7 +2,6 @@ package sdu.revolution.engine.gui.panels;
 
 import com.spinyowl.legui.component.Button;
 import com.spinyowl.legui.component.Label;
-import com.spinyowl.legui.component.Panel;
 import com.spinyowl.legui.component.optional.align.HorizontalAlign;
 import com.spinyowl.legui.component.optional.align.VerticalAlign;
 import com.spinyowl.legui.event.MouseClickEvent;
@@ -44,7 +43,7 @@ public class PromptPanel extends PanelInstance {
         GuiLibrary.setCloseButtonStyle(close, 24f);
         close.getListenerMap().addListener(MouseClickEvent.class, (MouseClickEventListener) event -> {
             if (event.getAction() == MouseClickEvent.MouseClickAction.RELEASE) {
-                this.close();
+                Main.menu.getGui().close(this, true);
             }
         });
         this.add(close);
@@ -54,13 +53,13 @@ public class PromptPanel extends PanelInstance {
         yesButton.getListenerMap().addListener(MouseClickEvent.class, (MouseClickEventListener) event -> {
             if (event.getAction() == MouseClickEvent.MouseClickAction.RELEASE) {
                 yesFunction.run();
-                this.close();
+                Main.menu.getGui().close(this, true);
             }
         });
         noButton.getListenerMap().addListener(MouseClickEvent.class, (MouseClickEventListener) event -> {
             if (event.getAction() == MouseClickEvent.MouseClickAction.RELEASE) {
                 noFunction.run();
-                this.close();
+                Main.menu.getGui().close(this, true);
             }
         });
         this.add(yesButton);

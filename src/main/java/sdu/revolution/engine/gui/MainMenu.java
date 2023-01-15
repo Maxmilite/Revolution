@@ -125,6 +125,7 @@ public class MainMenu implements IGuiInstance {
 
     @Override
     public void update() {
+        gui.update();
         context.updateGlfwWindow();
         Vector2i windowSize = context.getFramebufferSize();
 

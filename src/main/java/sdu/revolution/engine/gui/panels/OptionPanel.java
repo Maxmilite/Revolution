@@ -46,7 +46,7 @@ public class OptionPanel extends PanelInstance {
         GuiLibrary.setCloseButtonStyle(close, 36f);
         close.getListenerMap().addListener(MouseClickEvent.class, (MouseClickEventListener) event -> {
             if (event.getAction() == MouseClickEvent.MouseClickAction.RELEASE) {
-                this.close();
+                Main.menu.getGui().close(this, true);
             }
         });
         this.add(close);

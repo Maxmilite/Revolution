@@ -49,7 +49,7 @@ public class DebugPanel extends PanelInstance {
         switchButton.getStyle().setFontSize(24f);
         switchButton.getListenerMap().addListener(MouseClickEvent.class, (MouseClickEventListener) event -> {
             if (event.getAction() == MouseClickEvent.MouseClickAction.RELEASE) {
-                Main.menu.getGui().call(SubPanel.class);
+                Main.menu.getGui().call(Main.menu.getGui().subPanel, true);
             }
         });
         origin.add(switchButton);
@@ -62,9 +62,22 @@ public class DebugPanel extends PanelInstance {
         optionButton.getStyle().setFontSize(24f);
         optionButton.getListenerMap().addListener(MouseClickEvent.class, (MouseClickEventListener) event -> {
             if (event.getAction() == MouseClickEvent.MouseClickAction.RELEASE) {
-                Main.menu.getGui().call(OptionPanel.class);
+                Main.menu.getGui().call(Main.menu.getGui().optionPanel, true);
             }
         });
         origin.add(optionButton);
+
+        // Phase Panel
+        Button skip = new Button("Skip");
+        skip.setSize(100, 80);
+        skip.setPosition(width - 500, height - 180);
+        skip.getStyle().setFont("Impact");
+        skip.getStyle().setFontSize(24f);
+        skip.getListenerMap().addListener(MouseClickEvent.class, (MouseClickEventListener) event -> {
+            if (event.getAction() == MouseClickEvent.MouseClickAction.RELEASE) {
+                Main.logic.player.switchTurn();
+            }
+        });
+        origin.add(skip);
     }
 }
