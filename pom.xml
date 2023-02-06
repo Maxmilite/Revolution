@@ -10,7 +10,7 @@
         </repository>
     </repositories>
 
-    <groupId>io.github.maxmilite</groupId>
+    <groupId>sdu.revolution</groupId>
     <artifactId>Revolution</artifactId>
     <version>1.0.0</version>
     <packaging>jar</packaging>
@@ -24,6 +24,10 @@
         <imgui-java.version>1.86.4</imgui-java.version>
         <native.target>natives-windows</native.target>
         <legui_version>4.1.0</legui_version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <maven.compiler.encoding>UTF-8</maven.compiler.encoding>
+        <project.assembly.directory>src/main/resources/assembly</project.assembly.directory>
     </properties>
 
     <dependencyManagement>
