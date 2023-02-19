@@ -4,6 +4,8 @@ import sdu.revolution.client.Main;
 import sdu.revolution.client.engine.graph.Render;
 import sdu.revolution.client.engine.scene.Scene;
 
+import java.io.IOException;
+
 import static org.lwjgl.glfw.GLFW.*;
 
 public class Engine {
@@ -46,7 +48,7 @@ public class Engine {
         varHeight = arrHeight[0];
     }
 
-    private void cleanup() {
+    private void cleanup() throws IOException {
         appLogic.cleanup();
         render.cleanup();
         scene.cleanup();
@@ -72,7 +74,7 @@ public class Engine {
         Main.menu.resize(width, height);
     }
 
-    private void run() {
+    private void run() throws IOException {
         long initialTime = System.currentTimeMillis();
         float timeU = 1000.0f / targetUps;
         float timeR = targetFps > 0 ? 1000.0f / targetFps : 0;
@@ -124,7 +126,7 @@ public class Engine {
         cleanup();
     }
 
-    public void start() {
+    public void start() throws IOException {
         running = true;
         run();
     }

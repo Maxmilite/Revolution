@@ -3,10 +3,7 @@ package sdu.revolution.server;
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
-import java.net.ServerSocket;
-import java.net.Socket;
-import java.net.SocketException;
-import java.net.SocketTimeoutException;
+import java.net.*;
 import java.util.*;
 
 public class RevolutionServer extends Thread {
@@ -103,8 +100,9 @@ public class RevolutionServer extends Thread {
     public static void main(String[] args) throws IOException {
         generateMOTD();
         playerList = new ArrayList<>();
+        InetAddress inetAddress = Inet4Address.getByAddress(new byte[] {127, 0, 0, 1});
         @SuppressWarnings("resource")
-        ServerSocket socketServer = new ServerSocket(47332);
+        ServerSocket socketServer = new ServerSocket(47332, 50, inetAddress);
         Thread thread = new Thread(() -> {
             try {
                 Logger.info("Server initialized. Waiting for connection, port: " + socketServer.getLocalPort() + ".");

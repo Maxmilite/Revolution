@@ -73,8 +73,10 @@ public class Utils {
             //noinspection ResultOfMethodCallIgnored
             file.createNewFile();
         }
-        //noinspection resource
-        new PrintWriter(file).println(json.toJSONString());
+        PrintWriter printWriter = new PrintWriter(file);
+        printWriter.println(json.toJSONString());
+        printWriter.flush();
+        printWriter.close();
     }
 
 }

@@ -15,7 +15,7 @@ import sdu.revolution.client.engine.gui.panels.PromptPanel;
 
 public class GuiLibrary {
     public static int width, height;
-    public static final int TRANSITION_BACKGROUND = 1, TRANSITION_FONT = 2, TRANSITION_REMOVAL = 4;
+    public static final int TRANSITION_BACKGROUND = 1, TRANSITION_FONT = 2, TRANSITION_REMOVAL = 4, TRANSITION_IMAGE = 8;
     public enum Color {
         AQUA
     }

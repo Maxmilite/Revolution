@@ -31,7 +31,7 @@ public class LoginScreen extends Panel {
     }
 
     public void close() {
-        GuiLibrary.runTransition(this, 0, 0, 1000, GuiLibrary.TRANSITION_BACKGROUND | GuiLibrary.TRANSITION_FONT);
+        GuiLibrary.runTransition(this, 0, 0, 1000, GuiLibrary.TRANSITION_BACKGROUND | GuiLibrary.TRANSITION_FONT | GuiLibrary.TRANSITION_IMAGE);
         new Thread(() -> {
             try {
                 Thread.sleep(1500);
