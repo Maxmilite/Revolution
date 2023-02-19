@@ -11,83 +11,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b6622123-b0ba-4321-a811-fe3998f53e85" name="Changes" comment="Update on 2022-01-13 0:25">
-      <change afterPath="$PROJECT_DIR$/.idea/artifacts/Revolution_Server.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/client/resources/META-INF/MANIFEST.MF" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/META-INF/MANIFEST.MF" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/server/resources/META-INF/MANIFEST.MF" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/artifacts/Revolution_jar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/Revolution_Client.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/sdu/revolution/client/logic/Area.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/sdu/revolution/client/logic/Army.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/sdu/revolution/client/logic/Building.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/sdu/revolution/client/logic/Data.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/sdu/revolution/client/logic/Game.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/sdu/revolution/client/logic/PlayerEntity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/sdu/revolution/client/logic/Store.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/sdu/revolution/server/packet/C2SPacket.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/sdu/revolution/server/packet/LoginC2SPacket.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/sdu/revolution/server/packet/S2CPacket.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/sdu/revolution/server/packet/TurnSwitchC2SPacket.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/sdu/revolution/server/packet/TurnSwitchS2CPacket.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/Revolution_jar/Revolution.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/textures/title.png" beforeDir="false" afterPath="$PROJECT_DIR$/resources/textures/title.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/textures/title.psd" beforeDir="false" afterPath="$PROJECT_DIR$/resources/textures/title.psd" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/META-INF/MANIFEST.MF" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/META-INF/MANIFEST.MF" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sdu/revolution/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sdu/revolution/client/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sdu/revolution/engine/graph/GuiMesh.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sdu/revolution/client/engine/graph/GuiMesh.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sdu/revolution/engine/graph/GuiRender.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sdu/revolution/client/engine/graph/GuiRender.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sdu/revolution/engine/graph/Material.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sdu/revolution/client/engine/graph/Material.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sdu/revolution/engine/graph/Mesh.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sdu/revolution/client/engine/graph/Mesh.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sdu/revolution/engine/graph/Model.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sdu/revolution/client/engine/graph/Model.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sdu/revolution/engine/graph/Render.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sdu/revolution/client/engine/graph/Render.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sdu/revolution/engine/graph/SceneRender.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sdu/revolution/client/engine/graph/SceneRender.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sdu/revolution/engine/graph/ShaderProgram.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sdu/revolution/client/engine/graph/ShaderProgram.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sdu/revolution/engine/graph/SkyBoxRender.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sdu/revolution/client/engine/graph/SkyBoxRender.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sdu/revolution/engine/graph/Texture.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sdu/revolution/client/engine/graph/Texture.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sdu/revolution/engine/graph/TextureCache.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sdu/revolution/client/engine/graph/TextureCache.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sdu/revolution/engine/graph/UniformsMap.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sdu/revolution/client/engine/graph/UniformsMap.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sdu/revolution/engine/gui/CardStack.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sdu/revolution/client/engine/gui/CardStack.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sdu/revolution/engine/gui/ExampleGui.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sdu/revolution/client/engine/gui/ExampleGui.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sdu/revolution/engine/gui/GUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sdu/revolution/client/engine/gui/GUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sdu/revolution/engine/gui/GuiLibrary.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sdu/revolution/client/engine/gui/GuiLibrary.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sdu/revolution/engine/gui/MainMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sdu/revolution/client/engine/gui/MainMenu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sdu/revolution/engine/gui/PanelInstance.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sdu/revolution/client/engine/gui/PanelInstance.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sdu/revolution/engine/gui/info/InfoLibrary.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sdu/revolution/client/engine/gui/info/InfoLibrary.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sdu/revolution/engine/gui/info/InfoManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sdu/revolution/client/engine/gui/info/InfoManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sdu/revolution/engine/gui/models/Card.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sdu/revolution/client/engine/gui/models/Card.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sdu/revolution/engine/gui/panels/DebugPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sdu/revolution/client/engine/gui/panels/DebugPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sdu/revolution/engine/gui/panels/InfoPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sdu/revolution/client/engine/gui/panels/InfoPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sdu/revolution/engine/gui/panels/OptionPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sdu/revolution/client/engine/gui/panels/OptionPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sdu/revolution/engine/gui/panels/PromptPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sdu/revolution/client/engine/gui/panels/PromptPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sdu/revolution/engine/gui/panels/SubPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sdu/revolution/client/engine/gui/panels/SubPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sdu/revolution/engine/gui/screen/LoginScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sdu/revolution/client/engine/gui/screen/LoginScreen.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sdu/revolution/engine/main/Engine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sdu/revolution/client/engine/main/Engine.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sdu/revolution/engine/main/FileUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sdu/revolution/client/engine/main/FileUtil.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sdu/revolution/engine/main/IAppLogic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sdu/revolution/client/engine/main/IAppLogic.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sdu/revolution/engine/main/IGuiInstance.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sdu/revolution/client/engine/main/IGuiInstance.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sdu/revolution/engine/main/MouseInput.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sdu/revolution/client/engine/main/MouseInput.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sdu/revolution/engine/main/Utils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sdu/revolution/client/engine/main/Utils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sdu/revolution/engine/main/Window.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sdu/revolution/client/engine/main/Window.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sdu/revolution/engine/model/HitBox.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sdu/revolution/client/engine/model/HitBox.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sdu/revolution/engine/model/Item.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sdu/revolution/client/engine/model/Item.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sdu/revolution/engine/model/ItemManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sdu/revolution/client/engine/model/ItemManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sdu/revolution/engine/model/items/BobModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sdu/revolution/client/engine/model/items/BobModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sdu/revolution/engine/model/items/DirtBlock.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sdu/revolution/client/engine/model/items/DirtBlock.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sdu/revolution/engine/model/items/GrassBlock.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sdu/revolution/client/engine/model/items/GrassBlock.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sdu/revolution/engine/model/terrain/Plain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sdu/revolution/client/engine/model/terrain/Plain.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sdu/revolution/engine/scene/AnimationData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sdu/revolution/client/engine/scene/AnimationData.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sdu/revolution/engine/scene/Camera.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sdu/revolution/client/engine/scene/Camera.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sdu/revolution/engine/scene/CameraBoxSelectionDetector.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sdu/revolution/client/engine/scene/CameraBoxSelectionDetector.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sdu/revolution/engine/scene/Entity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sdu/revolution/client/engine/scene/Entity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sdu/revolution/engine/scene/Fog.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sdu/revolution/client/engine/scene/Fog.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sdu/revolution/engine/scene/ModelLoader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sdu/revolution/client/engine/scene/ModelLoader.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sdu/revolution/engine/scene/MouseBoxSelectionDetector.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sdu/revolution/client/engine/scene/MouseBoxSelectionDetector.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sdu/revolution/engine/scene/Node.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sdu/revolution/client/engine/scene/Node.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sdu/revolution/engine/scene/Projection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sdu/revolution/client/engine/scene/Projection.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sdu/revolution/engine/scene/Scene.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sdu/revolution/client/engine/scene/Scene.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sdu/revolution/engine/scene/SkyBox.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sdu/revolution/client/engine/scene/SkyBox.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sdu/revolution/engine/scene/lights/AmbientLight.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sdu/revolution/client/engine/scene/lights/AmbientLight.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sdu/revolution/engine/scene/lights/DirLight.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sdu/revolution/client/engine/scene/lights/DirLight.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sdu/revolution/engine/scene/lights/PointLight.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sdu/revolution/client/engine/scene/lights/PointLight.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sdu/revolution/engine/scene/lights/SceneLights.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sdu/revolution/client/engine/scene/lights/SceneLights.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sdu/revolution/engine/scene/lights/SpotLight.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sdu/revolution/client/engine/scene/lights/SpotLight.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sdu/revolution/logic/LogicManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sdu/revolution/client/logic/LogicManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sdu/revolution/logic/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sdu/revolution/client/logic/Player.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sdu/revolution/logic/SoldierCardManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sdu/revolution/client/logic/SoldierCardManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sdu/revolution/network/client/RevolutionClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sdu/revolution/client/network/RevolutionClient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sdu/revolution/network/server/PlayerEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sdu/revolution/server/PlayerEntity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sdu/revolution/network/server/RevolutionServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sdu/revolution/server/RevolutionServer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/sdu/revolution/client/logic/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sdu/revolution/client/logic/Player.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/sdu/revolution/client/network/RevolutionClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sdu/revolution/client/network/RevolutionClient.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -118,22 +56,22 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Downloaded.Files.Path.Enabled": "true",
-    "Repository.Attach.Annotations": "false",
-    "Repository.Attach.JavaDocs": "false",
-    "Repository.Attach.Sources": "false",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "last_opened_file_path": "D:/CodeSpace/Revolution/resources",
-    "project.structure.last.edited": "Artifacts",
-    "project.structure.proportion": "0.15332031",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "preferences.externalResources"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;true&quot;,
+    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Maxmilite/Desktop&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15332031&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.externalResources&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\CodeSpace\Revolution\src\main\resources\assembly" />

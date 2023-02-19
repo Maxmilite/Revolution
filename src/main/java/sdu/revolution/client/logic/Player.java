@@ -5,6 +5,8 @@ import com.spinyowl.legui.style.border.SimpleLineBorder;
 import org.joml.Vector4f;
 import sdu.revolution.client.Main;
 
+import java.util.List;
+
 import static com.spinyowl.legui.component.optional.align.HorizontalAlign.CENTER;
 import static com.spinyowl.legui.component.optional.align.VerticalAlign.MIDDLE;
 import static sdu.revolution.client.engine.gui.GuiLibrary.height;

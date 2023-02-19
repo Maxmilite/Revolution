@@ -39,4 +39,9 @@ public class RevolutionClient {
         outputStream.writeUTF("goodbye");
         client.close();
     }
+
+    public String sendMessage(String message) throws IOException {
+        outputStream.writeUTF(message);
+        return inputStream.readUTF();
+    }
 }
