@@ -173,7 +173,6 @@ public class MainMenu implements IGuiInstance {
     public void resize(int w, int h) {
         width = w;
         height = h;
-        reload();
     }
 
     public boolean callPause() {

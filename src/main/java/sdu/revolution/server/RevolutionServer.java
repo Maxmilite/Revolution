@@ -5,11 +5,9 @@ import java.io.DataOutputStream;
 import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.net.SocketException;
 import java.net.SocketTimeoutException;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 
 public class RevolutionServer extends Thread {
 
@@ -32,6 +30,15 @@ public class RevolutionServer extends Thread {
     private DataOutputStream out;
 
     public static List<PlayerEntity> playerList;
+    private static List<String> motd;
+
+    private static void generateMOTD() {
+        motd = Arrays.asList(
+                "Revolution Server Command List",
+                "stop: Stop the server.",
+                "help: Get this information."
+        );
+    }
 
     public RevolutionServer(Socket server) throws IOException {
         this.server = server;
@@ -53,7 +60,12 @@ public class RevolutionServer extends Thread {
     }
 
     public int receiveMessage() throws IOException {
-        String val = in.readUTF();
+        String val = "";
+        try {
+            val = in.readUTF();
+        } catch (SocketException e) {
+            return 0;
+        }
         if (val.equalsIgnoreCase("goodbye"))
             return 0;
         boolean status = false;
@@ -89,6 +101,7 @@ public class RevolutionServer extends Thread {
     }
 
     public static void main(String[] args) throws IOException {
+        generateMOTD();
         playerList = new ArrayList<>();
         @SuppressWarnings("resource")
         ServerSocket socketServer = new ServerSocket(47332);
@@ -100,7 +113,8 @@ public class RevolutionServer extends Thread {
                     Logger.info("Connection established with client " + socket.getRemoteSocketAddress() + ".");
                     new RevolutionServer(socket).start();
                 }
-            } catch (IOException ignored) {}
+            } catch (IOException ignored) {
+            }
         });
         thread.start();
         new Thread(() -> {
@@ -115,8 +129,10 @@ public class RevolutionServer extends Thread {
                         throw new RuntimeException(e);
                     }
                     break;
+                } else if (x.equalsIgnoreCase("help")) {
+                    motd.forEach(Logger::info);
                 } else {
-                    Logger.info("Unknown commands.");
+                    Logger.info("Unknown commands. Type \"help\" for more information.");
                 }
             }
         }).start();

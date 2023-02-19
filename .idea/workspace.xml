@@ -11,21 +11,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b6622123-b0ba-4321-a811-fe3998f53e85" name="Changes" comment="Update on 2022-01-13 0:25">
-      <change afterPath="$PROJECT_DIR$/src/main/java/sdu/revolution/client/logic/Area.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/sdu/revolution/client/logic/Army.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/sdu/revolution/client/logic/Building.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/sdu/revolution/client/logic/Data.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/sdu/revolution/client/logic/Game.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/sdu/revolution/client/logic/PlayerEntity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/sdu/revolution/client/logic/Store.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/sdu/revolution/server/packet/C2SPacket.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/sdu/revolution/server/packet/LoginC2SPacket.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/sdu/revolution/server/packet/S2CPacket.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/sdu/revolution/server/packet/TurnSwitchC2SPacket.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/sdu/revolution/server/packet/TurnSwitchS2CPacket.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sdu/revolution/client/logic/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sdu/revolution/client/logic/Player.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sdu/revolution/client/network/RevolutionClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sdu/revolution/client/network/RevolutionClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/sdu/revolution/client/engine/gui/MainMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sdu/revolution/client/engine/gui/MainMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/sdu/revolution/client/engine/main/Window.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sdu/revolution/client/engine/main/Window.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/sdu/revolution/server/RevolutionServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sdu/revolution/server/RevolutionServer.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,6 +47,7 @@
   </component>
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
     &quot;Downloaded.Files.Path.Enabled&quot;: &quot;true&quot;,
     &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
     &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
@@ -85,7 +75,7 @@
       <recent name="D:\CodeSpace\Revolution\resources\scripts" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Client">
+  <component name="RunManager" selected="Application.Server">
     <configuration name="Client" type="Application" factoryName="Application" temporary="true">
       <option name="MAIN_CLASS_NAME" value="sdu.revolution.client.Main" />
       <module name="Revolution" />
@@ -118,8 +108,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Client" />
         <item itemvalue="Application.Server" />
+        <item itemvalue="Application.Client" />
       </list>
     </recent_temporary>
   </component>
@@ -154,6 +144,7 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="Update on 2022-01-13 0:25" />
     <option name="LAST_COMMIT_MESSAGE" value="Update on 2022-01-13 0:25" />
   </component>

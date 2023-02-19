@@ -132,11 +132,11 @@ public class Window {
     protected void resized(int width, int height) {
         this.width = width;
         this.height = height;
-        try {
-            resizeFunc.call();
-        } catch (Exception excp) {
-            Main.Logger.info(this, "Error calling resize callback");
-        }
+//        try {
+//        } catch (Exception excp) {
+////            resizeFunc.call();
+//            Main.Logger.info(this, "Error calling resize callback");
+//        }
     }
 
     public void update() {
