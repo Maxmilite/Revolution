@@ -5,7 +5,7 @@ public class Area {
     public int L[] = new int[100005], R[] = new int[100005];
     public Building a[] = new Building[100005];
 
-    Area(int now, int Cost) {
+    public Area(int now, int Cost) {
         num = now;
         cost = Cost;
     }

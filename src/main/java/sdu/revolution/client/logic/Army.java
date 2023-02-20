@@ -3,7 +3,7 @@ package sdu.revolution.client.logic;
 public class Army {
     public int HP, ATK, Range, Speed, Cost, Type, Place, Num;
 
-    Army(int x, int y, int now, int arv) {
+    public Army(int x, int y, int now, int arv) {
         Type = Data.Type_ar[x][y];
         Cost = Data.Cost_ar[Type];
         HP = Data.HP_re[Type];

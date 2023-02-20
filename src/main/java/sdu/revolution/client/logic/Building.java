@@ -3,7 +3,7 @@ package sdu.revolution.client.logic;
 public class Building {
     public int Blood, Type, Cost, Num;
 
-    Building(int x, int y, int now) {
+    public Building(int x, int y, int now) {
         Type = Data.Type_bl[x][y];
         Blood = Data.Blood_re[Type];
         Cost = Data.Cost_bl[Type];
@@ -36,7 +36,7 @@ public class Building {
         return Cost;
     }
 
-    public int Repair() {
+    public int repair() {
         int ls = Blood / Data.Blood_re[Type] * Cost;
         Blood = Data.Blood_re[Type];
         return ls;
@@ -50,7 +50,7 @@ public class Building {
     public int click() {//点击
         int choose = -1, read;//选择操作
         if (choose == 0) {
-            return -1 * Repair();
+            return -1 * repair();
         }
         if (choose == 1) {
             return sale();
